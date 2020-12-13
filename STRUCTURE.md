@@ -33,10 +33,10 @@ Il faut plusieurs bases de données pour tout structurer
 
 TABLE `comptes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* :
- - `type` _TEXT_ : "*eleve*", "*prof*" ou "*parent*"
+ - `type_` _TEXT_ : "*eleve*", "*prof*" ou "*parent*"
  - `etablissement` _INT_ : Identifiant de l'établissement de l'élève
  - `pseudo` _TEXT_ : Le pseudo utilisé pour se connecter
- - `password` _TEXT_ : Le mot de passe utilisé pour se connecter
+ - `password_` _TEXT_ : Le mot de passe utilisé pour se connecter
  - `nom` _TEXT_ : Le nom de famille de l'élève
  - `prenom` _TEXT_ : Le prénom de l'élève
  - `naissance` _DATE_ : La date de naissance de la personne
@@ -72,6 +72,8 @@ TABLE `notes`
  - `jour` _DATE_ : Jour de la mise de la note sur pronote
  - `jour_visible` _DATE_ : Jour où les élèves pourront voir cette note
  - `trimestre` _INT_ : Trimèstre de la note (1, 2, 3)
+ - `titre` _TEXT_ : Titre/Nom de la note
+ - `description_` _TEXT_ : Description de la note
  - `notes` _TEXT_ : Liste des notes par élèves, en format JSON
 
 ### Devoir :
@@ -79,14 +81,20 @@ TABLE `notes`
 TABLE `devoirs`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique du devoir
  - `prof` _INT_ : Identifiant du professeur qui a posté ce devoir
- - `type` _TEXT_ : Type du devoir "*lecon*", "*exercices*", "*ds*", "*dm*"
+ - `type_` _TEXT_ : Type du devoir "*lecon*", "*exercices*", "*ds*", "*dm*"
  - `titre` _TEXT_ : Titre du devoir
+ - `description_` _TEXT_ : Description du devoir
+ - `jour` _DATE_ : Jour où il faut faire ce devoir
+ - `fichiers` _TEXT_ : Liste des identifiants des fichiers, sous format JSON
 
 ### Etablissement :
 
 TABLE `etablissements`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de l'établissement
  - `nom` _TEXT_ : Nom de l'établissement
+ - `pays` _TEXT_ : Pays de l'établissement
+ - `region` _TEXT_ : Région de l'établissement
+ - `ville` _TEXT_ : Ville de l'établissement
  - `adresse` _TEXT_ : Adresse de l'établissement
  - `lien_maps` _TEXT_ : Proposer un lien vers google maps directement
  - `email` _TEXT_ : adresse mail pour contacter l'établissement
@@ -99,17 +107,18 @@ TABLE `etablissements`
 TABLE `fichiers`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique du fichier
  - `nom` _TEXT_ : Nom du fichier
- - `fichier` _BLOB_ : fichier
+ - `fichier` _BINARY_ : fichier
 
 ### Messagerie :
 
-TABLE `message`
+TABLE `messages`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique du message
  - `auteur` _INT_ : identifiant du compte qui a écrit le message
- - `message` _TEXT_ : Message envoyé
+ - `texte` _TEXT_ : Message envoyé
  - `salon` _ID_ : Identifiant du salon si ce message est envoyé dans un salon
  - `cible` _TEXT_ : liste des identifiants des comptes auquels le message a été envoyé, en format JSON
  - `important` _BOOLEAN_ : si le message est important ou pas
+ - `fichiers` _TEXT_ : Liste des identifiants des fichiers, sous format JSON
 
 ### Salon de discussion : 
 
