@@ -1,6 +1,6 @@
 {
     "address": "localhost",
-    "port": 1234,
+    "port": 3307,
     "username": "ultranote",
     "password": "muimerp++etonartlu",
     "db-name": "ultranote"
