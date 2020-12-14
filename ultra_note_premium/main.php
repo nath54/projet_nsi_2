@@ -14,7 +14,9 @@ include("includes/bdd.php");
         <?php include("includes/header.php"); ?>
         <!-- Main -->
         <div>
-            
+            <div>
+                <h2>UltraNote</h2>
+            </div>
         </div>
         <!-- footer -->
         <?php include("includes/footer.php"); ?>
