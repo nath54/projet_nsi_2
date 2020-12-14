@@ -3,11 +3,19 @@
 includes("includes/init.php");
 includes("includes/bdd.php");
 
-if(isset($_POST["cpseudo"]) && isset($_POST["cpassword"])){
-    $result = $connection($_POST["cpseudo"], $_POST["cpassword"]);
+if(isset($_POST["ipseudo"])){
+    $array = array();
+    foreach($_POST as $key=>$value){
+        if($key=="ipseudo"){
+            
+        }
+        else{
+            $array[$key]=$value
+        }
+    }
+    $result = inscription($array);
     if($result["succed"]){
-        $_SESSION["id"] = $result["id"];
-        header("Location: main.php");
+
     }
     else{
         echo("alert('Erreur !');");
