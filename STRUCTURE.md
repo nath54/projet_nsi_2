@@ -45,6 +45,8 @@ TABLE `comptes`
  - `matiere` _INT_ (juste pour *prof*) : La matière du professeur
  - `profs` _TEXT_ (juste pour *eleve*) : La liste des id des comptes des profs de l'eleve par matères, en format JSON
  - `amis` _TEXT_ : La liste des id des comptes des amis de ce compte, en format JSON
+ - `devoirs_faits` _TEXT_ : La liste des devoirs faits, en format JSON
+ - `abscences` _TEXT_ : La liste des abscences déclarées de ce compte, en format JSON
 
 ### Matère :
 
@@ -54,7 +56,7 @@ TABLE `matieres`
  - `couleur` _TEXT_ : code HEX de la couleur de la matière
 
 ### Classe :
- 
+
 TABLE `classes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
  - `nom` _TEXT_ : Nom de la classe
@@ -62,7 +64,7 @@ TABLE `classes`
  - `eleves` _TEXT_ : liste des id des comptes des élèves de cette classe, en format JSON
 
 ### Note :
- 
+
 TABLE `notes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : identifiant unique de ce devoir
  - `matiere` _INT_ : Identifiant de la matère

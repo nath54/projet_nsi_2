@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS `comptes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       classes TEXT,
                                       matiere INT,
                                       profs TEXT,
-                                      amis TEXT);
+                                      amis TEXT,
+                                      devoirs_faits TEXT);
 CREATE TABLE IF NOT EXISTS `matieres` (id INT PRIMARY KEY AUTO_INCREMENT,
                                        nom TEXT,
                                        couleur TEXT);

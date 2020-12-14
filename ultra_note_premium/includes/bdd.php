@@ -32,4 +32,51 @@ try {
 catch(Exception $e) {
 	die("Error : " . $e->getMessage());
 }
+
+function connection($pseudo, $password){
+    $requested = "SELECT (id) FROM comptes WHERE pseudo='".$pseudo."' AND password=MD5('".$password."');";
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    foreach($tab as $data){
+        return array("succed"=> true, "id"=>$data["id"]);
+    }
+    return array("succed"=>false, "error"=>"Le compte n'existe pas ou le mot de passe est erroné");
+}
+
+function inscription($data){
+    $requested = "SELECT (pseudo) FROM comptes WHERE pseudo=".$pseudo.";";
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    if($tab.length >= 1){
+        return array("succed"=>false, "error"=>"");
+    }
+    else{
+        $txt_nv = "(";
+        $txt_v = "(";
+        //
+        foreach($data as $key=>$value){
+            if(gettype($value) == string){
+                $txt_nv = $txt_nv.$key.",";
+                $txt_v = "'".$txt_v.$value."',";
+            }
+            else if(in_array(gettype($value), [float, int])){
+                $txt_nv = $txt_nv.$key.",";
+                $txt_v = "".$txt_v.$value.",";
+            }
+        }
+        $txt_nv = substr($txt_nv, 0, -1).")";
+        $txt_v = substr($txt_v, 0, -1).")";
+        //
+        $requested = "INSERT INTO comptes VALUES";
+        return array("succed"=>true, "id"=>"");
+    }
+}
+
+/* exemple de requete
+
+$requested = "";
+$reponse = $db->query('SELECT * FROM '.$requested);
+$tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+*/
+
 ?>
