@@ -33,7 +33,7 @@ Il faut plusieurs bases de données pour tout structurer
 
 TABLE `comptes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* :
- - `type_` _TEXT_ : "*eleve*", "*prof*" ou "*parent*"
+ - `type_` _TEXT_ : "*administrateur*", "*eleve*", "*prof*" ou "*parent*"
  - `etablissement` _INT_ : Identifiant de l'établissement de l'élève
  - `pseudo` _TEXT_ : Le pseudo utilisé pour se connecter
  - `password_` _TEXT_ : Le mot de passe utilisé pour se connecter
@@ -42,7 +42,6 @@ TABLE `comptes`
  - `naissance` _DATE_ : La date de naissance de la personne
  - `classe` _INT_ (juste pour *eleve*) : l'identifiant de la classe de l'élève (pour pouvoir faire des innerjoins ou des trucs du genre)
  - `classes` _TEXT_ (juste pour *prof*) : la liste des classes que le prof a, en format JSON
- - `matiere` _INT_ (juste pour *prof*) : La matière du professeur
  - `profs` _TEXT_ (juste pour *eleve*) : La liste des id des comptes des profs de l'eleve par matères, en format JSON
  - `amis` _TEXT_ : La liste des id des comptes des amis de ce compte, en format JSON
  - `devoirs_faits` _TEXT_ : La liste des devoirs faits, en format JSON
@@ -54,6 +53,11 @@ TABLE `matieres`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique de la matière
  - `nom` _TEXT_ : Nom de la matière
  - `couleur` _TEXT_ : code HEX de la couleur de la matière
+
+TABLE `prof_matieres`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique de cette ligne
+ - `id_prof` _INT_ : Identifiant du prof
+ - `id_matiere` _INT_ : Identifiant de la matiere
 
 ### Classe :
 
