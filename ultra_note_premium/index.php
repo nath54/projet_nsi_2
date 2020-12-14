@@ -29,11 +29,40 @@
         </div>
         <!-- Connection -->
         <div id="divconnect">
-
+            <form id="fconnect" name="fconnect", method="POST", action="includes/connection.php" >
+                <h2>Connection</h2>
+                <div >
+                    <div >
+                        <label >pseudo : </label>
+                        <input name="cpseudo" id="cpseudo" type="text" />
+                    </div>
+                    <div >
+                        <label >mot de passe : </label>
+                        <input name="cpassword" id="cpassword" type="text" />
+                    
+                        <button >Se connecter</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <!-- Inscription -->
-        <div id="divconnect">
-
+        <div id="divinscription">
+            <form id="finscription" name="finscription", method="POST", action="includes/inscription.php" >
+                <h2>Enregistrez vous ! </h2>
+                <div >
+                    <div >
+                        <label >pseudo : </label>
+                        <input name="ipseudo" id="ipseudo" type="text" />
+                    </div>
+                    <div >
+                        <label >mot de passe : </label>
+                        <input name="ipassword" id="ipassword" type="text" />
+                    </div>
+                    <div>
+                        <button >S'inscrire</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <!-- Infos -->
         <div id="divinfo">
