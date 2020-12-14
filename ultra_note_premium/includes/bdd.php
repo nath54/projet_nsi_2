@@ -68,7 +68,8 @@ function inscription($data){
         $txt_v = substr($txt_v, 0, -1).")";
         //
         $requested = "INSERT INTO comptes VALUES";
-        return array("succed"=>true, "id"=>"");
+        $id = $db::lastInsertId();
+        return array("succed"=>true, "id"=>$id);
     }
 }
 
