@@ -120,7 +120,7 @@ TABLE `messages`
  - `important` _BOOLEAN_ : si le message est important ou pas
  - `fichiers` _TEXT_ : Liste des identifiants des fichiers, sous format JSON
 
-### Salon de discussion : 
+### Salon de discussion :
 
 TABLE `salons`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique du salon
