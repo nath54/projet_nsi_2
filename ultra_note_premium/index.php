@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=viewport-width, initial-scale=1">
         <title>UltraNote++ Premium Edition</title>
         <link href="css/style.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Header -->
@@ -22,8 +23,8 @@
             <div>
                 <h2>(re)venez avec nous !</h2>
                 <div>
-                    <button onclick="tp_connect();">Se connecter</button>
-                    <button onclick="tp_inscription();">S'inscrire</button>
+                    <button onclick="to_connect();">Se connecter</button>
+                    <button onclick="to_inscription();">S'inscrire</button>
                 </div>
             </div>
         </div>
@@ -39,7 +40,6 @@
                     <div >
                         <label >mot de passe : </label>
                         <input name="cpassword" id="cpassword" type="text" />
-                    
                         <button >Se connecter</button>
                     </div>
                 </div>
@@ -69,4 +69,5 @@
 
         </div>
     </body>
+    <script src="js/index.js"></script>
 </html>
