@@ -32,7 +32,7 @@ Il faut plusieurs bases de données pour tout structurer
 ### Compte :
 
 TABLE `comptes`
- - `id` *INT PRIMARY KEY AUTO_INCREMENT* :
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `type_` _TEXT_ : "*administrateur*", "*eleve*", "*prof*" ou "*parent*"
  - `etablissement` _INT_ : Identifiant de l'établissement de l'élève
  - `pseudo` _TEXT_ : Le pseudo utilisé pour se connecter
@@ -41,10 +41,27 @@ TABLE `comptes`
  - `prenom` _TEXT_ : Le prénom de l'élève
  - `naissance` _DATE_ : La date de naissance de la personne
  - `classe` _INT_ (juste pour *eleve*) : l'identifiant de la classe de l'élève (pour pouvoir faire des innerjoins ou des trucs du genre)
- - `classes` _TEXT_ (juste pour *prof*) : la liste des classes que le prof a, en format JSON
- - `amis` _TEXT_ : La liste des id des comptes des amis de ce compte, en format JSON
- - `devoirs_faits` _TEXT_ : La liste des devoirs faits, en format JSON
- - `abscences` _TEXT_ : La liste des abscences déclarées de ce compte, en format JSON
+
+TABLE `prof_classes`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_prof` _INT_ : id du prof
+ - `id_classe` _INT_ : id de la classe que le prof a
+
+TABLE `amis`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_compte` _INT_ : identifiant du compte
+ - `id_ami` _INT_ : identifiant du compte ami
+
+TABLE `devoirs_faits`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_compte` _INT_ : id du compte
+ - `id_devoir` _INT_ : id du devoir
+
+TABLE `abscences`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_compte` _INT_ : id du compte
+ - `debut` _DATETIME_ : début de l'absence
+ - `fin` _DATETIME_ : fin de l'absence
 
 ### Matère :
 
@@ -64,22 +81,32 @@ TABLE `classes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
  - `nom` _TEXT_ : Nom de la classe
  - `niveau` _TEXT_ : niveau de la classe "*seconde*", "*premiere*", "*terminale*"
- - `eleves` _TEXT_ : liste des id des comptes des élèves de cette classe, en format JSON
+
+TABLE `eleves_classe`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_classe` _INT_ : id de la classe
+ - `id_eleve` _INT_ : id de l'eleve qui est dans la classe
 
 ### Note :
 
 TABLE `notes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : identifiant unique de ce devoir
  - `matiere` _INT_ : Identifiant de la matère
- - `prof` _INT_ : Identifiant du prof
- - `classe` _INT_ : Identifiant de la classe
+ - `id_prof` _INT_ : Identifiant du prof
+ - `id_classe` _INT_ : Identifiant de la classe
  - `coef` _FLOAT_ : Coefficient de la note de ce devoir
  - `jour` _DATE_ : Jour de la mise de la note sur pronote
  - `jour_visible` _DATE_ : Jour où les élèves pourront voir cette note
  - `trimestre` _INT_ : Trimèstre de la note (1, 2, 3)
  - `titre` _TEXT_ : Titre/Nom de la note
  - `description_` _TEXT_ : Description de la note
- - `notes` _TEXT_ : Liste des notes par élèves, en format JSON
+
+TABLE `eleves_notes`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_note` _INT_ : id du devoir/note
+ - `id_eleve` _INT_ : id de l'eleve
+ - `note` _FLOAT_ : note de l'eleve
+ - `appreciation` _TEXT_ : appreciation du professeur
 
 ### Devoir :
 
@@ -90,7 +117,11 @@ TABLE `devoirs`
  - `titre` _TEXT_ : Titre du devoir
  - `description_` _TEXT_ : Description du devoir
  - `jour` _DATE_ : Jour où il faut faire ce devoir
- - `fichiers` _TEXT_ : Liste des identifiants des fichiers, sous format JSON
+
+TABLE `fichiers_devoirs`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_devoir` _INT_ : id du devoir
+ - `id_fichier` _INT_ : id du fichier
 
 ### Etablissement :
 
@@ -105,7 +136,11 @@ TABLE `etablissements`
  - `email` _TEXT_ : adresse mail pour contacter l'établissement
  - `phone` _TEXT_ : numéro de téléphone pour contacter l'établissement
  - `academie` _TEXT_ : Nom de l'académie de l'établissement
- - `membres` _TEXT_ : Liste des id de touts les personnes qui y sont (élèves et professeurs), en format JSON
+
+TABLE `membres_etablissements`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_etablissement` _INT_ : id de l'etablissement
+ - `id_compte` _INT_ : id du compte
 
 ### Pièces jointes :
 
@@ -121,13 +156,33 @@ TABLE `messages`
  - `auteur` _INT_ : identifiant du compte qui a écrit le message
  - `texte` _TEXT_ : Message envoyé
  - `salon` _ID_ : Identifiant du salon si ce message est envoyé dans un salon
- - `cible` _TEXT_ : liste des identifiants des comptes auquels le message a été envoyé, en format JSON
  - `important` _BOOLEAN_ : si le message est important ou pas
- - `fichiers` _TEXT_ : Liste des identifiants des fichiers, sous format JSON
+
+TABLE `fichiers_messagerie`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_fichier` _INT_ : id du fichier
+ - `id_message` _INT_ : id du message
+
+TABLE `cibles_messages`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_message` _INT_ : id du message
+ - `id_compte` _INT_ : id du compte
+ - `vu` _BOOLEAN_ : si l'utilisateur a vu le message
 
 ### Salon de discussion :
 
 TABLE `salons`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique du salon
  - `nom` _TEXT_ : Nom du salon
- - `membres` _TEXT_ : Membres du salon, avec leurs roles
+
+TABLE `membres_salon`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_salon` _INT_ : id du salon
+ - `id_compte` _INT_ : id du compte
+
+### Cantine
+
+TABLE `menu_cantine`
+ - `id_salon` _INT_ : id du salon
+ - `jour` _DATE_ : jour du menu
+ - `menu` _TEXT_ : texte descriptif du menu
