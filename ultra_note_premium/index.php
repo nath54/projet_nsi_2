@@ -18,11 +18,11 @@
             <div class="box1">
                 <h1>UltraNote++ Premium Edition</h1>
                 <h2>Vivez dans un monde a votre époque</h2>
-                <p>UltraNote est un outil de travail numérique qui vous accompagne tout au long de votre année scolaire, les professeurs autant que les élèves.</p>
+                <p class="text_moyen">UltraNote est un outil de travail numérique qui vous accompagne tout au long de votre année scolaire, les professeurs autant que les élèves.</p>
             </div>
             <div class="box2">
                 <h2>(re)venez avec nous !</h2>
-                <div>
+                <div class="button">
                     <button onclick="to_connect();">Se connecter</button>
                     <button onclick="to_inscription();">S'inscrire</button>
                 </div>
