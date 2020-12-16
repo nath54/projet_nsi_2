@@ -22,9 +22,9 @@
             </div>
             <div class="box2">
                 <h2>(re)venez avec nous !</h2>
-                <div class="button">
-                    <button onclick="to_connect();">Se connecter</button>
-                    <button onclick="to_inscription();">S'inscrire</button>
+                <div class="buttons_acc">
+                    <button class="bt_acc" onclick="to_connect();">Se connecter</button>
+                    <button class="bt_acc" onclick="to_inscription();">S'inscrire</button>
                 </div>
             </div>
         </div>

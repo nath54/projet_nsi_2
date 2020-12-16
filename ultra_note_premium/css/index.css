@@ -22,24 +22,53 @@
 
 
 #accueil{
+    border: 1px solid red;
     display:flex;
     flex-direction: row;
 }
 
 .box1{
+    border: 1px solid red;
     margin: 50px;
     width: 55%;
 }
 
 .box2{
     
+    border: 1px solid red;
 }
 
-.button{
+.buttons_acc{
+    border: 1px solid red;
     display:flex;
     flex-direction: column;
 }
 .text_moyen{
+    border: 1px solid red;
     word-wrap: normal;
     max-width: 300px;
 }
+
+.bt_acc{
+    margin: 15px;
+}
+
+.bt_acc {
+    background-color:#e7e7e7; color: black;
+    border: 2px solid #555555;
+    border-radius: 12px;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 5px 0 rgba(0,0,0,0.2), 0 6px 5px 0 rgba(0,0,0,0.19);
+  }
+
+  .bt_acc:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border-radius: 15px;
+  }
