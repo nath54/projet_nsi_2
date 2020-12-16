@@ -30,6 +30,7 @@
         </div>
         <!-- Connection -->
         <div id="divconnect">
+            <button onclick="to_acceuil();">X</button>
             <form id="fconnect" name="fconnect", method="POST", action="includes/connection.php" >
                 <h2>Connection</h2>
                 <div >
@@ -47,6 +48,7 @@
         </div>
         <!-- Inscription -->
         <div id="divinscription">
+            <button onclick="to_acceuil();">X</button>
             <form id="finscription" name="finscription", method="POST", action="includes/inscription.php" >
                 <h2>Enregistrez vous ! </h2>
                 <div >
