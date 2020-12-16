@@ -1,6 +1,9 @@
 <?php
-include("includes/header.php");
+include("includes/init.php");
 include("includes/bdd.php");
+
+
+echo($_SESSION["id"]);
 
 if(isset($_SESSION["id"])){
     $db = $_SESSION["id"];
