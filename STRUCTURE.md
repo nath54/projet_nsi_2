@@ -42,7 +42,6 @@ TABLE `comptes`
  - `naissance` _DATE_ : La date de naissance de la personne
  - `classe` _INT_ (juste pour *eleve*) : l'identifiant de la classe de l'élève (pour pouvoir faire des innerjoins ou des trucs du genre)
  - `classes` _TEXT_ (juste pour *prof*) : la liste des classes que le prof a, en format JSON
- - `profs` _TEXT_ (juste pour *eleve*) : La liste des id des comptes des profs de l'eleve par matères, en format JSON
  - `amis` _TEXT_ : La liste des id des comptes des amis de ce compte, en format JSON
  - `devoirs_faits` _TEXT_ : La liste des devoirs faits, en format JSON
  - `abscences` _TEXT_ : La liste des abscences déclarées de ce compte, en format JSON

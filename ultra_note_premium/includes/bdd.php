@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$file_path = "includes/mysql-config.json";
+$file_path = "mysql-config.json";
 
 function open_json($file_path){
     if( file_exists($file_path) ){

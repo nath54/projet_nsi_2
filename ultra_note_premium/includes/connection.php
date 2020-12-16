@@ -1,7 +1,7 @@
 <?php
 
-includes("includes/init.php");
-includes("includes/bdd.php");
+include("init.php");
+include("bdd.php");
 
 if(isset($_POST["cpseudo"]) && isset($_POST["cpassword"])){
     $result = $connection($_POST["cpseudo"], $_POST["cpassword"]);

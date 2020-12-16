@@ -17,10 +17,14 @@ CREATE TABLE IF NOT EXISTS `comptes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       matiere INT,
                                       profs TEXT,
                                       amis TEXT,
-                                      devoirs_faits TEXT);
+                                      devoirs_faits TEXT,
+                                      absences TEXT);
 CREATE TABLE IF NOT EXISTS `matieres` (id INT PRIMARY KEY AUTO_INCREMENT,
                                        nom TEXT,
                                        couleur TEXT);
+CREATE TABLE IF NOT EXISTS `prof_matieres` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                       id_prof INT,
+                                       id_matiere INT);
 CREATE TABLE IF NOT EXISTS `classes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       nom TEXT,
                                       niveau TEXT,
