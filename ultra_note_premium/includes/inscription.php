@@ -7,10 +7,13 @@ if(isset($_POST["ipseudo"])){
     $array = array();
     foreach($_POST as $key=>$value){
         if($key=="ipseudo"){
-            
+            $array["pseudo"] = $value;
+        }
+        else if($key=="ipassword"){
+            $array["password"] = $value;
         }
         else{
-            $array[$key]=$value
+            $array[$key]=$value;
         }
     }
     $result = inscription($array);
