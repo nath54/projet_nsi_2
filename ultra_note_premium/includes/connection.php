@@ -3,20 +3,24 @@
 include("init.php");
 include("bdd.php");
 
+$db = load_db();
+
 if(isset($_POST["cpseudo"]) && isset($_POST["cpassword"])){
-    $result = $connection($_POST["cpseudo"], $_POST["cpassword"]);
+    $result = connection($_POST["cpseudo"], $_POST["cpassword"], $db);
     if($result["succed"]){
         $_SESSION["id"] = $result["id"];
-        header("Location: main.php");
+        echo($_SESSION["id"]);
+        die();
+        header("Location: ../main.php");
     }
     else{
-        echo("alert('Erreur !');");
-        echo("<script>window.href.location='index.php'</script>");
+        echo("<script>alert('Erreur !');</script>");
+        echo("<script>window.location.href='../index.php';</script>");
     }
 }
 else{
-    echo("alert('Erreur !');");
-    echo("<script>window.href.location='index.php'</script>");
+    echo("<script>alert('Erreur !');</script>");
+    echo("<script>window.location.href='../index.php';</script>");
 }
 
 ?>

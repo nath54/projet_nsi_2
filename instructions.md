@@ -11,7 +11,7 @@ Il faut avoir déjà avoir installé un serveur web local (sous Windows, vous po
 Elle devra s'appeler "*ultranote*", et de préférence en encodage utf-8
 
 ```mariadb
-CREATE DATABASE projet_nsi_1 CHARACTER SET 'utf8';
+CREATE DATABASE ultranote CHARACTER SET 'utf8';
 ```
 
 ## Création de l'utilisateur :

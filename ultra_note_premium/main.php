@@ -1,5 +1,15 @@
 <?php
+include("includes/header.php");
 include("includes/bdd.php");
+
+if(isset($_SESSION["id"])){
+    $db = $_SESSION["id"];
+}
+else{
+    echo("<script>alert('erreur !');</script>");
+    echo("<script>window.location.href='index.php'</script>");
+}
+
 ?>
 <html>
     <head>

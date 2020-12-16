@@ -1,7 +1,4 @@
 <?php
-session_start();
-
-$file_path = "mysql-config.json";
 
 function open_json($file_path){
     if( file_exists($file_path) ){
@@ -15,26 +12,32 @@ function open_json($file_path){
     return $data;
 }
 
-$data_account = open_json($file_path);
 
-$pseudo = $data_account["pseudo"];
-$password = $data_account["password"];
-$db_name = $data_account["db-name"];
+function load_db(){
+    $file_path = "mysql-config.json";
+    $data_account = open_json($file_path);
+    $pseudo = $data_account["pseudo"];
+    $password = $data_account["password"];
+    $db_name = $data_account["db-name"];
+    $port = $data_account["port"];
 
-if (isset($_COOKIE["logged"]) and $_COOKIE["logged"] = true) {
-	$_SESSION["logged"] = true;
+    if (isset($_COOKIE["logged"]) and $_COOKIE["logged"] = true) {
+        $_SESSION["logged"] = true;
+    }
+
+    try {
+        $db = new PDO("mysql:host=localhost;port=".$port.";dbname=".$db_name.";charset=utf8", $pseudo, $password);
+    }
+
+    catch(Exception $e) {
+        die("Error : " . $e->getMessage());
+    }
+    return $db;
 }
 
-try {
-	$db = new PDO("mysql:host=localhost;dbname=".$db_name.";charset=utf8", $pseudo, $password);
-}
 
-catch(Exception $e) {
-	die("Error : " . $e->getMessage());
-}
-
-function connection($pseudo, $password){
-    $requested = "SELECT (id) FROM comptes WHERE pseudo='".$pseudo."' AND password=MD5('".$password."');";
+function connection($pseudo, $password, $db){
+    $requested = "SELECT id FROM comptes WHERE pseudo='".$pseudo."' AND password_=MD5('".$password."');";
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
     foreach($tab as $data){
