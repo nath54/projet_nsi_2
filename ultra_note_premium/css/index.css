@@ -25,3 +25,21 @@
     display:flex;
     flex-direction: row;
 }
+
+.box1{
+    margin: 50px;
+    width: 55%;
+}
+
+.box2{
+    
+}
+
+.button{
+    display:flex;
+    flex-direction: column;
+}
+.text_moyen{
+    word-wrap: normal;
+    max-width: 300px;
+}
