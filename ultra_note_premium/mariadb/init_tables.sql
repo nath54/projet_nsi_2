@@ -12,62 +12,52 @@ CREATE TABLE IF NOT EXISTS `comptes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       password_ TEXT,
                                       nom TEXT,
                                       prenom TEXT,
-                                      classe INT,
-                                      classes TEXT,
-                                      matiere INT,
-                                      profs TEXT,
-                                      amis TEXT,
-                                      devoirs_faits TEXT,
-                                      absences TEXT);
+                                      naissance DATE,
+                                      classe INT);
+
+CREATE TABLE IF NOT EXISTS `prof_classes` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                           id_prof INT,
+                                           id_classe INT);
+
+CREATE TABLE IF NOT EXISTS `amis` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                   id_compte INT,
+                                   id_ami INT);
+
+CREATE TABLE IF NOT EXISTS `devoirs_faits` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                            id_compte INT,
+                                            id_devoir INT);
+
+CREATE TABLE IF NOT EXISTS `absences` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                       id_compte INT,
+                                       debut DATETIME,
+                                       fin DATETIME);
+
 CREATE TABLE IF NOT EXISTS `matieres` (id INT PRIMARY KEY AUTO_INCREMENT,
                                        nom TEXT,
                                        couleur TEXT);
-CREATE TABLE IF NOT EXISTS `prof_matieres` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                       id_prof INT,
-                                       id_matiere INT);
+
+CREATE TABLE IF NOT EXISTS `profs_matieres` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                             id_prof INT,
+                                             id_matiere INT);
+
 CREATE TABLE IF NOT EXISTS `classes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       nom TEXT,
-                                      niveau TEXT,
-                                      eleves TEXT);
+                                      niveau TEXT);
+
+CREATE TABLE IF NOT EXISTS `eleves_classe` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                            id_classe INT,
+                                            id_eleve);
+
 CREATE TABLE IF NOT EXISTS `notes` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                    matiere INT,
-                                    prof INT,
-                                    classe INT,
+                                    matiere iNT,
+                                    id_prof INT,
+                                    id_classe INT,
                                     coef FLOAT,
                                     jour DATE,
                                     jour_visible DATE,
                                     trimestre INT,
                                     titre TEXT,
-                                    description_ TEXT,
-                                    notes TEXT);
-CREATE TABLE IF NOT EXISTS `devoirs` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                      prof INT,
-                                      type_ TEXT,
-                                      titre TEXT,
-                                      description_ TEXT,
-                                      jour DATE,
-                                      fichiers TEXT);
-CREATE TABLE IF NOT EXISTS `etablissements` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                             nom TEXT,
-                                             pays TEXT,
-                                             region TEXT,
-                                             ville TEXT,
-                                             adresse TEXT,
-                                             lien_maps TEXT,
-                                             email TEXT,
-                                             phone TEXT,
-                                             academie TEXT,
-                                             membres TEXT);
-CREATE TABLE IF NOT EXISTS `fichiers` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                       nom TEXT,
-                                       fichier MEDIUMBLOB);
-CREATE TABLE IF NOT EXISTS `messages` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                       auteur INT,
-                                       texte TEXT,
-                                       salon INT,
-                                       cible TEXT,
-                                       important BOOLEAN,
-                                       fichiers TEXT);
-CREATE TABLE IF NOT EXISTS `salons` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                     nom TEXT,
-                                     membres TEXT);
+                                    description_ TEXT);
+                                    
+
+
