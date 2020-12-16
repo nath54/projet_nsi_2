@@ -19,3 +19,9 @@
 #divinfo{
 
 }
+
+
+#accueil{
+    display:flex;
+    flex-direction: row;
+}

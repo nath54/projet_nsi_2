@@ -15,12 +15,12 @@
         </div>
         <!-- Acceuil -->
         <div id="accueil">
-            <div>
+            <div class="box1">
                 <h1>UltraNote++ Premium Edition</h1>
                 <h2>Vivez dans un monde a votre époque</h2>
                 <p>UltraNote est un outil de travail numérique qui vous accompagne tout au long de votre année scolaire, les professeurs autant que les élèves.</p>
             </div>
-            <div>
+            <div class="box2">
                 <h2>(re)venez avec nous !</h2>
                 <div>
                     <button onclick="to_connect();">Se connecter</button>
