@@ -2,7 +2,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=viewport-width, initial-scale=1">
-        <title>UltraNote++ Premium Edition</title>
+        <title>UltraNote++ Premium Edition</title><link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/index.css" rel="stylesheet" />
     </head>
@@ -24,10 +25,10 @@
                 <p class="text_moyen">UltraNote est un outil de travail numérique qui vous accompagne tout au long de votre année scolaire, les professeurs autant que les élèves.</p>
             </div>
             <div class="box2">
-                <h2>(re)venez avec nous !</h2>
+                <h2 id="">(Re)venez avec nous !</h2>
                 <div class="buttons_acc">
-                    <button class="bt_acc" onclick="to_connect();">Se connecter</button>
-                    <button class="bt_acc" onclick="to_inscription();">S'inscrire</button>
+                    <button class="bt_acc_con" onclick="to_connect();">Se connecter</button>
+                    <button class="bt_acc_ins" onclick="to_inscription();">S'inscrire</button>
                 </div>
             </div>
         </div>
@@ -56,12 +57,17 @@
                 <h2>Enregistrez vous ! </h2>
                 <div >
                     <div >
-                        <label >pseudo : </label>
-                        <input name="ipseudo" id="ipseudo" type="text" />
+                        <label >Vous etes : </label>
+                        <select id="stype">
+                            <option>un élève</option>
+                            <option>un professeur</option>
+                            <option>un administrateur</option>
+                            <option>un parent</option>
+                        </select>
                     </div>
                     <div >
-                        <label >mot de passe : </label>
-                        <input name="ipassword" id="ipassword" type="text" />
+                        <label >pseudo : </label>
+                        <input name="ipseudo" id="ipseudo" type="text" />
                     </div>
                     <div>
                         <button >S'inscrire</button>

@@ -19,6 +19,8 @@ else{
         <meta charset="utf-8" />
         <meta name="viewport" content="width=viewport-width, initial-scale=1">
         <title>UltraNote++ Premium Edition</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet"> 
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/main.css" rel="stylesheet" />
     </head>

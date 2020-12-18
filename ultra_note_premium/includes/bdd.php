@@ -35,7 +35,6 @@ function load_db(){
     return $db;
 }
 
-
 function connection($pseudo, $password, $db){
     $requested = "SELECT id FROM comptes WHERE pseudo='".$pseudo."' AND password_=MD5('".$password."');";
     $reponse = $db->query($requested);
@@ -76,7 +75,9 @@ function inscription($data){
     }
 }
 
-
+function get_etablissements(){
+    
+}
 
 /* exemple de requete
 

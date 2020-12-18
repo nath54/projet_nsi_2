@@ -2,22 +2,22 @@
 #divinfo, #divinscription, #divconnect{
     display: none;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: white;
+    top: 50px;
+    right: 50px;
+    left: 55%;
+    bottom: 50px;
+    background-color: rgba(200, 200, 200, 0.96);
+    border-radius: 20px;
+    padding: 25px;
 }
 
 #divconnection{
 }
 
 #divinscription{
-
 }
 
 #divinfo{
-
 }
 
 
@@ -48,42 +48,58 @@
     max-width: 300px;
 }
 
-.bt_acc{
-    margin: 15px;
-}
 
-.bt_acc {
-    background-color:#e7e7e7; color: black;
+.bt_acc_con, .bt_acc_ins {
+    margin: 15px;
     border: 2px solid #555555;
     border-radius: 12px;
-    color: white;
     padding: 10px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 10px;
+    font-size: 15px;
     transition-duration: 0.4s;
-    box-shadow: 0 8px 5px 0 rgba(0,0,0,0.2), 0 6px 5px 0 rgba(0,0,0,0.19);
-  }
-
-  .bt_acc:hover {
+    box-shadow: 5px 5px 3px rgba(0, 0, 0 , 0.3);
+}.bt_acc_con:hover, .bt_acc_ins:hover {
+    border-radius: 15px;
+}
+.bt_acc_con{
+    background-color: #99e09b;
+    color: black;
+}.bt_acc_con:hover{
     background-color: #4CAF50;
     color: white;
-    border-radius: 15px;
-  }
+}
 
-  .bt_disconect{
-    background-color:red; color: red;
-    border: 2px solid #555555;
-    border-radius: 0px;
+.bt_acc_ins{
+    background-color: #b3c7f3;
+    color: black;
+}.bt_acc_ins:hover{
+    background-color: #306cb9;
     color: white;
-    padding: 5px 6px;
+}
+
+.bt_disconect{
+    width: 30px;
+    height: 30px;
+    background-color:rgba(230, 50, 50, 0.9);
+    color: black;
+    border: 2px solid black;
+    border-radius: 6px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 10px;
+    font-size: 15px;
+    font-weight: 700;
     transition-duration: 0.4s;
-  }
+}.bt_disconect:hover{
+    background-color:rgba(250, 0, 0, 0.9);
+    color: black;
+    border: 2px solid black;
+    border-radius: 12px;
+    font-weight: 1000;
+    transform: rotateZ(15deg);
+}
 
 html{
     width: 100%;
@@ -93,5 +109,3 @@ html{
     background-position: -80px 0;
     background-repeat: no-repeat;
 }
-
-
