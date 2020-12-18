@@ -92,8 +92,43 @@ CREATE TABLE IF NOT EXISTS `etablissements` (id INT PRIMARY KEY AUTO_INCREMENT,
                                              phone TEXT,
                                              academie TEXT);
 
-
 CREATE TABLE IF NOT EXISTS `membres_etablissements` (id INT PRIMARY KEY AUTO_INCREMENT,
                                                      id_etablissement INT,
                                                      id_compte INT);
+
+
+CREATE TABLE IF NOT EXISTS `fichiers` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                       nom TEXT,
+                                       fichier BINARY);
+
+
+CREATE TABLE IF NOT EXISTS `messages` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                       auteur INT,
+                                       texte TEXT,
+                                       salon INT,
+                                       important BOOLEAN);
+
+
+CREATE TABLE IF NOT EXISTS `fichiers_messagerie` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                                  id_fichier INT,
+                                                  id_message INT);
+
+
+CREATE TABLE IF NOT EXISTS `cibles_messages` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                              id_message INT,
+                                              id_compte INT,
+                                              vu BOOLEAN);
+
+
+CREATE TABLE IF NOT EXISTS `salons` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                     nom TEXT);
+
+CREATE TABLE IF NOT EXISTS `membres salons` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                             id_salon INT,
+                                             id_compte INT);
+
+CREATE TABLE IF NOT EXISTS `menu_cantine` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                           jour DATE,
+                                           menu TEXT);
+
 

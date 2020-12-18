@@ -156,7 +156,7 @@ TABLE `messages`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique du message
  - `auteur` _INT_ : identifiant du compte qui a écrit le message
  - `texte` _TEXT_ : Message envoyé
- - `salon` _ID_ : Identifiant du salon si ce message est envoyé dans un salon
+ - `salon` _INT_ : Identifiant du salon si ce message est envoyé dans un salon
  - `important` _BOOLEAN_ : si le message est important ou pas
 
 TABLE `fichiers_messagerie`
