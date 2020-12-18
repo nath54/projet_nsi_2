@@ -76,6 +76,8 @@ function inscription($data){
     }
 }
 
+
+
 /* exemple de requete
 
 $requested = "";
