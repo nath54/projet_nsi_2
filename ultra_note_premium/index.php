@@ -16,6 +16,9 @@
         <!-- Acceuil -->
         <div id="accueil">
             <div class="box1">
+                <div class="wave">
+                </div>
+
                 <h1>UltraNote++ Premium Edition</h1>
                 <h2>Vivez dans un monde a votre époque</h2>
                 <p class="text_moyen">UltraNote est un outil de travail numérique qui vous accompagne tout au long de votre année scolaire, les professeurs autant que les élèves.</p>
@@ -30,7 +33,7 @@
         </div>
         <!-- Connection -->
         <div id="divconnect">
-            <button class="bt_disconect" onclick="to_acceuil();">X</button>
+            <button class="bt_disconect" onclick="to_accueil();">X</button>
             <form id="fconnect" name="fconnect", method="POST", action="includes/connection.php" >
                 <h2>Connection</h2>
                 <div >
@@ -48,7 +51,7 @@
         </div>
         <!-- Inscription -->
         <div id="divinscription">
-            <button class="bt_disconect" onclick="to_acceuil();">X</button>
+            <button class="bt_disconect" onclick="to_accueil();">X</button>
             <form id="finscription" name="finscription", method="POST", action="includes/inscription.php" >
                 <h2>Enregistrez vous ! </h2>
                 <div >
