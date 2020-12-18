@@ -69,6 +69,28 @@
                         <label >pseudo : </label>
                         <input name="ipseudo" id="ipseudo" type="text" />
                     </div>
+                    <div >
+                        <label >password : </label>
+                        <input name="ipassword" id="ipassword" type="password" />
+                    </div>
+                    <div >
+                        <label >password (verify) : </label>
+                        <input name="ipassword2" id="ipassword2" type="password" />
+                    </div>
+                    <div >
+                        <label >Date de naissance : </label>
+                        <select id="sjd">
+                            <?php
+for(x; 1; 12){
+    echo "<option>".x."</option>";
+}
+                            ?>
+                        </select>
+                        <select id="smd">
+                        </select>
+                        <select id="sad">
+                        </select>
+                    </div>
                     <div>
                         <button >S'inscrire</button>
                     </div>
