@@ -81,14 +81,25 @@
                         <label >Date de naissance : </label>
                         <select id="sjd">
                             <?php
-for(x; 1; 12){
+for(x; 1; 31){
     echo "<option>".x."</option>";
 }
                             ?>
                         </select>
                         <select id="smd">
+                            <?php
+for(x; 1; 12){
+    echo "<option>".x."</option>";
+}
+                            ?>
                         </select>
                         <select id="sad">
+
+                        <?php
+for(x; 1920; 2020){
+    echo "<option>".x."</option>";
+}
+                            ?>
                         </select>
                     </div>
                     <div>
