@@ -58,6 +58,42 @@ CREATE TABLE IF NOT EXISTS `notes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                     trimestre INT,
                                     titre TEXT,
                                     description_ TEXT);
-                                    
 
+
+CREATE TABLE IF NOT EXISTS `eleves_notes` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                           id_note INT,
+                                           id_eleve INT,
+                                           note FLOAT,
+                                           appreciation TEXT);
+
+
+CREATE TABLE IF NOT EXISTS `devoirs` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                      id_prof INT,
+                                      id_classe INT,
+                                      type_ TEXT,
+                                      titre TEXT,
+                                      description_ TEXT,
+                                      jour DATE);
+
+
+CREATE TABLE IF NOT EXISTS `fichiers_devoirs` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                               id_devoir INT,
+                                               id_fichier INT);
+
+
+CREATE TABLE IF NOT EXISTS `etablissements` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                             nom TEXT,
+                                             pays TEXT,
+                                             region TEXT,
+                                             ville TEXT,
+                                             adresse TEXT,
+                                             lien_maps TEXT,
+                                             email TEXT,
+                                             phone TEXT,
+                                             academie TEXT);
+
+
+CREATE TABLE IF NOT EXISTS `membres_etablissements` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                                     id_etablissement INT,
+                                                     id_compte INT);
 

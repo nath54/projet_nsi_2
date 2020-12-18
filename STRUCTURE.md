@@ -112,7 +112,8 @@ TABLE `eleves_notes`
 
 TABLE `devoirs`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique du devoir
- - `prof` _INT_ : Identifiant du professeur qui a posté ce devoir
+ - `id_prof` _INT_ : Identifiant du professeur qui a posté ce devoir
+ - `id_classe` _INT_ : Identifiant de la classe pour le devoir
  - `type_` _TEXT_ : Type du devoir "*lecon*", "*exercices*", "*ds*", "*dm*"
  - `titre` _TEXT_ : Titre du devoir
  - `description_` _TEXT_ : Description du devoir
