@@ -91,7 +91,7 @@ TABLE `eleves_classe`
 
 TABLE `notes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : identifiant unique de ce devoir
- - `matiere` _INT_ : Identifiant de la matère
+ - `id_matiere` _INT_ : Identifiant de la matère
  - `id_prof` _INT_ : Identifiant du prof
  - `id_classe` _INT_ : Identifiant de la classe
  - `coef` _FLOAT_ : Coefficient de la note de ce devoir

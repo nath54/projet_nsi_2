@@ -1,3 +1,9 @@
 html{
     font-family: 'Vollkorn', serif;
 }
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

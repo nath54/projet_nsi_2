@@ -13,8 +13,8 @@ function open_json($file_path){
 }
 
 
-function load_db(){
-    $file_path = "mysql-config.json";
+function load_db($pathe=""){
+    $file_path = $pathe."mysql-config.json";
     $data_account = open_json($file_path);
     $pseudo = $data_account["pseudo"];
     $password = $data_account["password"];
@@ -75,8 +75,25 @@ function inscription($data){
     }
 }
 
-function get_etablissements(){
-    
+function get_etablissements($db){
+    $requested = "SELECT nom, id FROM etablissements;";
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    return $tab;
+}
+
+function get_matieres($db){
+    $requested = "SELECT nom FROM matieres;";
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    return $tab;
+}
+
+function get_classes($db){
+    $requested = "SELECT niveau, nom FROM classes;";
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    return $tab;
 }
 
 /* exemple de requete

@@ -1,3 +1,16 @@
+<?php
+
+include "includes/init.php";
+include "includes/bdd.php";
+$bdd = load_db("includes/");
+
+$txt="<script>var matieres = [";
+foreach(get_matieres($bdd) as $k=>$v){
+    $txt=$txt."'".$v["nom"]."',";
+}
+$txt=substr($txt, 0, -1)."];</script>";
+echo $txt;
+?>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -50,7 +63,7 @@
                 <div >
                     <div >
                         <label >Vous etes : </label>
-                        <select id="stype" onchange="udpdate_inscription();">
+                        <select id="stype" onchange="update_inscription();">
                             <option>un élève</option>
                             <option>un professeur</option>
                             <option>un administrateur</option>
@@ -92,6 +105,30 @@ for($x = 1990; $x <= 2010; $x++){
 }
                             ?>
                         </select>
+                    </div>
+                    <div id="ieleve">
+                        <select id="sclasse">
+<?php
+$classes = get_classes($bdd);
+foreach($classes as $k=>$v){
+    echo("<option>".$v["niveau"].", ".$v["nom"]."</option>");
+}
+?>
+                        </select>
+                    </div>
+                    <div id="iprof" style="display:none;">
+                        <div class="row">
+                            <label>Matieres :</label>
+                            <div id="smats"></div>
+                            <a class="bt_m" href="#" onclick="rem_mat();"> - </a>
+                            <a class="bt_m" href="#" onclick="add_mat();"> + </a>
+                        </div>
+                    </div>
+                    <div id="iadmin" style="display:none;">
+
+                    </div>
+                    <div id="iparent" style="display:none;">
+
                     </div>
                     <div>
                         <button >S'inscrire</button>

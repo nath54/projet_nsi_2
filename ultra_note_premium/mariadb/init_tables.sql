@@ -7,7 +7,7 @@ CREATION DE TOUTES LES TABLES DU PROJET
 
 CREATE TABLE IF NOT EXISTS `comptes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       type_ TEXT,
-                                      etablissement INT,
+                                      id_etablissement INT,
                                       pseudo TEXT,
                                       password_ TEXT,
                                       nom TEXT,
@@ -42,14 +42,15 @@ CREATE TABLE IF NOT EXISTS `profs_matieres` (id INT PRIMARY KEY AUTO_INCREMENT,
 
 CREATE TABLE IF NOT EXISTS `classes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       nom TEXT,
-                                      niveau TEXT);
+                                      niveau TEXT,
+                                      id_etablissement INT);
 
 CREATE TABLE IF NOT EXISTS `eleves_classe` (id INT PRIMARY KEY AUTO_INCREMENT,
                                             id_classe INT,
                                             id_eleve INT);
 
 CREATE TABLE IF NOT EXISTS `notes` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                    matiere iNT,
+                                    id_matiere iNT,
                                     id_prof INT,
                                     id_classe INT,
                                     coef FLOAT,
@@ -103,9 +104,9 @@ CREATE TABLE IF NOT EXISTS `fichiers` (id INT PRIMARY KEY AUTO_INCREMENT,
 
 
 CREATE TABLE IF NOT EXISTS `messages` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                       auteur INT,
+                                       id_auteur INT,
                                        texte TEXT,
-                                       salon INT,
+                                       id_salon INT,
                                        important BOOLEAN);
 
 
