@@ -106,15 +106,28 @@ for($x = 1990; $x <= 2010; $x++){
                             ?>
                         </select>
                     </div>
+                    <div >
+                        <label>établissement : </label>
+                        <select id="setab">
+<?php
+foreach(get_etablissements($bdd) as $k=>$v){
+    echo "<option value=".$v["id"].">".$v["nom"]."</option>";
+}
+?>
+                        </select>
+                    </div>
+
                     <div id="ieleve">
-                        <select id="sclasse">
+                        <div><label>Classe : </label>
+                            <select id="sclasse">
 <?php
 $classes = get_classes($bdd);
 foreach($classes as $k=>$v){
     echo("<option>".$v["niveau"].", ".$v["nom"]."</option>");
 }
 ?>
-                        </select>
+                            </select>
+                        </div>
                     </div>
                     <div id="iprof" style="display:none;">
                         <div class="row">

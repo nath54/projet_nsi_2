@@ -64,6 +64,8 @@ function add_mat(){
         c.appendChild(m);
     }
     document.getElementById("smats").appendChild(c);
+    //
+    console.log(document.getElementById("setab").value);
 }
 
 
