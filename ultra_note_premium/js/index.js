@@ -25,3 +25,10 @@ function to_accueil(){
     document.getElementById("divinfo").style.display = "none";
 }
 
+
+
+function update_inscription(){
+
+}
+
+

@@ -6,20 +6,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/index.css" rel="stylesheet" />
+        <script src="js/index.js"></script>
     </head>
     <body>
-        <!-- Header -->
-        <div>
-            <div>
-                <h2>UltraNote</h2>
-            </div>
-        </div>
         <!-- Acceuil -->
         <div id="accueil">
             <div class="box1">
-                <div class="wave">
-                </div>
-
                 <h1>UltraNote++ Premium Edition</h1>
                 <h2>Vivez dans un monde a votre époque</h2>
                 <p class="text_moyen">UltraNote est un outil de travail numérique qui vous accompagne tout au long de votre année scolaire, les professeurs autant que les élèves.</p>
@@ -58,7 +50,7 @@
                 <div >
                     <div >
                         <label >Vous etes : </label>
-                        <select id="stype">
+                        <select id="stype" onchange="udpdate_inscription();">
                             <option>un élève</option>
                             <option>un professeur</option>
                             <option>un administrateur</option>
@@ -88,16 +80,15 @@ for(x; 1; 31){
                         </select>
                         <select id="smd">
                             <?php
-for(x; 1; 12){
-    echo "<option>".x."</option>";
+for($x = 1; $x <= 12; $x++){
+    echo "<option>".$x."</option>";
 }
                             ?>
                         </select>
                         <select id="sad">
-
                         <?php
-for(x; 1920; 2020){
-    echo "<option>".x."</option>";
+for($x = 1990; $x <= 2010; $x++){
+    echo "<option>".$x."</option>";
 }
                             ?>
                         </select>
@@ -113,5 +104,4 @@ for(x; 1920; 2020){
 
         </div>
     </body>
-    <script src="js/index.js"></script>
 </html>
