@@ -73,8 +73,8 @@
                         <label >Date de naissance : </label>
                         <select id="sjd">
                             <?php
-for(x; 1; 31){
-    echo "<option>".x."</option>";
+for($x = 1; $x <= 31; $x++){
+    echo "<option>".$x."</option>";
 }
                             ?>
                         </select>
