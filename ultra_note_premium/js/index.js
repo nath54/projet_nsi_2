@@ -120,7 +120,7 @@ function before_submit(){
     }
     //
     var grps=[];
-    for(c of document.getElementsByClassName("sgprs")){
+    for(c of document.getElementsByClassName("sgpr")){
         gprs.push(c.value);
     }
     //
