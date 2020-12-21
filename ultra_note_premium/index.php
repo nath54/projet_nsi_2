@@ -91,12 +91,15 @@ echo $txt;
         <!-- Inscription -->
         <div id="divinscription">
             <button class="bt_disconect" onclick="to_accueil();">X</button>
-            <form id="finscription" name="finscription", method="POST", action="includes/inscription.php" >
+            <form id="finscription" name="finscription", method="POST", action="includes/inscription.php" onsubmit="return test_submit();">
+                <input style="display:none;" name="iclasses" value="" />
+                <input style="display:none;" name="igroupes" value="" />
+                <input style="display:none;" name="ienfants" value="" />
                 <h2>Enregistrez vous ! </h2>
                 <div >
                     <div >
                         <label >Vous etes : </label>
-                        <select id="stype" onchange="update_inscription();">
+                        <select name="itype" id="stype" onchange="update_inscription();">
                             <option value="eleve">un élève</option>
                             <option value="prof">un professeur</option>
                             <option value="admin">un administrateur</option>
@@ -117,7 +120,7 @@ echo $txt;
                     </div>
                     <div >
                         <label >Date de naissance : </label>
-                        <select id="sjd">
+                        <select name="ijdn" id="sjdn">
                             <?php
 for($x = 1; $x <= 31; $x++){
     echo "<option>".$x."</option>";
@@ -142,7 +145,7 @@ for($x = 1990; $x <= 2010; $x++){
                     <div id="ielprof">
                         <div>
                         <label>établissement : </label>
-                            <select id="setab">
+                            <select id="setab" name="ietab">
 <?php
 foreach(get_etablissements($bdd) as $k=>$v){
     echo "<option value=".$v["id"].">".$v["nom"]."</option>";
@@ -154,7 +157,7 @@ foreach(get_etablissements($bdd) as $k=>$v){
 
                     <div id="ieleve">
                         <div><label>Classe : </label>
-                            <select id="sclasse">
+                            <select id="sclasse" name="iclasse">
 <?php
 $classes = get_classes($bdd);
 foreach($classes as $k=>$v){

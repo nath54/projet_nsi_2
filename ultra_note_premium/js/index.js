@@ -107,3 +107,26 @@ function add_grp(){
     document.getElementById("sgrps").appendChild(c);
 }
 
+
+function before_submit(){
+    var mats=[];
+    for(c of document.getElementsByClassName("smat")){
+        mats.push(c.value);
+    }
+    //
+    var enfs=[];
+    for(c of document.getElementsByClassName("senf")){
+        enfs.push(c.value);
+    }
+    //
+    var grps=[];
+    for(c of document.getElementsByClassName("sgprs")){
+        gprs.push(c.value);
+    }
+    //
+    document.getElementById("ienfants").value = enfs.join("|");
+    document.getElementById("igroupes").value = gprs.join("|");
+    document.getElementById("imatieres").value = mats.join("|");
+}
+
+
