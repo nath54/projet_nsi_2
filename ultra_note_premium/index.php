@@ -4,7 +4,7 @@ include "includes/init.php";
 include "includes/bdd.php";
 $bdd = load_db("includes/");
 
-// GET MATIERESd
+// GET MATIERES
 $txt="<script>var matieres = [";
 foreach(get_matieres($bdd) as $k=>$v){
     $txt=$txt."'".$v["nom"]."',";
