@@ -96,6 +96,15 @@ function get_classes($db){
     return $tab;
 }
 
+
+function get_eleves($db){
+    $requested = "SELECT nom, prenom, id FROM comptes WHERE type_='eleve';";
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    return $tab;
+}
+
+
 /* exemple de requete
 
 $requested = "";

@@ -32,24 +32,28 @@ function update_inscription(){
     if(tp=="un élève"){
         document.getElementById("ieleve").style.display = "initial";
         document.getElementById("iprof").style.display = "none";
+        document.getElementById("ielprof").style.display = "initial";
         document.getElementById("iadmin").style.display = "none";
         document.getElementById("iparent").style.display = "none";
     }
     else if(tp=="un professeur"){
         document.getElementById("ieleve").style.display = "none";
         document.getElementById("iprof").style.display = "initial";
+        document.getElementById("ielprof").style.display = "initial";
         document.getElementById("iadmin").style.display = "none";
         document.getElementById("iparent").style.display = "none";
     }
     else if(tp=="un administrateur"){
         document.getElementById("ieleve").style.display = "none";
         document.getElementById("iprof").style.display = "none";
+        document.getElementById("ielprof").style.display = "none";
         document.getElementById("iadmin").style.display = "initial";
         document.getElementById("iparent").style.display = "none";
     }
     else if(tp=="un parent"){
         document.getElementById("ieleve").style.display = "none";
         document.getElementById("iprof").style.display = "none";
+        document.getElementById("ielprof").style.display = "none";
         document.getElementById("iadmin").style.display = "none";
         document.getElementById("iparent").style.display = "initial";
     }
@@ -64,16 +68,34 @@ function add_mat(){
         c.appendChild(m);
     }
     document.getElementById("smats").appendChild(c);
-    //
-    console.log(document.getElementById("setab").value);
 }
-
 
 function rem_mat(){
     var smats = document.getElementById("smats");
     if(smats.children.length >= 1){
         var c = smats.children[smats.children.length - 1];
         smats.removeChild(c);
+    }
+}
+
+
+function add_enf(){
+    var c = document.createElement("select")
+    c.setAttribute("class", "senf");
+    for(kid of Object.keys(eleves)){
+        var o = document.createElement("option");
+        o.innerHTML = eleves[kid];
+        o.setAttribute("value", kid);
+        c.appendChild(o);
+    }
+    document.getElementById("senfs").appendChild(c);
+}
+
+function rem_enf(){
+    var senfs = document.getElementById("senfs");
+    if(senfs.children.length >= 1){
+        var c = senfs.children[senfs.children.length - 1];
+        senfs.removeChild(c);
     }
 }
 

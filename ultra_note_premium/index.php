@@ -4,12 +4,25 @@ include "includes/init.php";
 include "includes/bdd.php";
 $bdd = load_db("includes/");
 
+// GET MATIERESd
 $txt="<script>var matieres = [";
 foreach(get_matieres($bdd) as $k=>$v){
     $txt=$txt."'".$v["nom"]."',";
 }
 $txt=substr($txt, 0, -1)."];</script>";
 echo $txt;
+
+// GET ELEVES
+$txt="<script>var eleves = {";
+foreach(get_eleves($bdd) as $k=>$v){
+    $txt=$k.":".$txt."'".strtoupper($v["nom"])." ".$v["prenom"]."',";
+}
+if(endsWith($txt, ",")){
+    $txt=substr($txt, 0, -1);
+}
+$txt=$txt."};</script>";
+echo $txt;
+
 ?>
 <html>
     <head>
@@ -106,15 +119,17 @@ for($x = 1990; $x <= 2010; $x++){
                             ?>
                         </select>
                     </div>
-                    <div >
+                    <div id="ielprof">
+                        <div>
                         <label>établissement : </label>
-                        <select id="setab">
+                            <select id="setab">
 <?php
 foreach(get_etablissements($bdd) as $k=>$v){
     echo "<option value=".$v["id"].">".$v["nom"]."</option>";
 }
 ?>
-                        </select>
+                            </select>
+                        </div>
                     </div>
 
                     <div id="ieleve">
@@ -142,6 +157,12 @@ foreach($classes as $k=>$v){
                     </div>
                     <div id="iparent" style="display:none;">
 
+                        <div class="row">
+                            <label>Enfants :</label>
+                            <div id="senfs"></div>
+                            <a class="bt_m" href="#" onclick="rem_enf();"> - </a>
+                            <a class="bt_m" href="#" onclick="add_enf();"> + </a>
+                        </div>
                     </div>
                     <div>
                         <button >S'inscrire</button>
