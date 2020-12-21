@@ -15,10 +15,6 @@ CREATE TABLE IF NOT EXISTS `comptes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       naissance DATE,
                                       classe INT);
 
-CREATE TABLE IF NOT EXISTS `prof_classes` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                           id_prof INT,
-                                           id_classe INT);
-
 CREATE TABLE IF NOT EXISTS `amis` (id INT PRIMARY KEY AUTO_INCREMENT,
                                    id_compte INT,
                                    id_ami INT);
@@ -48,6 +44,24 @@ CREATE TABLE IF NOT EXISTS `classes` (id INT PRIMARY KEY AUTO_INCREMENT,
 CREATE TABLE IF NOT EXISTS `eleves_classe` (id INT PRIMARY KEY AUTO_INCREMENT,
                                             id_classe INT,
                                             id_eleve INT);
+
+CREATE TABLE IF NOT EXISTS `prof_classes` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                           id_prof INT,
+                                           id_classe INT);
+
+
+CREATE TABLE IF NOT EXISTS `groupes` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                      nom TEXT,
+                                      niveau TEXT,
+                                      id_etablissement INT);
+
+CREATE TABLE IF NOT EXISTS `eleves_groupes` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                            id_groupe INT,
+                                            id_eleve INT);
+
+CREATE TABLE IF NOT EXISTS `prof_groupes` (id INT PRIMARY KEY AUTO_INCREMENT,
+                                           id_prof INT,
+                                           id_groupe INT);
 
 CREATE TABLE IF NOT EXISTS `notes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                     id_matiere iNT,

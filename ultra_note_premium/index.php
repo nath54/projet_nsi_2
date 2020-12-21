@@ -9,13 +9,33 @@ $txt="<script>var matieres = [";
 foreach(get_matieres($bdd) as $k=>$v){
     $txt=$txt."'".$v["nom"]."',";
 }
-$txt=substr($txt, 0, -1)."];</script>";
+
+if(endsWith($txt, ",")){
+    $txt=substr($txt, 0, -1);
+}
+$txt=$txt."];</script>";
 echo $txt;
 
 // GET ELEVES
 $txt="<script>var eleves = {";
 foreach(get_eleves($bdd) as $k=>$v){
-    $txt=$k.":".$txt."'".strtoupper($v["nom"])." ".$v["prenom"]."',";
+    $txt=$txt.$v["id"].":"."'".strtoupper($v["nom"])." ".$v["prenom"]."',";
+}
+if(endsWith($txt, ",")){
+    $txt=substr($txt, 0, -1);
+}
+$txt=$txt."};</script>";
+echo $txt;
+
+
+
+// GET GROUPES/CLASSES
+$txt="<script>var grpclasses = {";
+foreach(get_classes($bdd) as $k=>$v){
+    $txt=$txt."'cla_".$v["id"]."':"."'CLASSE : ".$v["nom"]."',";
+}
+foreach(get_groupes($bdd) as $k=>$v){
+    $txt=$txt."'grp_".$v["id"]."':"."'GROUPE : ".$v["nom"]."',";
 }
 if(endsWith($txt, ",")){
     $txt=substr($txt, 0, -1);
@@ -77,10 +97,10 @@ echo $txt;
                     <div >
                         <label >Vous etes : </label>
                         <select id="stype" onchange="update_inscription();">
-                            <option>un élève</option>
-                            <option>un professeur</option>
-                            <option>un administrateur</option>
-                            <option>un parent</option>
+                            <option value="eleve">un élève</option>
+                            <option value="prof">un professeur</option>
+                            <option value="admin">un administrateur</option>
+                            <option value="parent">un parent</option>
                         </select>
                     </div>
                     <div >
@@ -148,8 +168,15 @@ foreach($classes as $k=>$v){
                         <div class="row">
                             <label>Matieres :</label>
                             <div id="smats"></div>
-                            <a class="bt_m" href="#" onclick="rem_mat();"> - </a>
+                            <a class="bt_m" href="#" onclick="rem('smats');"> - </a>
                             <a class="bt_m" href="#" onclick="add_mat();"> + </a>
+                        </div>
+
+                        <div class="row">
+                            <label>Groupes/Classes :</label>
+                            <div id="sgrps"></div>
+                            <a class="bt_m" href="#" onclick="rem('sgrps');"> - </a>
+                            <a class="bt_m" href="#" onclick="add_grp();"> + </a>
                         </div>
                     </div>
                     <div id="iadmin" style="display:none;">
@@ -160,7 +187,7 @@ foreach($classes as $k=>$v){
                         <div class="row">
                             <label>Enfants :</label>
                             <div id="senfs"></div>
-                            <a class="bt_m" href="#" onclick="rem_enf();"> - </a>
+                            <a class="bt_m" href="#" onclick="rem('senfs');"> - </a>
                             <a class="bt_m" href="#" onclick="add_enf();"> + </a>
                         </div>
                     </div>

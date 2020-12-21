@@ -90,12 +90,18 @@ function get_matieres($db){
 }
 
 function get_classes($db){
-    $requested = "SELECT niveau, nom FROM classes;";
+    $requested = "SELECT niveau, nom, id FROM classes;";
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
     return $tab;
 }
 
+function get_groupes($db){
+    $requested = "SELECT nom, niveau, id FROM groupes;";
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    return $tab;
+}
 
 function get_eleves($db){
     $requested = "SELECT nom, prenom, id FROM comptes WHERE type_='eleve';";
@@ -103,6 +109,7 @@ function get_eleves($db){
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
     return $tab;
 }
+
 
 
 /* exemple de requete

@@ -42,11 +42,6 @@ TABLE `comptes`
  - `naissance` _DATE_ : La date de naissance de la personne
  - `classe` _INT_ (juste pour *eleve*) : l'identifiant de la classe de l'élève (pour pouvoir faire des innerjoins ou des trucs du genre)
 
-TABLE `prof_classes`
- - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
- - `id_prof` _INT_ : id du prof
- - `id_classe` _INT_ : id de la classe que le prof a
-
 TABLE `amis`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `id_compte` _INT_ : identifiant du compte
@@ -81,11 +76,33 @@ TABLE `classes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
  - `nom` _TEXT_ : Nom de la classe
  - `niveau` _TEXT_ : niveau de la classe "*seconde*", "*premiere*", "*terminale*"
+ - `id_etablissement` _INT_ : id de l'etablissement
 
 TABLE `eleves_classe`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `id_classe` _INT_ : id de la classe
  - `id_eleve` _INT_ : id de l'eleve qui est dans la classe
+
+TABLE `prof_classes`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_prof` _INT_ : id du prof
+ - `id_classe` _INT_ : id de la classe que le prof a
+
+TABLE `groupes`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
+ - `nom` _TEXT_ : Nom de la classe
+ - `niveau` _TEXT_ : niveau de la classe "*seconde*", "*premiere*", "*terminale*"
+ - `id_etablissement` _INT_ : id de l'etablissement
+
+TABLE `eleves_groupes`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_groupe` _INT_ : id du groupe
+ - `id_eleve` _INT_ : id de l'eleve qui est dans la classe
+
+TABLE `prof_groupes`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_prof` _INT_ : id du prof
+ - `id_groupe` _INT_ : id du groupe que le prof a
 
 ### Note :
 
