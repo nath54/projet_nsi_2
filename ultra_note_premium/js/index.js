@@ -127,6 +127,8 @@ function before_submit(){
     document.getElementById("ienfants").value = enfs.join("|");
     document.getElementById("igroupes").value = gprs.join("|");
     document.getElementById("imatieres").value = mats.join("|");
+    window.location.href = "index.html";
+    alert("aa");
 }
 
 

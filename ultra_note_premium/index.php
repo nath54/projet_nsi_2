@@ -91,7 +91,7 @@ echo $txt;
         <!-- Inscription -->
         <div id="divinscription">
             <button class="bt_disconect" onclick="to_accueil();">X</button>
-            <form id="finscription" name="finscription", method="POST", action="includes/inscription.php" onsubmit="return test_submit();">
+            <form id="finscription" name="finscription" method="POST" action="includes/inscription.php" onsubmit="before_submit();">
                 <input style="display:none;" name="iclasses" value="" />
                 <input style="display:none;" name="igroupes" value="" />
                 <input style="display:none;" name="ienfants" value="" />
