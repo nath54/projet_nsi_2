@@ -111,7 +111,6 @@ function get_eleves($db){
 }
 
 
-
 /* exemple de requete
 
 $requested = "";
