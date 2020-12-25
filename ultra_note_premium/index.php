@@ -120,21 +120,21 @@ echo $txt;
                     </div>
                     <div >
                         <label >Date de naissance : </label>
-                        <select name="ijdn" id="sjdn">
+                        <select name="ijour" id="ijour">
                             <?php
 for($x = 1; $x <= 31; $x++){
     echo "<option>".$x."</option>";
 }
                             ?>
                         </select>
-                        <select id="smd">
+                        <select name="imoi" id="imoi">
                             <?php
 for($x = 1; $x <= 12; $x++){
     echo "<option>".$x."</option>";
 }
                             ?>
                         </select>
-                        <select id="sad">
+                        <select name="ian" id="ian">
                         <?php
 for($x = 1990; $x <= 2010; $x++){
     echo "<option>".$x."</option>";

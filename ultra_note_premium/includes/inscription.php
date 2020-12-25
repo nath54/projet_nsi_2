@@ -29,7 +29,26 @@ if(isset($_POST["itype"])){
         echo "<script>window.location.href='../index.php';</script>";
     }
     //
-    
+    $data = array();
+    $data["pseudo"] = $_POST["ipseudo"];
+    $data["password"] = $_POST["ipassword"];
+    $data["nom"] = $_POST["inom"];
+    $data["prenom"] = $_POST["iprenom"];
+    $data["type_"] = $_POST["itype"];
+    $data["etablissement"] = $_POST["ietablissement"];
+    $data["naissance"] = ""+$_POST["ian"]+"-"+$_POST["imoi"]+"-"+$_POST["ijour"];
+    //
+    foreach($_POST as $k=>$v){
+        if(startsWith($k, "imatiere")){
+
+        }
+        else if(startsWith($k, "ienfant")){
+            
+        }
+        else if(startsWith($k, "igroupes")){
+            
+        }
+    }
 }
 
 ?>

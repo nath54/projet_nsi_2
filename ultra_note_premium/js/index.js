@@ -78,6 +78,7 @@ function add_mat(){
     for(mat of matieres){
         var m = document.createElement("option");
         m.innerHTML = mat;
+        o.setAttribute("name", "imatiere_"+kid);
         c.appendChild(m);
     }
     document.getElementById("smats").appendChild(c);
@@ -90,6 +91,7 @@ function add_enf(){
         var o = document.createElement("option");
         o.innerHTML = eleves[kid];
         o.setAttribute("value", kid);
+        o.setAttribute("name", "ienfant_"+kid);
         c.appendChild(o);
     }
     document.getElementById("senfs").appendChild(c);
@@ -102,6 +104,7 @@ function add_grp(){
         var o = document.createElement("option");
         o.innerHTML = grpclasses[kid];
         o.setAttribute("value", kid);
+        o.setAttribute("name", "igroupe_"+kid);
         c.appendChild(o);
     }
     document.getElementById("sgrps").appendChild(c);
@@ -109,26 +112,6 @@ function add_grp(){
 
 
 function before_submit(){
-    var mats=[];
-    for(c of document.getElementsByClassName("smat")){
-        mats.push(c.value);
-    }
-    //
-    var enfs=[];
-    for(c of document.getElementsByClassName("senf")){
-        enfs.push(c.value);
-    }
-    //
-    var grps=[];
-    for(c of document.getElementsByClassName("sgpr")){
-        gprs.push(c.value);
-    }
-    //
-    document.getElementById("ienfants").value = enfs.join("|");
-    document.getElementById("igroupes").value = gprs.join("|");
-    document.getElementById("imatieres").value = mats.join("|");
-    window.location.href = "index.html";
-    alert("aa");
 }
 
 
