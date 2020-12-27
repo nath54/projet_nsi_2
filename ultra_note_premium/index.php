@@ -139,14 +139,14 @@ for($x = 1; $x <= 31; $x++){
 }
                             ?>
                         </select>
-                        <select name="imois" id="imois">
+                        <select name="imois" id="imois" class="i_form">
                             <?php
 for($x = 1; $x <= 12; $x++){
     echo "<option>".$x."</option>";
 }
                             ?>
                         </select>
-                        <select name="ian" id="ian">
+                        <select name="ian" id="ian" class="i_form">
                         <?php
 for($x = 1990; $x <= 2010; $x++){
     echo "<option>".$x."</option>";
@@ -207,7 +207,7 @@ foreach($classes as $k=>$v){
                         </div>
                     </div>
                     <div class="m_r">
-                        <button class="bt_form">S'inscrire</button>
+                        <a class="bt_form" onclick="before_submit();">S'inscrire</a>
                     </div>
                 </div>
             </form>

@@ -112,7 +112,12 @@ function add_grp(){
 
 
 function before_submit(){
-    
+    var good=true;
+    // pseudo longueur test
+
+    if(good){
+        document.getElementById("finscription").submit();
+    }
 }
 
 

@@ -9,28 +9,14 @@ table, td, tr{
 include("init.php");
 include("bdd.php");
 
-aff_array($_POST);
-
 $bdd = load_db();
 
 
 if(isset($_POST["itype"])){
-    if($_POST["ipassword"]!=$_POST["ipassword2"]){
-        echo "<script>alert('Les mots de passes sont différents !');</script>";
-        echo "<script>window.location.href='../index.php';</script>";
-    }
-    else if(strlen($_POST["ipassword"])<8){
-        echo "<script>alert('Le mot de passe doit faire au moins 8 characteres !');</script>";
-        echo "<script>window.location.href='../index.php';</script>";
-    }
-    else if(strlen($_POST["ipseudo"])<4){
-        echo "<script>alert('Le pseudo doit faire au moins 4 characteres !');</script>";
-        echo "<script>window.location.href='../index.php';</script>";
-    }
     //
     $data = array();
     $data["pseudo"] = $_POST["ipseudo"];
-    $data["password_"] = $_POST["ipassword"];
+    $data["password_"] = md5($_POST["ipassword"]);
     $data["nom"] = $_POST["inom"];
     $data["prenom"] = $_POST["iprenom"];
     $data["type_"] = $_POST["itype"];
@@ -52,3 +38,16 @@ if(isset($_POST["itype"])){
 }
 
 ?>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ultranote</title>
+        <link href="../css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div>
+            <h1>Votre compte a été créé !</h1>
+            <a href="../index.php">Accueil</a>
+        </div>
+    </body>
+</html>
