@@ -45,11 +45,11 @@ function connection($pseudo, $password, $db){
     return array("succed"=>false, "error"=>"Le compte n'existe pas ou le mot de passe est erroné");
 }
 
-function inscription($data){
-    $requested = "SELECT (pseudo) FROM comptes WHERE pseudo=".$pseudo.";";
+function inscription($db, $data){
+    $requested = "SELECT (pseudo) FROM comptes WHERE pseudo='".$data["pseudo"]."';";
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
-    if($tab.length >= 1){
+    if(count($tab) >= 1){
         return array("succed"=>false, "error"=>"");
     }
     else{
@@ -57,21 +57,21 @@ function inscription($data){
         $txt_v = "(";
         //
         foreach($data as $key=>$value){
-            if(gettype($value) == string){
-                $txt_nv = $txt_nv.$key.",";
-                $txt_v = "'".$txt_v.$value."',";
+            if(gettype($value) == "string"){
+                $txt_nv = $txt_nv.$key.", ";
+                $txt_v = $txt_v."'".$value."', ";
             }
-            else if(in_array(gettype($value), [float, int])){
-                $txt_nv = $txt_nv.$key.",";
-                $txt_v = "".$txt_v.$value.",";
+            else if(in_array(gettype($value), ["float", "real", "integer"])){
+                $txt_nv = $txt_nv.$key.", ";
+                $txt_v = $txt_v.strval($value).", ";
             }
         }
-        $txt_nv = substr($txt_nv, 0, -1).")";
-        $txt_v = substr($txt_v, 0, -1).")";
+        $txt_nv = substr($txt_nv, 0, -2).")";
+        $txt_v = substr($txt_v, 0, -2).")";
         //
-        $requested = "INSERT INTO comptes VALUES";
-        $id = $db::lastInsertId();
-        return array("succed"=>true, "id"=>$id);
+        $requested = "INSERT INTO comptes ".$txt_nv." VALUES ".$txt_v;
+        $db->query($requested);
+        return true;
     }
 }
 

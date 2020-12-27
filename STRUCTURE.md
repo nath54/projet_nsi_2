@@ -34,7 +34,7 @@ Il faut plusieurs bases de données pour tout structurer
 TABLE `comptes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `type_` _TEXT_ : "*administrateur*", "*eleve*", "*prof*" ou "*parent*"
- - `etablissement` _INT_ : Identifiant de l'établissement de l'élève
+ - `id_etablissement` _INT_ : Identifiant de l'établissement de l'élève
  - `pseudo` _TEXT_ : Le pseudo utilisé pour se connecter
  - `password_` _TEXT_ : Le mot de passe utilisé pour se connecter
  - `nom` _TEXT_ : Le nom de famille de l'élève

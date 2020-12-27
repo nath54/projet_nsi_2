@@ -48,13 +48,15 @@ echo $txt;
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=viewport-width, initial-scale=1">
-        <title>UltraNote++ Premium Edition</title><link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet" />
-        <link href="css/index.css" rel="stylesheet" />
+        <title>UltraNote++ Premium Edition</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+        <link href="css/index_dark.css" rel="stylesheet" />
+        <link href="css/style_dark.css" rel="stylesheet" />
         <script src="js/index.js"></script>
     </head>
-    <body>
+    <body id="body_index">
         <!-- Acceuil -->
         <div id="accueil">
             <div class="box1">
@@ -76,14 +78,16 @@ echo $txt;
             <form id="fconnect" name="fconnect", method="POST", action="includes/connection.php" >
                 <h2>Connection</h2>
                 <div >
-                    <div >
+                    <div class="frow">
                         <label >pseudo : </label>
-                        <input name="cpseudo" id="cpseudo" type="text" />
+                        <input name="cpseudo" id="cpseudo" type="text" class="i_form"/>
                     </div>
-                    <div >
+                    <div class="frow">
                         <label >mot de passe : </label>
-                        <input name="cpassword" id="cpassword" type="text" />
-                        <button >Se connecter</button>
+                        <input name="cpassword" id="cpassword" type="text" class="i_form"/>
+                    </div>
+                    <div class="m_r">
+                        <button class="bt_form">Se connecter</button>
                     </div>
                 </div>
             </form>
@@ -97,37 +101,45 @@ echo $txt;
                 <input style="display:none;" name="ienfants" value="" />
                 <h2>Enregistrez vous ! </h2>
                 <div >
-                    <div >
+                    <div class="frow">
                         <label >Vous etes : </label>
-                        <select name="itype" id="stype" onchange="update_inscription();">
+                        <select name="itype" id="stype" onchange="update_inscription();" class="i_form">
                             <option value="eleve">un élève</option>
                             <option value="prof">un professeur</option>
                             <option value="admin">un administrateur</option>
                             <option value="parent">un parent</option>
                         </select>
                     </div>
-                    <div >
+                    <div class="frow">
+                        <label >nom : </label>
+                        <input name="inom" id="inom" type="text" class="i_form"/>
+                    </div>
+                    <div class="frow">
+                        <label >prénom : </label>
+                        <input name="iprenom" id="iprenom" type="text" class="i_form"/>
+                    </div>
+                    <div class="frow">
                         <label >pseudo : </label>
-                        <input name="ipseudo" id="ipseudo" type="text" />
+                        <input name="ipseudo" id="ipseudo" type="text" class="i_form"/>
                     </div>
-                    <div >
+                    <div class="frow">
                         <label >password : </label>
-                        <input name="ipassword" id="ipassword" type="password" />
+                        <input name="ipassword" id="ipassword" type="password" class="i_form"/>
                     </div>
-                    <div >
+                    <div class="frow">
                         <label >password (verify) : </label>
-                        <input name="ipassword2" id="ipassword2" type="password" />
+                        <input name="ipassword2" id="ipassword2" type="password" class="i_form"/>
                     </div>
-                    <div >
+                    <div class="frow">
                         <label >Date de naissance : </label>
-                        <select name="ijour" id="ijour">
+                        <select name="ijour" id="ijour" class="i_form">
                             <?php
 for($x = 1; $x <= 31; $x++){
     echo "<option>".$x."</option>";
 }
                             ?>
                         </select>
-                        <select name="imoi" id="imoi">
+                        <select name="imois" id="imois">
                             <?php
 for($x = 1; $x <= 12; $x++){
     echo "<option>".$x."</option>";
@@ -143,9 +155,9 @@ for($x = 1990; $x <= 2010; $x++){
                         </select>
                     </div>
                     <div id="ielprof">
-                        <div>
-                        <label>établissement : </label>
-                            <select id="setab" name="ietab">
+                        <div class="frow">
+                        <label>Établissement : </label>
+                            <select id="ietablissement" name="ietablissement" class="i_form">
 <?php
 foreach(get_etablissements($bdd) as $k=>$v){
     echo "<option value=".$v["id"].">".$v["nom"]."</option>";
@@ -156,8 +168,8 @@ foreach(get_etablissements($bdd) as $k=>$v){
                     </div>
 
                     <div id="ieleve">
-                        <div><label>Classe : </label>
-                            <select id="sclasse" name="iclasse">
+                        <div class="frow"><label>Classe : </label>
+                            <select id="iclasse" name="iclasse" class="i_form">
 <?php
 $classes = get_classes($bdd);
 foreach($classes as $k=>$v){
@@ -168,7 +180,7 @@ foreach($classes as $k=>$v){
                         </div>
                     </div>
                     <div id="iprof" style="display:none;">
-                        <div class="row">
+                        <div class="row frow">
                             <label>Matieres :</label>
                             <div id="smats"></div>
                             <a class="bt_m" href="#" onclick="rem('smats');"> - </a>
@@ -187,15 +199,15 @@ foreach($classes as $k=>$v){
                     </div>
                     <div id="iparent" style="display:none;">
 
-                        <div class="row">
+                        <div class="row frow">
                             <label>Enfants :</label>
                             <div id="senfs"></div>
                             <a class="bt_m" href="#" onclick="rem('senfs');"> - </a>
                             <a class="bt_m" href="#" onclick="add_enf();"> + </a>
                         </div>
                     </div>
-                    <div>
-                        <button >S'inscrire</button>
+                    <div class="m_r">
+                        <button class="bt_form">S'inscrire</button>
                     </div>
                 </div>
             </form>

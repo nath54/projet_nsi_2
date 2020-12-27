@@ -9,11 +9,10 @@ table, td, tr{
 include("init.php");
 include("bdd.php");
 
-echo "<table>";
-foreach($_POST as $k=>$v){
-    echo "<tr><td>".$k."</td><td>".$v."</td></tr>";
-}
-echo "</table>";
+aff_array($_POST);
+
+$bdd = load_db();
+
 
 if(isset($_POST["itype"])){
     if($_POST["ipassword"]!=$_POST["ipassword2"]){
@@ -31,12 +30,13 @@ if(isset($_POST["itype"])){
     //
     $data = array();
     $data["pseudo"] = $_POST["ipseudo"];
-    $data["password"] = $_POST["ipassword"];
+    $data["password_"] = $_POST["ipassword"];
     $data["nom"] = $_POST["inom"];
     $data["prenom"] = $_POST["iprenom"];
     $data["type_"] = $_POST["itype"];
-    $data["etablissement"] = $_POST["ietablissement"];
-    $data["naissance"] = ""+$_POST["ian"]+"-"+$_POST["imoi"]+"-"+$_POST["ijour"];
+    $data["id_etablissement"] = intval($_POST["ietablissement"]);
+    $data["naissance"] = "".$_POST["ian"]."-".$_POST["imois"]."-".$_POST["ijour"];
+    $result = inscription($bdd, $data);
     //
     foreach($_POST as $k=>$v){
         if(startsWith($k, "imatiere")){
