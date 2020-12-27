@@ -24,15 +24,14 @@ if(isset($_POST["itype"])){
     $data["naissance"] = "".$_POST["ian"]."-".$_POST["imois"]."-".$_POST["ijour"];
     $result = inscription($bdd, $data);
     //
-    foreach($_POST as $k=>$v){
-        if(startsWith($k, "imatiere")){
-
-        }
-        else if(startsWith($k, "ienfant")){
-            
-        }
-        else if(startsWith($k, "igroupes")){
-            
+    if($result["succeed"]){
+        foreach($_POST as $k=>$v){
+            if(startsWith($k, "imatiere")){
+            }
+            else if(startsWith($k, "ienfant")){
+            }
+            else if(startsWith($k, "igroupes")){
+            }
         }
     }
 }
@@ -42,11 +41,21 @@ if(isset($_POST["itype"])){
     <head>
         <meta charset="utf-8" />
         <title>Ultranote</title>
-        <link href="../css/style.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+        <link href="../css/style_dark.css" rel="stylesheet" />
+        <link href="../css/inscription.css" rel="stylesheet" />
     </head>
     <body>
         <div>
-            <h1>Votre compte a été créé !</h1>
+        <?php
+        if($result["succeed"]){
+            echo("<h1>Votre compte a été créé !</h1><p>Retournez à l'accueil vous connecter</p>");
+        }else{
+            echo("<h1>Il y a eu une erreur !</h1><p>".$result["error"]."</p>");
+        }
+        ?>
             <a href="../index.php">Accueil</a>
         </div>
     </body>

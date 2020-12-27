@@ -164,9 +164,33 @@ function before_submit(){
         alert("Le prénom doit faire au moin 2 characteres");
         return
     }
+    if(pn.length > 18){
+        alert("Le prénom doit faire au plus 18 characteres");
+        return
+    }
+    for(c of pn){
+        if(!characteres_autorises.includes(c)){
+            alert("Un charactere n'est pas autorisé dans le prénom !")
+            return
+        }
+    }
+    //
+    if(n.length < 2){
+        alert("Le nom doit faire au moin 2 characteres");
+        return
+    }
+    if(n.length > 18){
+        alert("Le nom doit faire au plus 18 characteres");
+        return
+    }
+    for(c of n){
+        if(!characteres_autorises.includes(c)){
+            alert("Un charactere n'est pas autorisé dans le nom !")
+            return
+        }
+    }
     // on submit si c'est bon
-    //document.getElementById("finscription").submit();
-    alert("aa");
+    document.getElementById("finscription").submit();
 }
 
 

@@ -151,15 +151,19 @@ html{
 }
 
 .bt_form{
+    text-decoration: none;
+    color: rgb(60, 60, 70);
     font-family: 'Arvo', serif;
     font-size: 1em;
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: 8px;
+    border-radius: 5px;
     border: none;
-    background-color: rgb(150, 140, 163);
+    transition-duration: 0.6s;
+    background-color: rgb(150, 150, 150);
 }.bt_form:hover{
-    background-color: rgb(150, 140, 163);
+    color: rgb(50, 0, 0);
+    background-color: rgb(130, 140, 180);
 }

@@ -36,13 +36,13 @@ function load_db($pathe=""){
 }
 
 function connection($pseudo, $password, $db){
-    $requested = "SELECT id FROM comptes WHERE pseudo='".$pseudo."' AND password_=MD5('".$password."');";
+    $requested = "SELECT id FROM comptes WHERE pseudo='".$pseudo."' AND password_='".$password."';";
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
     foreach($tab as $data){
         return array("succed"=> true, "id"=>$data["id"]);
     }
-    return array("succed"=>false, "error"=>"Le compte n'existe pas ou le mot de passe est erroné");
+    return array("succeed"=>false, "error"=>"Le compte n'existe pas ou le mot de passe est erroné");
 }
 
 function inscription($db, $data){
@@ -50,7 +50,7 @@ function inscription($db, $data){
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
     if(count($tab) >= 1){
-        return array("succed"=>false, "error"=>"");
+        return array("succeed"=>false, "error"=>"Un compte avec ce pseudo existe déjà");
     }
     else{
         $txt_nv = "(";
