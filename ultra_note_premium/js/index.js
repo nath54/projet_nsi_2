@@ -1,4 +1,11 @@
 
+var characteres_autorises = [
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", 
+    "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+    "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1",
+    "2", "3", "4", "5", "6", "7", "8", "9", "_", "&", "*"
+]
+
 
 function to_connect(){
     document.getElementById("divinscription").style.display = "none";
@@ -113,11 +120,47 @@ function add_grp(){
 
 function before_submit(){
     var good=true;
-    // pseudo longueur test
-
-    if(good){
-        document.getElementById("finscription").submit();
+    var p = document.getElementById("ipseudo");
+    var ps1 = document.getElementById("ipassword");
+    var ps2 = document.getElementById("ipassword2");
+    // pseudo test
+    if(p.length<6){
+        alert("Le pseudo doit faire au moins 6 characteres");
+        return
     }
+    if(p.length>18){
+        alert("Le pseudo doit faire au plus 18 characteres");
+        return
+    }
+    for(c of p){
+        if(!characteres_autorises.includes(c)){
+            alert("Charactère non autorisé dans le pseudo ! Veuillez n'utiliser que des lettres (majuscules ou minuscules) et des chiffres sans accents !");
+            return
+        }
+    }
+    // password test
+    if(ps1 != ps2){
+        alert("Les mots de passes sont différents !");
+        return
+    }
+    if(ps1.length<8){
+        alert("Le mot de passe doit faire au moins 8 characteres");
+        return
+    }
+    if(ps1.length>18){
+        alert("Le mot de passe doit faire au plus 18 characteres");
+        return
+    }
+    for(c of ps1){
+        if(!characteres_autorises.includes(c)){
+            alert("Charactère non autorisé dans le mot de passe ! Veuillez n'utiliser que des lettres (majuscules ou minuscules) et des chiffres sans accents !");
+            return
+        }
+    }
+    // Test des cases vides
+    
+    // on submit si c'est bon
+    document.getElementById("finscription").submit();
 }
 
 
