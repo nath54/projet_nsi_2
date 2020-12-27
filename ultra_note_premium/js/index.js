@@ -157,8 +157,13 @@ function before_submit(){
             return
         }
     }
-    // Test des cases vides
-
+    // Test du prénom et du nom
+    var pn = document.getElementById("iprenom").value;
+    var n = document.getElementById("inom").value;
+    if(pn.length < 2){
+        alert("Le prénom doit faire au moin 2 characteres");
+        return
+    }
     // on submit si c'est bon
     //document.getElementById("finscription").submit();
     alert("aa");
