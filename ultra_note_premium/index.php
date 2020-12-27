@@ -207,7 +207,7 @@ foreach($classes as $k=>$v){
                         </div>
                     </div>
                     <div class="m_r">
-                        <a class="bt_form" onclick="before_submit();">S'inscrire</a>
+                        <a class="bt_form" href="#" onclick="before_submit();">S'inscrire</a>
                     </div>
                 </div>
             </form>

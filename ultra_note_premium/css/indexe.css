@@ -2,14 +2,13 @@
 #divinfo, #divinscription, #divconnect{
     display: none;
     position: absolute;
-    margin: 40px;
-    right: 0;
-    background-color: rgba(200, 200, 200, 0.98);;
+    top: 50px;
+    right: 50px;
+    left: 55%;
+    bottom: 50px;
+    background-color: rgba(200, 200, 200, 0.96);
     border-radius: 20px;
-    padding: 30px;
-    overflow-y: scroll;
-    height: 70%;
-    min-width: 35%;
+    padding: 25px;
 }
 
 #divconnection{
@@ -28,22 +27,13 @@
 }
 
 .box1{
-    margin-top: auto;
     margin: 50px;
     width: 55%;
-
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    left:5%;
+    margin-top: 10%;
 }
 
 .box2{
-    margin-top: auto;
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    left: 65%;
+    margin-top: 10%;
 }
 
 .buttons_acc{
@@ -64,7 +54,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1em;
+    font-size: 15px;
     transition-duration: 0.4s;
     box-shadow: 5px 5px 3px rgba(0, 0, 0 , 0.3);
 }.bt_acc_con:hover, .bt_acc_ins:hover {
@@ -96,7 +86,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1em;
+    font-size: 15px;
     font-weight: 700;
     transition-duration: 0.4s;
 }.bt_disconect:hover{
@@ -113,7 +103,7 @@
     background-color: rgb(250, 250, 250);
     color: black;
     font-weight: 1000;
-    font-size: 1em;
+    font-size: 12px;
     padding: 1px;
     border: 2px solid black;
     border-radius: 5px;
@@ -124,42 +114,11 @@
     text-align: center;
 }
 
-.frow{
-    margin: 10px;
-}
-
 html{
     width: 100%;
     height: 100%;
-    background-image: url(../res/bg_dark.svg);
+    background-image: url(../res/bg.svg);
     background-size: 100% 100%;
     background-position: -80px 0;
     background-repeat: no-repeat;
-}
-
-.i_form{
-    font-family: 'Arvo', serif;
-    font-size: 1em;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 8px;
-    border: none;
-    background-color: rgb(30,30,30);
-    color: white;
-}
-
-.bt_form{
-    font-family: 'Arvo', serif;
-    font-size: 1em;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 8px;
-    border: none;
-    background-color: rgb(150, 140, 163);
-}.bt_form:hover{
-    background-color: rgb(150, 140, 163);
 }

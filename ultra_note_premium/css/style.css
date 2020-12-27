@@ -1,10 +1,21 @@
 html{
     font-family: 'Arvo', serif;
-    font-size: large;
+    font-size: 1.2em;
+    background-color: white;
+    color: black;
+}
+
+p{
+    font-family: 'Lato', sans-serif;
 }
 
 .row{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.m_r{
+    margin: 15px;
+    padding-left: 10%;
 }

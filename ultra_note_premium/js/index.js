@@ -120,9 +120,9 @@ function add_grp(){
 
 function before_submit(){
     var good=true;
-    var p = document.getElementById("ipseudo");
-    var ps1 = document.getElementById("ipassword");
-    var ps2 = document.getElementById("ipassword2");
+    var p = document.getElementById("ipseudo").value;
+    var ps1 = document.getElementById("ipassword").value;
+    var ps2 = document.getElementById("ipassword2").value;
     // pseudo test
     if(p.length<6){
         alert("Le pseudo doit faire au moins 6 characteres");
@@ -158,9 +158,10 @@ function before_submit(){
         }
     }
     // Test des cases vides
-    
+
     // on submit si c'est bon
-    document.getElementById("finscription").submit();
+    //document.getElementById("finscription").submit();
+    alert("aa");
 }
 
 
