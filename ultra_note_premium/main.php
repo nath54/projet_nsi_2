@@ -2,8 +2,18 @@
 include("includes/init.php");
 include("includes/bdd.php");
 
+$bdd = load_db("includes/");
+
 if(isset($_SESSION["id"])){
     $id_account = $_SESSION["id"];
+    $r = get_account($bdd, $id_account);
+    if(count($r)>0){
+        $compte = $r[0];
+    }
+    else{
+        echo("<script>alert('erreur !');</script>");
+        echo("<script>window.location.href='index.php'</script>");
+    }
 }
 else{
     echo("<script>alert('erreur !');</script>");
@@ -21,15 +31,26 @@ else{
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
         <link href="css/style_dark.css" rel="stylesheet" />
         <link href="css/main.css" rel="stylesheet" />
+        <script src="js/main.js"></script>
     </head>
     <body>
         <!-- header -->
-        <?php include("includes/header.php"); ?>
+        <?php
+        if($compte["type_"]=="eleve"){
+            include("includes/header_eleve.html");
+        }else if($compte["type_"]=="prof"){
+            include("includes/header_prof.php");
+        }else if($compte["type_"]=="admin"){
+            include("includes/header_admin.php");
+        }else if($compte["type_"]=="parent"){
+            include("includes/header_parent.php");
+        }
+        ?>
         <!-- Main -->
-        <div>
-            <?php
-
-            ?>
+        <div id="d_" class="div_main">
+        </div>
+        <!-- -->
+        <div id="d_notes" class="div_main">
         </div>
         <!-- footer -->
         <?php include("includes/footer.php"); ?>

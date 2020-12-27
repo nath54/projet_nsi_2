@@ -19,4 +19,5 @@ function aff_array($ar){
     echo "</table>";
 }
 
+
 ?>

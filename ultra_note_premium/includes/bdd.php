@@ -40,7 +40,7 @@ function connection($pseudo, $password, $db){
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
     foreach($tab as $data){
-        return array("succed"=> true, "id"=>$data["id"]);
+        return array("succeed"=> true, "id"=>$data["id"]);
     }
     return array("succeed"=>false, "error"=>"Le compte n'existe pas ou le mot de passe est erroné");
 }
@@ -110,6 +110,13 @@ function get_eleves($db){
     return $tab;
 }
 
+
+function get_account($db, $id_){
+    $requested = "SELECT * FROM comptes WHERE id=".$id_.";";
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    return $tab;
+}
 
 /* exemple de requete
 

@@ -1,0 +1,74 @@
+
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition-duration: 0.5s;
+    height: 60px;
+    background-color: rgb(92, 13, 92);
+    border-bottom: 2px solid rgb(20, 20, 20);
+    border-radius: 0 0 15px 15px;
+}.header:hover{
+    height: 65px;
+    background-color: rgb(104, 18, 104);
+    border-bottom: 1px solid rgb(20, 20, 20);
+    border-radius: 0 0 20px 20px;
+}
+
+.header_left{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.header_right{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    right: 0;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.hel{
+    margin: 20px;
+}
+
+.bt_sortie{
+    margin-left: 0;
+    width: 30px;
+    height: 30px;
+    transition-duration: 0.4s;
+    background-image: url("../res/sortie.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}.bt_sortie:hover{
+    margin-top:24px;
+    width: 26px;
+    height: 26px;
+    background-image: url("../res/sortie_hover.svg");
+}
+
+.bt_header{
+    border:none;
+    margin-left:1px;
+    transition-duration: 0.8s;
+    background-color: rgba(30, 30, 30, 0.2);
+    font-size:  1em;
+    color: white;
+}.bt_header:hover{
+    border-bottom: 2px solid rgb(180, 41, 180);
+    background-color: rgba(20, 20, 20, 0.8);
+    font-size:  1.05em;
+    color: rgb(180, 41, 180);
+    text-shadow: 2px 2px black;
+}
+
+.div_main{
+    margin-top: 60px;
+    width: 100%;
+}
+
