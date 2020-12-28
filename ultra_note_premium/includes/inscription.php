@@ -22,9 +22,9 @@ if(isset($_POST["itype"])){
     $data["type_"] = $_POST["itype"];
     $data["id_etablissement"] = intval($_POST["ietablissement"]);
     $data["naissance"] = "".$_POST["ian"]."-".$_POST["imois"]."-".$_POST["ijour"];
-    $result = inscription($bdd, $data);
+    $succeed = inscription($bdd, $data);
     //
-    if($result["succeed"]){
+    if($succeed){
         foreach($_POST as $k=>$v){
             if(startsWith($k, "imatiere")){
             }
@@ -49,13 +49,13 @@ if(isset($_POST["itype"])){
     </head>
     <body>
         <div>
-        <?php
-        if($result["succeed"]){
-            echo("<h1>Votre compte a été créé !</h1><p>Retournez à l'accueil vous connecter</p>");
-        }else{
-            echo("<h1>Il y a eu une erreur !</h1><p>".$result["error"]."</p>");
-        }
-        ?>
+            <?php
+            if($succeed){
+                echo("<h1>Votre compte a été créé !</h1><p>Retournez à l'accueil vous connecter</p>");
+            }else{
+                echo("<h1>Il y a eu une erreur !</h1><p>".$result["error"]."</p>");
+            }
+            ?>
             <a href="../index.php">Accueil</a>
         </div>
     </body>

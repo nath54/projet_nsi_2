@@ -3,6 +3,11 @@ html{
     font-size: 1em;
     background-color: rgb(40,40,40);
     color: white;
+    overflow: hidden;
+}
+
+body{
+    overflow: hidden;
 }
 
 p{
