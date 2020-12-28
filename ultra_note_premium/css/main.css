@@ -33,6 +33,12 @@
     margin-right: 20px;
 }
 
+.ha{
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+}
+
 .hel{
     margin: 20px;
 }
@@ -65,6 +71,14 @@
     font-size:  1.05em;
     color: rgb(180, 41, 180);
     text-shadow: 2px 2px black;
+}
+.bt_header_active{
+    border:none;
+    margin-left:1px;
+    transition-duration: 0.8s;
+    background-color: rgba(30, 30, 30, 0.2);
+    font-size:  1em;
+    color: white;
 }
 
 .div_main{

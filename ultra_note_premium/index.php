@@ -84,7 +84,7 @@ echo $txt;
                     </div>
                     <div class="frow">
                         <label >mot de passe : </label>
-                        <input name="cpassword" id="cpassword" type="text" class="i_form"/>
+                        <input name="cpassword" id="cpassword" type="password" class="i_form"/>
                     </div>
                     <div class="m_r">
                         <button class="bt_form">Se connecter</button>

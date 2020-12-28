@@ -39,18 +39,16 @@ else{
         if($compte["type_"]=="eleve"){
             include("includes/header_eleve.html");
         }else if($compte["type_"]=="prof"){
-            include("includes/header_prof.php");
+            include("includes/header_prof.html");
         }else if($compte["type_"]=="admin"){
-            include("includes/header_admin.php");
+            include("includes/header_admin.html");
         }else if($compte["type_"]=="parent"){
-            include("includes/header_parent.php");
+            include("includes/header_parent.html");
         }
         ?>
         <!-- Main -->
-        <div id="d_" class="div_main">
-        </div>
-        <!-- -->
-        <div id="d_notes" class="div_main">
+        <div id="div_main" class="div_main">
+
         </div>
         <!-- footer -->
         <?php include("includes/footer.php"); ?>
