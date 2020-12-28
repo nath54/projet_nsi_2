@@ -107,7 +107,18 @@
     padding: 8px;
     margin: 5px;
     text-align: center;
+    transition-duration: 0.6s;
     background-color: rgb(50, 50, 50);
+}.div_compte:hover{
+    background-color: rgb(60, 60, 60);
+}
+#compte_plus{
+    font-size: 1.5em;
+    padding-top: 13px;
+    min-width:100px;
+}
+#compte_plus:hover{
+    cursor:pointer;
 }
 
 .row_bt{
@@ -137,4 +148,5 @@
 }.bt_edit:hover{
     transform: rotateZ(-25deg);
 }
+
 

@@ -28,4 +28,8 @@ foreach($accounts as $i=>$data){
 
 ?>
 
+<div id="compte_plus" class="div_compte" onclick="create_account();">
+    <h1>+</h1>
+</div>
+
 </div>
