@@ -12,7 +12,7 @@ function clear(){
 function change_page(page, bt_actif=null){
     var d=document.getElementById("div_main");
     clear();
-    $( "#div_main" ).load( "includes/"+page+".php", function( response, status, xhr ) {
+    $( "#div_main" ).load( "includes/pages/"+page+".php", function( response, status, xhr ) {
         if ( status == "error" ) {
           var msg = "Sorry but there was an error: ";
           alert( msg + xhr.status + " " + xhr.statusText );

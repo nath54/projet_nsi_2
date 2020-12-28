@@ -51,13 +51,13 @@ else{
         <div id="div_main" class="div_main">
             <?php
             if($compte["type_"]=="eleve"){
-                include("includes/accueil_eleve.php");
+                include("includes/pages/accueil_eleve.php");
             }else if($compte["type_"]=="prof"){
-                include("includes/accueil_prof.php");
+                include("includes/pages/accueil_prof.php");
             }else if($compte["type_"]=="admin"){
-                include("includes/accueil_admin.php");
+                include("includes/pages/accueil_admin.php");
             }else if($compte["type_"]=="parent"){
-                include("includes/accueil_parent.php");
+                include("includes/pages/accueil_parent.php");
             }
             ?>
         </div>
