@@ -88,5 +88,53 @@
 .div_main{
     margin-top: 60px;
     width: 100%;
+    overflow-y: scroll;
+}
+
+.row_wrap{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.div_compte{
+    font-size: 0.8em;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 250px;
+    max-height: 250px;
+    padding: 8px;
+    margin: 5px;
+    text-align: center;
+    background-color: rgb(50, 50, 50);
+}
+
+.row_bt{
+    text-align: center;
+    padding: 5px;
+    margin:auto;
+}
+
+.bt_edit, .bt_delete{
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transition-duration: 0.5s;
+}
+
+.bt_delete{
+    background-image: url("../res/delete.svg");
+}.bt_delete:hover{
+    transform: scale(0.9);
+}
+
+.bt_edit{
+    background-image: url("../res/edit.svg");
+}.bt_edit:hover{
+    transform: rotateZ(-25deg);
 }
 

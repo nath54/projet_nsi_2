@@ -118,6 +118,12 @@ function get_account($db, $id_){
     return $tab;
 }
 
+function requete($db, $requested){
+    $reponse = $db->query($requested);
+    $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+    return $tab;
+}
+
 /* exemple de requete
 
 $requested = "";
