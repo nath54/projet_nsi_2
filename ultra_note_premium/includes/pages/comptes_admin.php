@@ -28,7 +28,7 @@ foreach($accounts as $i=>$data){
 
 ?>
 
-<div id="compte_plus" class="div_compte" onclick="create_account();">
+<div id="compte_plus" class="div_compte" onclick="change_page('create_compte');">
     <h1>+</h1>
 </div>
 

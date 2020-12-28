@@ -8,74 +8,43 @@ var characteres_autorises = [
 
 function before_submit(id_f="finscription"){
     var good=true;
+    var pn = document.getElementById("iprenom").value;
+    var n = document.getElementById("inom").value;
     var p = document.getElementById("ipseudo").value;
     var ps1 = document.getElementById("ipassword").value;
     var ps2 = document.getElementById("ipassword2").value;
-    // pseudo test
-    if(p.length<6){
-        alert("Le pseudo doit faire au moins 6 characteres");
-        return
+    var fs = {
+        "inom": {"nom":"nom", "min": 2, "max": 18},
+        "iprenom": {"nom":"prénom", "min": 2, "max": 18},
+        "ipseudo": {"nom":"pseudo", "min": 6, "max": 18},
+        "ipassword": {"nom":"mot de passe", "min": 8, "max": 18},
     }
-    if(p.length>18){
-        alert("Le pseudo doit faire au plus 18 characteres");
-        return
-    }
-    for(c of p){
-        if(!characteres_autorises.includes(c)){
-            alert("Charactère non autorisé dans le pseudo ! Veuillez n'utiliser que des lettres (majuscules ou minuscules) et des chiffres sans accents !");
-            return
+    //
+    for(f of Object.keys(fs)){
+        var d = fs[f];
+        var e = document.getElementById(f);
+        if(e){
+            var t = e.value;
+            if(t.length<d["min"]){
+                alert("Le "+d["nom"]+" doit contenir au moins "+d["min"]+" characteres !");
+                return
+            }
+            if(t.length>d["max"]){
+                alert("Le "+d["nom"]+" doit contenir au plus "+d["mac"]+" characteres !");
+                return
+            }
+            for(c of t){
+                if(!characteres_autorises.includes(c)){
+                    alert("Un charactere n'est pas autorisé dans le "+d["nom"]+" !");
+                    return
+                }
+            }
         }
     }
     // password test
     if(ps1 != ps2){
         alert("Les mots de passes sont différents !");
         return
-    }
-    if(ps1.length<8){
-        alert("Le mot de passe doit faire au moins 8 characteres");
-        return
-    }
-    if(ps1.length>18){
-        alert("Le mot de passe doit faire au plus 18 characteres");
-        return
-    }
-    for(c of ps1){
-        if(!characteres_autorises.includes(c)){
-            alert("Charactère non autorisé dans le mot de passe ! Veuillez n'utiliser que des lettres (majuscules ou minuscules) et des chiffres sans accents !");
-            return
-        }
-    }
-    // Test du prénom et du nom
-    var pn = document.getElementById("iprenom").value;
-    var n = document.getElementById("inom").value;
-    if(pn.length < 2){
-        alert("Le prénom doit faire au moin 2 characteres");
-        return
-    }
-    if(pn.length > 18){
-        alert("Le prénom doit faire au plus 18 characteres");
-        return
-    }
-    for(c of pn){
-        if(!characteres_autorises.includes(c)){
-            alert("Un charactere n'est pas autorisé dans le prénom !")
-            return
-        }
-    }
-    //
-    if(n.length < 2){
-        alert("Le nom doit faire au moin 2 characteres");
-        return
-    }
-    if(n.length > 18){
-        alert("Le nom doit faire au plus 18 characteres");
-        return
-    }
-    for(c of n){
-        if(!characteres_autorises.includes(c)){
-            alert("Un charactere n'est pas autorisé dans le nom !")
-            return
-        }
     }
     // on submit si c'est bon
     document.getElementById(id_f).submit();

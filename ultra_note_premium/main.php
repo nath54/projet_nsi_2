@@ -37,6 +37,7 @@ sessionStorage["actual_page"]="accueil_"+sessionStorage['tp_compte'];
         <link href="css/style_dark.css" rel="stylesheet" />
         <link href="css/main.css" rel="stylesheet" />
         <script src="js/main.js"></script>
+        <script src="js/forms.js"></script>
         <script src="js/jquery.js"></script>
     </head>
     <body>

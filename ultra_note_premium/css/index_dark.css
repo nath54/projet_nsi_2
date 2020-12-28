@@ -108,26 +108,6 @@
     transform: rotateZ(15deg);
 }
 
-
-.bt_m{
-    background-color: rgb(250, 250, 250);
-    color: black;
-    font-weight: 1000;
-    font-size: 1em;
-    padding: 1px;
-    border: 2px solid black;
-    border-radius: 5px;
-    text-decoration: none;
-    min-width: 8px;
-    min-height: 8px;
-    margin: 5px;
-    text-align: center;
-}
-
-.frow{
-    margin: 10px;
-}
-
 html{
     width: 100%;
     height: 100%;
@@ -137,33 +117,3 @@ html{
     background-repeat: no-repeat;
 }
 
-.i_form{
-    font-family: 'Arvo', serif;
-    font-size: 1em;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 8px;
-    border: none;
-    background-color: rgb(30,30,30);
-    color: white;
-}
-
-.bt_form{
-    text-decoration: none;
-    color: rgb(60, 60, 70);
-    font-family: 'Arvo', serif;
-    font-size: 1em;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    border: none;
-    transition-duration: 0.6s;
-    background-color: rgb(150, 150, 150);
-}.bt_form:hover{
-    color: rgb(50, 0, 0);
-    background-color: rgb(130, 140, 180);
-}
