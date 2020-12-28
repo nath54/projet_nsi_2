@@ -124,6 +124,10 @@ function requete($db, $requested){
     return $tab;
 }
 
+function action($db, $action){
+    $db->query($action);
+}
+
 /* exemple de requete
 
 $requested = "";

@@ -9,6 +9,7 @@ if(isset($_SESSION["id"])){
     $r = get_account($bdd, $id_account);
     if(count($r)>0){
         $compte = $r[0];
+        echo("<script>sessionStorage['tp_compte']='".$compte["type_"]."'</script>");
     }
     else{
         echo("<script>alert('erreur !');</script>");
@@ -21,6 +22,10 @@ else{
 }
 
 ?>
+<script>
+sessionStorage["bt_actif"]=null;
+sessionStorage["actual_page"]="accueil_"+sessionStorage['tp_compte'];
+</script>
 <html>
     <head>
         <meta charset="utf-8" />
