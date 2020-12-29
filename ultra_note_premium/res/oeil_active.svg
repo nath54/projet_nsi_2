@@ -12,7 +12,7 @@
    viewBox="0 0 25 25"
    version="1.1"
    id="SVGRoot"
-   sodipodi:docname="oeil.svg"
+   sodipodi:docname="oei_activel.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <defs
      id="defs833" />
@@ -52,28 +52,28 @@
      inkscape:groupmode="layer"
      id="layer1">
     <ellipse
-       style="fill:#ffffff;stroke:#000000;stroke-width:1.88976378;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers;fill-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.88976;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
        id="path1407"
        cx="12.524561"
        cy="13.109571"
        rx="11.673635"
-       ry="7.2594585" />
+       ry="3.3239279" />
     <ellipse
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.969846;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
        id="path1409"
-       cx="12.285237"
-       cy="13.162754"
-       rx="3.7227991"
-       ry="4.9725962"
-       inkscape:transform-center-x="-0.53182845" />
+       cx="12.125689"
+       cy="12.950023"
+       rx="3.2441535"
+       ry="4.1748533"
+       inkscape:transform-center-x="-0.46345031" />
     <ellipse
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.969846;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
        id="path1421"
-       cx="11.274763"
-       cy="14.04027"
-       rx="1.2763883"
-       ry="1.382754"
-       inkscape:transform-center-x="-0.5850113"
-       inkscape:transform-center-y="0.5850113" />
+       cx="11.245132"
+       cy="13.68676"
+       rx="1.1122812"
+       ry="1.1609217"
+       inkscape:transform-center-x="-0.50979534"
+       inkscape:transform-center-y="0.49115861" />
   </g>
 </svg>

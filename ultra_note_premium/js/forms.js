@@ -7,12 +7,6 @@ var characteres_autorises = [
 ]
 
 function before_submit(id_f="finscription"){
-    var good=true;
-    var pn = document.getElementById("iprenom").value;
-    var n = document.getElementById("inom").value;
-    var p = document.getElementById("ipseudo").value;
-    var ps1 = document.getElementById("ipassword").value;
-    var ps2 = document.getElementById("ipassword2").value;
     var fs = {
         "inom": {"nom":"nom", "min": 2, "max": 18},
         "iprenom": {"nom":"prénom", "min": 2, "max": 18},

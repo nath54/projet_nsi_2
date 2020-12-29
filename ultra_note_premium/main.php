@@ -36,6 +36,7 @@ sessionStorage["actual_page"]="accueil_"+sessionStorage['tp_compte'];
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
         <link href="css/style_dark.css" rel="stylesheet" />
         <link href="css/main.css" rel="stylesheet" />
+        <script src="js/lib.js"></script>
         <script src="js/main.js"></script>
         <script src="js/forms.js"></script>
         <script src="js/jquery.js"></script>

@@ -1,7 +1,7 @@
 
 
 function toggle_password(pid){
-    var d=document.getElementById("pid");
+    var d=document.getElementById(pid);
     if(!d){
         return
     }

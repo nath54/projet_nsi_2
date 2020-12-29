@@ -12,5 +12,5 @@ if(isset($_GET["id_account"]) && $_GET["id_account"]!=null){
     echo "<script>alert('Le compte a bien été supprimé');</script>";
 }
 
-//echo "<script>update();</script>"
+echo "<script>update();</script>"
 ?>

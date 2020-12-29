@@ -54,6 +54,7 @@ echo $txt;
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
         <link href="css/index_dark.css" rel="stylesheet" />
         <link href="css/style_dark.css" rel="stylesheet" />
+        <script src="js/lib.js"></script>
         <script src="js/index.js"></script>
         <script src="js/forms.js"></script>
     </head>
@@ -86,6 +87,7 @@ echo $txt;
                     <div class="frow">
                         <label >mot de passe : </label>
                         <input name="cpassword" id="cpassword" type="password" class="i_form"/>
+                        <img class="bt_oeil" onclick="toggle_password('cpassword');">
                     </div>
                     <div class="m_r">
                         <button class="bt_form">Se connecter</button>

@@ -75,3 +75,22 @@ p{
     color: rgb(50, 0, 0);
     background-color: rgb(130, 140, 180);
 }
+
+.bt_oeil{
+    position: relative;
+    top: 7px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 100%;
+    background-image: url("../res/oeil.svg");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition-duration: 0.5s;
+}.bt_oeil:hover{
+    transform: scale(0.8);
+}.bt_oeil:active{
+    background-image: url("../res/oeil_active.svg");
+}
+

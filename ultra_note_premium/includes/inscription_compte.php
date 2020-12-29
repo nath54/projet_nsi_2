@@ -83,10 +83,12 @@ echo $txt;
 <div class="frow">
     <label >password : </label>
     <input name="ipassword" id="ipassword" type="password" class="i_form"/>
+    <img class="bt_oeil" onclick="toggle_password('ipassword');">
 </div>
 <div class="frow">
     <label >password (verify) : </label>
     <input name="ipassword2" id="ipassword2" type="password" class="i_form"/>
+    <img class="bt_oeil" onclick="toggle_password('ipassword2');">
 </div>
 <div class="frow">
     <label >Date de naissance : </label>
