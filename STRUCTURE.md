@@ -40,7 +40,7 @@ TABLE `comptes`
  - `nom` _TEXT_ : Le nom de famille de l'élève
  - `prenom` _TEXT_ : Le prénom de l'élève
  - `naissance` _DATE_ : La date de naissance de la personne
- - `classe` _INT_ (juste pour *eleve*) : l'identifiant de la classe de l'élève (pour pouvoir faire des innerjoins ou des trucs du genre)
+ - `id_classe` _INT_ (juste pour *eleve*) : l'identifiant de la classe de l'élève (pour pouvoir faire des innerjoins ou des trucs du genre)
 
 TABLE `amis`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
@@ -78,7 +78,7 @@ TABLE `classes`
  - `niveau` _TEXT_ : niveau de la classe "*seconde*", "*premiere*", "*terminale*"
  - `id_etablissement` _INT_ : id de l'etablissement
 
-TABLE `eleves_classe`
+TABLE `eleves_classes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `id_classe` _INT_ : id de la classe
  - `id_eleve` _INT_ : id de l'eleve qui est dans la classe

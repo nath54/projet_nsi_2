@@ -149,4 +149,14 @@
     transform: rotateZ(-25deg);
 }
 
+.margin_15{
+    margin: 15px;
+}
+.margin_v_auto{
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
+#filtres_comptes{
+    border-bottom: 1px solid black;
+}

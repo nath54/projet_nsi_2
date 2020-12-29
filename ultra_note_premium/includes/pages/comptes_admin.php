@@ -1,3 +1,11 @@
+
+
+
+<script>
+var datas_account={};
+var eleves_classes={}; // key = id_eleve, value = id_classe
+var eleves_groupes={}; // key = id_eleve, value = id_groupe
+</script>
 <?php
 
 include_once("../init.php");
@@ -5,8 +13,43 @@ include_once("../bdd.php");
 
 $bdd = load_db("../");
 
+$mon_compte = get_account($bdd, $_SESSION["id"]);
+
+foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes;") as $k=>$data){
+    echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
+}
+foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>$data){
+    echo "eleves_groupes[".$data["id_eleve"]."]=".$data["id_groupe"];
+}
 
 ?>
+<div class="row_wrap" id="filtres_comptes">
+    <h2 class="margin_15 margin_v_auto">Filtrer </h2>
+    <div class="margin_15 margin_v_auto">
+        <label>Trier par type :</label>
+        <select id="f_type" onchange="update_filtres();">
+            <option>tout</option>
+            <option>eleve</option>
+            <option>prof</option>
+            <option>admin</option>
+            <option>parent</option>
+        </select>
+    </div>
+    <div class="f_eleve margin_15 margin_v_auto">
+        <label>Trier par classe/groupes :</label>
+        <select id="f_classe" onchange="update_filtres();">
+            <option>tout</option>
+            <?php
+            foreach(requete($bdd, "SELECT id, nom FROM classes;") as $i=>$data){
+                echo "<option value='c_".$data["id"]."'>CLASSE : ".$data["nom"]."</option>";
+            }
+            foreach(requete($bdd, "SELECT id, nom FROM groupes;") as $i=>$data){
+                echo "<option value='g_".$data["id"]."'>GROUPE : ".$data["nom"]."</option>";
+            }
+            ?>
+        </select>
+    </div>
+</div>
 
 <div class="row_wrap">
 
@@ -18,12 +61,26 @@ $bdd = load_db("../");
 $accounts = requete($bdd, "SELECT * FROM comptes;");
 
 foreach($accounts as $i=>$data){
-    $td = "<div class='div_compte'>";
+    $td = "<div class='div_compte' id=".$data["id"].">";
     $td .= "<h1>".$data["nom"]." ".$data["prenom"]."</h1>";
     $td .= "<p>".$data["type_"]."</p>";
-    $td .= "<div class='row_wrap row_bt'> <button class='bt_edit'></button> <button class='bt_delete' onclick='delete_account(".$data["id"].")'></button> </div>";
+    if($data["id"]!=$_SESSION["id"]){
+        $td .= "<div class='row_wrap row_bt'> <button class='bt_edit'></button> <button class='bt_delete' onclick='delete_account(".$data["id"].")'></button> </div>";
+    }
     $td .= "</div>";
     echo $td;
+    $ts = "<script>datas_account[".$data["id"]."]={";
+    foreach($data as $k=>$v){
+        if(gettype($v) == "string"){
+            $ts .= "'".$k."':'".$v."',";
+        }
+        else if(in_array(gettype($v), ["float", "real", "integer"])){
+            $ts .= "'".$k."':".$v.",";
+        }
+    }
+    $ts = substr($ts, 0, -1);
+    $ts .= "}</script>";
+    echo $ts;
 }
 
 ?>
@@ -33,3 +90,27 @@ foreach($accounts as $i=>$data){
 </div>
 
 </div>
+<script>
+
+function update_filtres(){
+    var ftype = document.getElementById("f_type").value;
+    //
+    var cg = document.getElementById("f_classe").value;
+    var e_classes=[];
+    var e_grps=[];
+    if(cg[0]=="c"){
+        
+    }
+    //
+    for(i of Object.keys(datas_account)){
+        var data = datas_account[i];
+        var d=document.getElementById(data["id"]);
+        // type
+        if(ftype=="tout" || data["type_"]==ftype){ d.style.display = "initial"; }
+        else{ d.style.display = "none"; }
+        //
+
+    }
+}
+
+</script>

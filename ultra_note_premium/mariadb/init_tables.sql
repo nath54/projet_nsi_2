@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `classes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       niveau TEXT,
                                       id_etablissement INT);
 
-CREATE TABLE IF NOT EXISTS `eleves_classe` (id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `eleves_classes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                             id_classe INT,
                                             id_eleve INT);
 
