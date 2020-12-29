@@ -7,6 +7,8 @@ include_once "../bdd.php";
 
 $bdd = load_db("../");
 
+aff_array($_POST);
+
 if(isset($_POST["itype"])){
     //
     $data = array();
@@ -28,15 +30,15 @@ if(isset($_POST["itype"])){
             else if(startsWith($k, "igroupes")){
             }
         }
+        echo "<script>window.location.href='../../main.php?page=\"comptes_admin\"';</script>";
     }
     else{
         echo "<script>alert('il y a eu une erreur !');</script>";
         echo "<script>window.location.href='../../index.html';</script>";
     }
 }
-else{
-    echo "<script>window.location.href='../../main.html?page=\"comptes_admin\"';</script>";
-}
+
+
 
 
 ?>

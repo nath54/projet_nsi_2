@@ -41,7 +41,7 @@ sessionStorage["actual_page"]="accueil_"+sessionStorage['tp_compte'];
         <script src="js/forms.js"></script>
         <script src="js/jquery.js"></script>
     </head>
-    <body>
+    <body onload="on_load();">
         <!-- header -->
         <?php
         if($compte["type_"]=="eleve"){

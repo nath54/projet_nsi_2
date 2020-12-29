@@ -9,6 +9,18 @@ function clear(){
     d.innerHTML="";
 }
 
+function delete_account(id_ac, txt_en_plus=""){
+    var c = confirm("Etes vous sur de vouloir supprimer ce compte "+txt_en_plus+"?");
+    if(c){
+        $( "#div_main" ).load( "includes/utils/delete_account.php?id_account="+id_ac, function( response, status, xhr ) {
+            if ( status == "error" ) {
+              var msg = "Sorry but there was an error: ";
+              alert( msg + xhr.status + " " + xhr.statusText );
+            }
+        });
+    }
+}
+
 function change_page(page, bt_actif=null, arguments=""){
     sessionStorage["bt_actif"]=bt_actif;
     sessionStorage["actual_page"]=page;
@@ -35,18 +47,6 @@ function change_page(page, bt_actif=null, arguments=""){
     }
 }
 
-function delete_account(id_ac, txt_en_plus=""){
-    var c = confirm("Etes vous sur de vouloir supprimer ce compte "+txt_en_plus+"?");
-    if(c){
-        $( "#div_main" ).load( "includes/utils/delete_account.php?id_account="+id_ac, function( response, status, xhr ) {
-            if ( status == "error" ) {
-              var msg = "Sorry but there was an error: ";
-              alert( msg + xhr.status + " " + xhr.statusText );
-            }
-        });
-    }
-}
-
 function update(){
     if(sessionStorage.getItem("actual_page")==null){
         change_page("accueil_"+sessionStorage["tp_compte"]);
@@ -56,7 +56,7 @@ function update(){
     }
 }
 
-document.body.onload = function(){
+function on_load(){
     //
     var page=null;
     //
