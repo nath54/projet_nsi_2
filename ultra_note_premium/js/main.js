@@ -56,3 +56,18 @@ function update(){
     }
 }
 
+document.body.onload = function(){
+    //
+    var page=null;
+    //
+    var parameters = location.search.substring(1).split("&");
+    for(p of parameters){
+        var pp = p.split("=");
+        if(pp[0]=="page"){
+            page=pp[1];
+        }
+    }
+    //
+    change_page(page);
+}
+
