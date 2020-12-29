@@ -22,6 +22,10 @@ function delete_account(id_ac, txt_en_plus=""){
 }
 
 function change_page(page, bt_actif=null, arguments=""){
+    if(page==null){
+        page="accueil_"+sessionStorage["tp_compte"]
+    }
+    //alert("Change page vers "+page);
     sessionStorage["bt_actif"]=bt_actif;
     sessionStorage["actual_page"]=page;
     var d=document.getElementById("div_main");
