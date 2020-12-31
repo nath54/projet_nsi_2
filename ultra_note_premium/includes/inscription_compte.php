@@ -3,7 +3,6 @@
 $mode="defaut";
 if(isset($_GET["mode"])){
     $mode=$_GET["mode"];
-
 }
 if(isset($_SESSION["mode_inscription"])){
     $mode=$_SESSION["mode_inscription"];
