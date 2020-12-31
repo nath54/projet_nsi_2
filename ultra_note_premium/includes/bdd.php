@@ -75,6 +75,24 @@ function inscription($db, $data){
     }
 }
 
+function modification_compte($db, $data, $id_compte){
+    //
+    $txt = "";
+    foreach($data as $key=>$value){
+        if(gettype($value) == "string"){
+            $txt.= $key." = '".$value."', ";
+        }
+        else if(in_array(gettype($value), ["float", "real", "integer"])){
+            $txt.= $key." = ".$value.", ";
+        }
+    }
+    $txt = substr($txt, 0, -2).")";
+    //
+    $requested = "UPDATE comptes SET ".$txt." WHERE id=".$id_compte.";";
+    $db->query($requested);
+    return true;
+}
+
 function get_etablissements($db){
     $requested = "SELECT nom, id FROM etablissements;";
     $reponse = $db->query($requested);
