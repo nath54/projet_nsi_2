@@ -53,6 +53,13 @@ if(endsWith($txt, ",")){
 $txt=$txt."};</script>";
 echo $txt;
 
+// PREP MODIF
+
+$mod=false;
+if(isset($_SESSION["id_compte_modif"])){
+    $mod=true;
+    $dc = requete("SELECT * FROM comptes WHERE id=".$_SESSION["id_compte_modif"]);
+}
 
 ?>
 
@@ -70,24 +77,24 @@ echo $txt;
 </div>
 <div class="frow">
     <label >nom : </label>
-    <input name="inom" id="inom" type="text" class="i_form"/>
+    <input name="inom" id="inom" type="text" class="i_form" <?php if($mod){ echo "value='".$dc["nom"]."'"} ?>/>
 </div>
 <div class="frow">
     <label >prénom : </label>
-    <input name="iprenom" id="iprenom" type="text" class="i_form"/>
+    <input name="iprenom" id="iprenom" type="text" class="i_form"  <?php if($mod){ echo "value='".$dc["prenom"]."'"} ?>/>
 </div>
 <div class="frow">
     <label >pseudo : </label>
-    <input name="ipseudo" id="ipseudo" type="text" class="i_form"/>
+    <input name="ipseudo" id="ipseudo" type="text" class="i_form"  <?php if($mod){ echo "value='".$dc["pseudo"]."'"} ?>/>
 </div>
 <div class="frow">
     <label >password : </label>
-    <input name="ipassword" id="ipassword" type="password" class="i_form"/>
+    <input name="ipassword" id="ipassword" type="password" class="i_form" placeholder="Keep Empty to Keep" />
     <img class="bt_oeil" onclick="toggle_password('ipassword');">
 </div>
 <div class="frow">
     <label >password (verify) : </label>
-    <input name="ipassword2" id="ipassword2" type="password" class="i_form"/>
+    <input name="ipassword2" id="ipassword2" type="password" class="i_form" placeholder="Keep Empty to Keep"/>
     <img class="bt_oeil" onclick="toggle_password('ipassword2');">
 </div>
 <div class="frow">

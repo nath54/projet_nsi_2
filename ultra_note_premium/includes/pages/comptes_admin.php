@@ -65,7 +65,7 @@ foreach($accounts as $i=>$data){
     $td .= "<h1>".$data["nom"]." ".$data["prenom"]."</h1>";
     $td .= "<p>".$data["type_"]."</p>";
     if($data["id"]!=$_SESSION["id"]){
-        $td .= "<div class='row_wrap row_bt'> <button class='bt_edit'></button> <button class='bt_delete' onclick='delete_account(".$data["id"].")'></button> </div>";
+        $td .= "<div class='row_wrap row_bt'> <button class='bt_edit' onclick='modify_account(".$data["id"].")'></button> <button class='bt_delete' onclick='delete_account(".$data["id"].")'></button> </div>";
     }
     $td .= "</div>";
     echo $td;

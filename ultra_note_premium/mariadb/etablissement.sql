@@ -35,6 +35,7 @@ INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TB", "terminale", 1
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TC", "terminale", 1);
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TD", "terminale", 1);
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TE", "terminale", 1);
+INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TF", "terminale", 1);
 
 /*
 

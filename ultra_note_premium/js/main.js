@@ -21,6 +21,15 @@ function delete_account(id_ac, txt_en_plus=""){
     }
 }
 
+function modify_account(id_ac, txt_en_plus=""){
+    $( "#div_main" ).load( "includes/pages/modify_account.php?id_account="+id_ac, function( response, status, xhr ) {
+        if ( status == "error" ) {
+            var msg = "Sorry but there was an error: ";
+            alert( msg + xhr.status + " " + xhr.statusText );
+        }
+    });
+}
+
 function change_page(page, bt_actif=null, arguments=""){
     if(page==null){
         page="accueil_"+sessionStorage["tp_compte"]
