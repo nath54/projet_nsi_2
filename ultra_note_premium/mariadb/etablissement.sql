@@ -36,3 +36,9 @@ INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TC", "terminale", 1
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TD", "terminale", 1);
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TE", "terminale", 1);
 
+/*
+
+*/
+
+INSERT INTO comptes (type_, id_etablissement, pseudo, password_, nom, prenom, naissance)
+       VALUES ("admin", 1, "admin", "admin", "Ad", "Min", "01-01-2001");
