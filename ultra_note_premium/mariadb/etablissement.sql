@@ -19,6 +19,7 @@ INSERT INTO etablissements (nom, pays, region, ville, adresse, lien_maps, email,
  Classes
 */
 
+INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("aucune", "aucun", 1);
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("2A", "seconde", 1);
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("2B", "seconde", 1);
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("2C", "seconde", 1);
@@ -42,4 +43,5 @@ INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TF", "terminale", 1
 */
 
 INSERT INTO comptes (type_, id_etablissement, pseudo, password_, nom, prenom, naissance)
-       VALUES ("admin", 1, "admin", "admin", "Ad", "Min", "01-01-2001");
+       VALUES ("admin", 1, "admin", MD5("admin"), "Ad", "Min", "01-01-2001");
+

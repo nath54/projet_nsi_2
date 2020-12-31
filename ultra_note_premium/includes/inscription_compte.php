@@ -9,9 +9,6 @@ if(isset($_SESSION["mode_inscription"])){
     $mode=$_SESSION["mode_inscription"];
 }
 
-include_once "init.php";
-include_once "bdd.php";
-
 $bdd = load_db("../");
 
 // GET MATIERES
@@ -37,8 +34,6 @@ if(endsWith($txt, ",")){
 $txt=$txt."};</script>";
 echo $txt;
 
-
-
 // GET GROUPES/CLASSES
 $txt="<script>var grpclasses = {";
 foreach(get_classes($bdd) as $k=>$v){
@@ -58,7 +53,10 @@ echo $txt;
 $mod=false;
 if(isset($_SESSION["id_compte_modif"])){
     $mod=true;
-    $dc = requete("SELECT * FROM comptes WHERE id=".$_SESSION["id_compte_modif"])[0];
+    $dc = requete($bdd, "SELECT * FROM comptes WHERE id=".$_SESSION["id_compte_modif"].";")[0];
+    $jb = intval(explode("-", $dc["naissance"])[0]);
+    $mb = intval(explode("-", $dc["naissance"])[1]);
+    $ab = intval(explode("-", $dc["naissance"])[2]);
 }
 
 ?>
@@ -102,21 +100,24 @@ if(isset($_SESSION["id_compte_modif"])){
     <select name="ijour" id="ijour" class="i_form">
         <?php
 for($x = 1; $x <= 31; $x++){
-echo "<option>".$x."</option>";
+    if($x == $jb){ echo "<option selected>".$x."</option>"; }
+    else{ echo "<option >".$x."</option>"; }
 }
         ?>
     </select>
     <select name="imois" id="imois" class="i_form">
         <?php
 for($x = 1; $x <= 12; $x++){
-echo "<option>".$x."</option>";
+    if($x == $mb){ echo "<option selected>".$x."</option>"; }
+    else{ echo "<option >".$x."</option>"; }
 }
         ?>
     </select>
     <select name="ian" id="ian" class="i_form">
     <?php
 for($x = 1990; $x <= 2010; $x++){
-echo "<option>".$x."</option>";
+    if($x == $ab){ echo "<option selected>".$x."</option>"; }
+    else{ echo "<option >".$x."</option>"; }
 }
         ?>
     </select>
@@ -127,7 +128,8 @@ echo "<option>".$x."</option>";
         <select id="ietablissement" name="ietablissement" class="i_form">
 <?php
 foreach(get_etablissements($bdd) as $k=>$v){
-echo "<option value=".$v["id"].">".$v["nom"]."</option>";
+    if($v["id"]==$dc["id_etablissement"]){ echo "<option value=".$v["id"]." selected >".$v["nom"]."</option>"; }
+    else{ echo "<option value=".$v["id"].">".$v["nom"]."</option>"; }
 }
 ?>
         </select>
@@ -139,8 +141,10 @@ echo "<option value=".$v["id"].">".$v["nom"]."</option>";
         <select id="iclasse" name="iclasse" class="i_form">
 <?php
 $classes = get_classes($bdd);
+$classe_eleve = requete($bdd, "SELECT * FROM eleves_classes WHERE id_eleve=".$dc["id"]);
+
 foreach($classes as $k=>$v){
-echo("<option>".$v["niveau"].", ".$v["nom"]."</option>");
+    echo("<option value=".$v["id"].">".$v["niveau"].", ".$v["nom"]."</option>");
 }
 ?>
         </select>

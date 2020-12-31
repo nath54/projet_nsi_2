@@ -118,12 +118,18 @@ function get_account($db, $id_){
     return $tab;
 }
 
+// Fonction pour recuperer des infos depuis la bdd
+// C'est plus pratique que de faire des milliers de fonctions comme ci-dessus
+// Cette fonction sert a récupérer des infos depuis la base de donnéee
 function requete($db, $requested){
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
     return $tab;
 }
 
+// Fonction pour executer une requete pour la bdd
+// C'est bien plus pratique que de faire des milliers de fonctions comme ci-dessus
+// Cette fonction sert a insérer/modifier des infos a la base de donnéee
 function action($db, $action){
     $db->query($action);
 }
