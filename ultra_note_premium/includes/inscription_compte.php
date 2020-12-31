@@ -58,7 +58,7 @@ echo $txt;
 $mod=false;
 if(isset($_SESSION["id_compte_modif"])){
     $mod=true;
-    $dc = requete("SELECT * FROM comptes WHERE id=".$_SESSION["id_compte_modif"]);
+    $dc = requete("SELECT * FROM comptes WHERE id=".$_SESSION["id_compte_modif"])[0];
 }
 
 ?>
@@ -77,15 +77,15 @@ if(isset($_SESSION["id_compte_modif"])){
 </div>
 <div class="frow">
     <label >nom : </label>
-    <input name="inom" id="inom" type="text" class="i_form" <?php if($mod){ echo "value='".$dc["nom"]."'"} ?>/>
+    <input name="inom" id="inom" type="text" class="i_form" <?php if($mod){ echo "value='".$dc["nom"]."'"; } ?>/>
 </div>
 <div class="frow">
     <label >prénom : </label>
-    <input name="iprenom" id="iprenom" type="text" class="i_form"  <?php if($mod){ echo "value='".$dc["prenom"]."'"} ?>/>
+    <input name="iprenom" id="iprenom" type="text" class="i_form"  <?php if($mod){ echo "value='".$dc["prenom"]."'"; } ?>/>
 </div>
 <div class="frow">
     <label >pseudo : </label>
-    <input name="ipseudo" id="ipseudo" type="text" class="i_form"  <?php if($mod){ echo "value='".$dc["pseudo"]."'"} ?>/>
+    <input name="ipseudo" id="ipseudo" type="text" class="i_form"  <?php if($mod){ echo "value='".$dc["pseudo"]."'"; } ?>/>
 </div>
 <div class="frow">
     <label >password : </label>
