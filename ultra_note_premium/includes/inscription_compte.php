@@ -12,7 +12,10 @@ if(isset($_SESSION["mode_inscription"])){
     $mode=$_SESSION["mode_inscription"];
 }
 
-$bdd = load_db("../");
+if(!isset($bdd)){
+    $bdd = load_db("../");
+}
+
 
 // GET MATIERES
 $txt="<script>var matieres = [";
@@ -38,8 +41,9 @@ $txt=$txt."};</script>";
 echo $txt;
 
 // GET GROUPES/CLASSES
+$classes = get_classes($bdd);
 $txt="<script>var grpclasses = {";
-foreach(get_classes($bdd) as $k=>$v){
+foreach($classes as $k=>$v){
     $txt=$txt."'cla_".$v["id"]."':"."'CLASSE : ".$v["nom"]."',";
 }
 foreach(get_groupes($bdd) as $k=>$v){
@@ -54,6 +58,9 @@ echo $txt;
 // PREP MODIF
 
 $mod=false;
+$jb=null;
+$mb=null;
+$ab=null;
 if(isset($_SESSION["id_compte_modif"])){
     $mod=true;
     $dc = requete($bdd, "SELECT * FROM comptes WHERE id=".$_SESSION["id_compte_modif"].";")[0];
@@ -141,13 +148,28 @@ foreach(get_etablissements($bdd) as $k=>$v){
 
 <div id="ieleve">
     <div class="frow"><label>Classe : </label>
-        <select id="iclasse" name="iclasse" class="i_form">
+        <select id="id_classe" name="iclasse" class="i_form">
 <?php
-$classes = get_classes($bdd);
-$classe_eleve = requete($bdd, "SELECT * FROM eleves_classes WHERE id_eleve=".$dc["id"].";")[0];
+if($mod){
+    $r = requete($bdd, "SELECT * FROM eleves_classes WHERE id_eleve=".$dc["id"].";");
+    if(count($r)>0){
+        $classe_eleve=$r[0];
+    }
+    else{
+        $classe_eleve=array();
+        $classe_eleve["id_classe"]=null;
+    }
 
-foreach($classes as $k=>$v){
-    if($v["id"]==$classe_eleve["id_classe"]){
+    foreach($classes as $k=>$v){
+        if($v["id"]==$classe_eleve["id_classe"]){
+            echo("<option value=".$v["id"].">".$v["niveau"].", ".$v["nom"]."</option>");
+        }else{
+            echo("<option value=".$v["id"].">".$v["niveau"].", ".$v["nom"]."</option>");
+        }
+    }
+}
+else{
+    foreach($classes as $k=>$v){
         echo("<option value=".$v["id"].">".$v["niveau"].", ".$v["nom"]."</option>");
     }
 }

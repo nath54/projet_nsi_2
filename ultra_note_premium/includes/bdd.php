@@ -71,6 +71,10 @@ function inscription($db, $data){
         //
         $requested = "INSERT INTO comptes ".$txt_nv." VALUES ".$txt_v;
         $db->query($requested);
+        $id_eleve = $db::lastInsertId();
+        //
+        $requested = "INSERT INTO classes_eleves (id_eleve, id_classe) VALUES (".$id_eleve.", ".$data["id_classe"]." );";
+        $db->query($requested);
         return true;
     }
 }

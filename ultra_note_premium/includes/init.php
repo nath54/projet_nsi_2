@@ -19,5 +19,8 @@ function aff_array($ar){
     echo "</table>";
 }
 
+function alert($txt){
+    echo "<script>alert('".$txt."');</script>";
+}
 
 ?>

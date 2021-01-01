@@ -17,6 +17,7 @@ if(isset($_POST["itype"])){
     $data["type_"] = $_POST["itype"];
     $data["id_etablissement"] = intval($_POST["ietablissement"]);
     $data["naissance"] = "".$_POST["ian"]."-".$_POST["imois"]."-".$_POST["ijour"];
+    $data["id_classe"] = $_POST["id_classe"];
     $ope="inscription";
     if(isset($_POST["operation"]) && $_POST["operation"]=="modification"){
         $ope="modification";
