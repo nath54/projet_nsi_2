@@ -38,12 +38,18 @@ if(isset($_POST["itype"])){
             else if(startsWith($k, "igroupes")){
             }
         }
+        $_SESSION["mode_inscription"]=null;
+        $_SESSION["id_compte_modif"]=null;
         echo "<script>window.location.href='../../main.php?page=comptes_admin';</script>";
     }
     else{
+        $_SESSION["mode_inscription"]=null;
+        $_SESSION["id_compte_modif"]=null;
         echo "<script>alert('il y a eu une erreur !');</script>";
         echo "<script>window.location.href='../../index.html';</script>";
     }
+    $_SESSION["mode_inscription"]=null;
+    $_SESSION["id_compte_modif"]=null;
 }
 
 

@@ -61,7 +61,7 @@ $mod=false;
 $jb=null;
 $mb=null;
 $ab=null;
-if(isset($_SESSION["id_compte_modif"])){
+if( isset($_SESSION["id_compte_modif"]) ){
     $mod=true;
     $dc = requete($bdd, "SELECT * FROM comptes WHERE id=".$_SESSION["id_compte_modif"].";")[0];
     $jb = intval(explode("-", $dc["naissance"])[0]);
