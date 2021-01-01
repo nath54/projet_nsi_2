@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $mode="defaut";
 if(isset($_GET["mode"])){
     $mode=$_GET["mode"];
@@ -140,11 +144,14 @@ foreach(get_etablissements($bdd) as $k=>$v){
         <select id="iclasse" name="iclasse" class="i_form">
 <?php
 $classes = get_classes($bdd);
-$classe_eleve = requete($bdd, "SELECT * FROM eleves_classes WHERE id_eleve=".$dc["id"]);
+$classe_eleve = requete($bdd, "SELECT * FROM eleves_classes WHERE id_eleve=".$dc["id"].";")[0];
 
 foreach($classes as $k=>$v){
-    echo("<option value=".$v["id"].">".$v["niveau"].", ".$v["nom"]."</option>");
+    if($v["id"]==$classe_eleve["id_classe"]){
+        echo("<option value=".$v["id"].">".$v["niveau"].", ".$v["nom"]."</option>");
+    }
 }
+
 ?>
         </select>
     </div>
