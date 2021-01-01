@@ -62,11 +62,14 @@ $jb=null;
 $mb=null;
 $ab=null;
 if( isset($_SESSION["id_compte_modif"]) ){
+    $idc=$_SESSION["id_compte_modif"];
+    $_SESSION["id_compte_modif"]=null;
     $mod=true;
-    $dc = requete($bdd, "SELECT * FROM comptes WHERE id=".$_SESSION["id_compte_modif"].";")[0];
-    $jb = intval(explode("-", $dc["naissance"])[0]);
-    $mb = intval(explode("-", $dc["naissance"])[1]);
-    $ab = intval(explode("-", $dc["naissance"])[2]);
+    $dc = requete($bdd, "SELECT * FROM comptes WHERE id=".$idc.";")[0];
+    $dcl = explode("-", $dc["naissance"]);
+    $jb = intval($dcl[2]);
+    $mb = intval($dcl[1]);
+    $ab = intval($dcl[0]);
 }
 
 ?>
@@ -97,12 +100,12 @@ if( isset($_SESSION["id_compte_modif"]) ){
 </div>
 <div class="frow">
     <label >password : </label>
-    <input name="ipassword" id="ipassword" type="password" class="i_form" placeholder="Keep Empty to Keep" />
+    <input name="ipassword" id="ipassword" type="password" class="i_form" <?php if($mod){ echo "placeholder='Keep Empty to Keep'"; } ?> />
     <img class="bt_oeil" onclick="toggle_password('ipassword');">
 </div>
 <div class="frow">
     <label >password (verify) : </label>
-    <input name="ipassword2" id="ipassword2" type="password" class="i_form" placeholder="Keep Empty to Keep"/>
+    <input name="ipassword2" id="ipassword2" type="password" class="i_form" <?php if($mod){ echo "placeholder='Keep Empty to Keep'"; } ?> />
     <img class="bt_oeil" onclick="toggle_password('ipassword2');">
 </div>
 <div class="frow">

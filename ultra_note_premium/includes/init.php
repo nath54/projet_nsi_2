@@ -23,6 +23,10 @@ function alert($txt){
     echo "<script>alert('".$txt."');</script>";
 }
 
+function loge($txt){
+    echo "<script>console.log('".$txt."');</script>";
+}
+
 function get($array, $key){
     if(key_exists($key, $array)){
         return $array[$key];

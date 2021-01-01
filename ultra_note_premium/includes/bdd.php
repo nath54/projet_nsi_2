@@ -49,7 +49,7 @@ function inscription($db, $data){
     $requested = "SELECT (pseudo) FROM comptes WHERE pseudo='".$data["pseudo"]."';";
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
-    if(count($tab) >= 1){
+    if(count($tab) != 0){
         return array("succeed"=>false, "error"=>"Un compte avec ce pseudo existe déjà");
     }
     else{
@@ -57,23 +57,26 @@ function inscription($db, $data){
         $txt_v = "(";
         //
         foreach($data as $key=>$value){
-            if(gettype($value) == "string"){
-                $txt_nv = $txt_nv.$key.", ";
-                $txt_v = $txt_v."'".$value."', ";
-            }
-            else if(in_array(gettype($value), ["float", "real", "integer"])){
-                $txt_nv = $txt_nv.$key.", ";
-                $txt_v = $txt_v.strval($value).", ";
+            if($key!="id_classe"){
+                if(gettype($value) == "string"){
+                    $txt_nv = $txt_nv.$key.", ";
+                    $txt_v = $txt_v."'".$value."', ";
+                }
+                else if(in_array(gettype($value), ["float", "real", "integer"])){
+                    $txt_nv = $txt_nv.$key.", ";
+                    $txt_v = $txt_v.strval($value).", ";
+                }
             }
         }
         $txt_nv = substr($txt_nv, 0, -2).")";
         $txt_v = substr($txt_v, 0, -2).")";
         //
-        $requested = "INSERT INTO comptes ".$txt_nv." VALUES ".$txt_v;
+        $requested = "INSERT INTO comptes ".$txt_nv." VALUES ".$txt_v.";";
         $db->query($requested);
-        $id_eleve = $db::lastInsertId();
+        $id_eleve = $db->lastInsertId();
         //
-        $requested = "INSERT INTO classes_eleves (id_eleve, id_classe) VALUES (".$id_eleve.", ".$data["id_classe"]." );";
+        $requested = "INSERT INTO eleves_classes (id_eleve, id_classe) VALUES (".$id_eleve.", ".$data["id_classe"]." );";
+        echo $requested;
         $db->query($requested);
         return true;
     }
