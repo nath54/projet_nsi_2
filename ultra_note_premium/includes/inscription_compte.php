@@ -1,8 +1,8 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 $mode="defaut";
 if(isset($_GET["mode"])){
@@ -148,7 +148,7 @@ foreach(get_etablissements($bdd) as $k=>$v){
 
 <div id="ieleve">
     <div class="frow"><label>Classe : </label>
-        <select id="id_classe" name="iclasse" class="i_form">
+        <select id="id_classe" name="id_classe" class="i_form">
 <?php
 if($mod){
     $r = requete($bdd, "SELECT * FROM eleves_classes WHERE id_eleve=".$dc["id"].";");
@@ -161,8 +161,9 @@ if($mod){
     }
 
     foreach($classes as $k=>$v){
+        alert($v["id"]."-".$classe_eleve["id_classe"]);
         if($v["id"]==$classe_eleve["id_classe"]){
-            echo("<option value=".$v["id"].">".$v["niveau"].", ".$v["nom"]."</option>");
+            echo("<option value=".$v["id"]." selected>".$v["niveau"].", ".$v["nom"]."</option>");
         }else{
             echo("<option value=".$v["id"].">".$v["niveau"].", ".$v["nom"]."</option>");
         }

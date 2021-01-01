@@ -23,4 +23,11 @@ function alert($txt){
     echo "<script>alert('".$txt."');</script>";
 }
 
+function get($array, $key){
+    if(key_exists($key, $array)){
+        return $array[$key];
+    }
+    return null;
+}
+
 ?>
