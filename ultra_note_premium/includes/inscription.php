@@ -32,7 +32,7 @@ if(isset($_POST["itype"])){
             $mats = $_POST["prof_matieres"];
             $id_mats = explode("|", $mats);
             foreach($id_mats as $i=>$id_){
-                $requested="INSERT INTO prof_matieres (id_matiere, id_prof) VALUES (".$id_.", ".$id_compte.");";
+                $requested="INSERT INTO profs_matieres (id_matiere, id_prof) VALUES (".$id_.", ".$id_compte.");";
                 echo $requested;
                 die;
                 action($bdd, $requested);
@@ -41,7 +41,7 @@ if(isset($_POST["itype"])){
             $grps = $_POST["prof_groupes"];
             $id_grps = explode("|", $grps);
             foreach($id_grps as $i=>$id_){
-                action($bdd, "INSERT INTO prof_groupes (id_groupe, id_prof) VALUES (".$id_.", ".$id_compte.");");
+                action($bdd, "INSERT INTO profs_groupes (id_groupe, id_prof) VALUES (".$id_.", ".$id_compte.");");
             }
         }
         //

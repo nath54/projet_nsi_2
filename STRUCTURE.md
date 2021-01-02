@@ -69,7 +69,7 @@ TABLE `matieres`
  - `nom` _TEXT_ : Nom de la matière
  - `couleur` _TEXT_ : code HEX de la couleur de la matière
 
-TABLE `prof_matieres`
+TABLE `profs_matieres`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique de cette ligne
  - `id_prof` _INT_ : Identifiant du prof
  - `id_matiere` _INT_ : Identifiant de la matiere
@@ -98,7 +98,7 @@ TABLE `eleves_groupes`
  - `id_groupe` _INT_ : id du groupe
  - `id_eleve` _INT_ : id de l'eleve qui est dans la classe
 
-TABLE `prof_groupes`
+TABLE `profs_groupes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `id_prof` _INT_ : id du prof
  - `id_groupe` _INT_ : id du groupe que le prof a
