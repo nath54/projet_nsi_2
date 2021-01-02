@@ -18,15 +18,15 @@ if(!isset($bdd)){
 
 
 // GET MATIERES
-$txt="<script>var matieres = [";
+$txt="<script>var matieres = {";
 foreach(get_matieres($bdd) as $k=>$v){
-    $txt=$txt."'".$v["nom"]."',";
+    $txt=$txt."'".$v["nom"]."':".$v["id"].",";
 }
 
 if(endsWith($txt, ",")){
     $txt=substr($txt, 0, -1);
 }
-$txt=$txt."];</script>";
+$txt=$txt."};</script>";
 echo $txt;
 
 // GET ELEVES
@@ -75,9 +75,9 @@ if( isset($_SESSION["id_compte_modif"]) ){
 ?>
 
 
-<input id="prof_groupes" name="igrps" style="display:none;" value="" />
-<input id="prof_matieres" name="imats" style="display:none;" value="" />
-<input id="parent_enfants" name="ienfs" style="display:none;" value="" />
+<input id="prof_groupes" name="prof_groupes" style="display:none;" value="" />
+<input id="prof_matieres" name="prof_matieres" style="display:none;" value="" />
+<input id="parent_enfants" name="parent_enfants" style="display:none;" value="" />
 
 <div class="frow">
     <?php

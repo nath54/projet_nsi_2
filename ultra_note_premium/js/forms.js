@@ -52,7 +52,7 @@ function before_submit(id_f="finscription"){
         return
     }
     //
-    var tp = document.getElementById("itype").value;
+    var tp = document.getElementById("stype").value;
     if(tp == "prof"){
         var mats=[];
         for(el of document.getElementsByClassName("smat")){
@@ -135,10 +135,11 @@ dans la liste des matières qu'un prof enseigne
 function add_mat(){
     var c = document.createElement("select")
     c.setAttribute("class", "smat");
-    for(mat of matieres){
+    for(mat of Object.keys(matieres)){
         var m = document.createElement("option");
         m.innerHTML = mat;
-        m.setAttribute("name", "imatiere_"+kid);
+        m.setAttribute("name", "imatiere_"+mat);
+        m.setAttribute("value", matieres[mat]);
         c.appendChild(m);
     }
     document.getElementById("smats").appendChild(c);

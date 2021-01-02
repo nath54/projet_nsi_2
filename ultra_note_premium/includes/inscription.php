@@ -23,27 +23,34 @@ if(isset($_POST["itype"])){
     $data["id_etablissement"] = intval($_POST["ietablissement"]);
     $data["naissance"] = "".$_POST["ian"]."-".$_POST["imois"]."-".$_POST["ijour"];
     $data["id_classe"] = $_POST["id_classe"];
-    $id_compte = inscription($bdd, $data);
+    $result = inscription($bdd, $data);
+    $succeed = $result["succeed"];
     //
-    if($data["type_"]=="prof"){
-        $mats = $_POST["prof_matieres"];
-        $id_mats = explode("|", $mats);
-        for($id_mats as $i=>$id_){
-            action($bdd, "INSERT INTO prof_matieres (id_matiere, id_prof) VALUES (".$id_.", ".$id_compte.");")
+    if($succeed){
+        $id_compte=$result["id_compte"];
+        if($data["type_"]=="prof"){
+            $mats = $_POST["prof_matieres"];
+            $id_mats = explode("|", $mats);
+            foreach($id_mats as $i=>$id_){
+                $requested="INSERT INTO prof_matieres (id_matiere, id_prof) VALUES (".$id_.", ".$id_compte.");";
+                echo $requested;
+                die;
+                action($bdd, $requested);
+            }
+            //
+            $grps = $_POST["prof_groupes"];
+            $id_grps = explode("|", $grps);
+            foreach($id_grps as $i=>$id_){
+                action($bdd, "INSERT INTO prof_groupes (id_groupe, id_prof) VALUES (".$id_.", ".$id_compte.");");
+            }
         }
         //
-        $grps = $_POST["prof_groupes"];
-        $id_grps = explode("|", $grps);
-        for($id_grps as $i=>$id_){
-            action($bdd, "INSERT INTO prof_groupes (id_groupe, id_prof) VALUES (".$id_.", ".$id_compte.");")
-        }
-    }
-    //
-    if($data["type_"]=="parent"){
-        $enfs = $_POST["parent_enfants"];
-        $id_enfs = explode("|", $mats);
-        for($id_enfs as $i=>$id_){
-            action($bdd, "INSERT INTO parents_enfants (id_enfant, id_prof) VALUES (".$id_.", ".$id_compte.");")
+        if($data["type_"]=="parent"){
+            $enfs = $_POST["parent_enfants"];
+            $id_enfs = explode("|", $mats);
+            foreach($id_enfs as $i=>$id_){
+                action($bdd, "INSERT INTO parents_enfants (id_enfant, id_prof) VALUES (".$id_.", ".$id_compte.");");
+            }
         }
     }
 }

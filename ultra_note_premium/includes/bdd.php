@@ -80,7 +80,7 @@ function inscription($db, $data){
             // echo $requested;
             $db->query($requested);
         }
-        return $id_compte;
+        return array("succeed"=>true, "id_compte"=>$id_compte);
     }
 }
 
@@ -113,7 +113,7 @@ function get_etablissements($db){
 }
 
 function get_matieres($db){
-    $requested = "SELECT nom FROM matieres;";
+    $requested = "SELECT * FROM matieres;";
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
     return $tab;
