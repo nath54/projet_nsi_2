@@ -17,8 +17,16 @@ $mon_compte = get_account($bdd, $_SESSION["id"]);
 
 
 // On récupère sous la forme d'un dictionnaire pour chaque élève quelle classe il a
+$eleves_classes=array();
 foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes;") as $k=>$data){
-    echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
+    if(isset($eleves_classes[$data["id_classe"]])){
+        array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
+    }
+    else{
+        $eleves_classes[$data["id_classe"]]=array();
+        array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
+    }
+    // echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
 }
 // On récupère sous la forme d'un dictionnaire pour chaque élève quels groupes il a
 foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>$data){
@@ -114,17 +122,15 @@ function update_filtres(){
     for(i of Object.keys(datas_account)){
         var data = datas_account[i];
         var d=document.getElementById(data["id"]);
+        //
+        d.style.display = "initial";
         // type
-        if(ftype=="tout" || data["type_"]==ftype){ d.style.display = "initial"; }
-        else{ d.style.display = "none"; }
+        if(ftype!="tout" && data["type_"]!=ftype){ d.style.display = "none"; }
         // recherche
         if(rech!=""){
-            if( data["pseudo"].includes(rech) ||
-                (data["nom"]+" "+data["prenom"]).includes(rech) ||
-                (data["prenom"]+" "+data["nom"]).includes(rech) ){
-                d.style.display = "initial";
-            }
-            else{
+            if( !data["pseudo"].includes(rech) &&
+                !(data["nom"]+" "+data["prenom"]).includes(rech) &&
+                !(data["prenom"]+" "+data["nom"]).includes(rech) ){
                 d.style.display = "none";
             }
         }
