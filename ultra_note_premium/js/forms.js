@@ -138,7 +138,7 @@ function add_mat(){
     for(mat of matieres){
         var m = document.createElement("option");
         m.innerHTML = mat;
-        o.setAttribute("name", "imatiere_"+kid);
+        m.setAttribute("name", "imatiere_"+kid);
         c.appendChild(m);
     }
     document.getElementById("smats").appendChild(c);
