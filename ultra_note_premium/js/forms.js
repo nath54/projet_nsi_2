@@ -132,7 +132,7 @@ function rem(id_){
 Fonction qui va rajouter un champs de sélection d'une matière
 dans la liste des matières qu'un prof enseigne
 */
-function add_mat(){
+function add_mat(value=null){
     var c = document.createElement("select")
     c.setAttribute("class", "smat");
     for(mat of Object.keys(matieres)){
@@ -142,6 +142,9 @@ function add_mat(){
         m.setAttribute("value", matieres[mat]);
         c.appendChild(m);
     }
+    if(value!=null){
+        c.value=value;
+    }
     document.getElementById("smats").appendChild(c);
 }
 
@@ -149,7 +152,7 @@ function add_mat(){
 Fonction qui va rajouter un champs de sélection d'un enfant
 dans la liste des enfants qu'un parent a
 */
-function add_enf(){
+function add_enf(value=null){
     var c = document.createElement("select")
     c.setAttribute("class", "senf");
     for(kid of Object.keys(eleves)){
@@ -159,6 +162,9 @@ function add_enf(){
         o.setAttribute("name", "ienfant_"+kid);
         c.appendChild(o);
     }
+    if(value!=null){
+        c.value=value;
+    }
     document.getElementById("senfs").appendChild(c);
 }
 
@@ -166,7 +172,7 @@ function add_enf(){
 Fonction qui va rajouter un champs de sélection d'un groupe d'élève
 dans la liste des groupes qu'un prof doit prendre en charge
 */
-function add_grp(){
+function add_grp(value=null){
     var c = document.createElement("select")
     c.setAttribute("class", "sgrp");
     for(kid of Object.keys(grpclasses)){
@@ -175,6 +181,9 @@ function add_grp(){
         o.setAttribute("value", kid);
         o.setAttribute("name", "igroupe_"+kid);
         c.appendChild(o);
+    }
+    if(value!=null){
+        c.value=value;
     }
     document.getElementById("sgrps").appendChild(c);
 }
