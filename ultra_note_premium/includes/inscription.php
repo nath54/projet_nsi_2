@@ -33,8 +33,6 @@ if(isset($_POST["itype"])){
             $id_mats = explode("|", $mats);
             foreach($id_mats as $i=>$id_){
                 $requested="INSERT INTO profs_matieres (id_matiere, id_prof) VALUES (".$id_.", ".$id_compte.");";
-                echo $requested;
-                die;
                 action($bdd, $requested);
             }
             //

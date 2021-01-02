@@ -38,6 +38,24 @@ INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TD", "terminale", 1
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TE", "terminale", 1);
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TF", "terminale", 1);
 
+
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2A", "seconde", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2B", "seconde", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2C", "seconde", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2D", "seconde", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2E", "seconde", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2F", "seconde", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1A", "premiere", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1B", "premiere", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1C", "premiere", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1D", "premiere", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1E", "premiere", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TB", "terminale", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TC", "terminale", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TD", "terminale", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TE", "terminale", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TF", "terminale", 1);
+
 /*
 
 */

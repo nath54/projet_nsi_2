@@ -43,10 +43,7 @@ echo $txt;
 // GET GROUPES/CLASSES
 $classes = get_classes($bdd);
 $txt="<script>var grpclasses = {";
-foreach($classes as $k=>$v){
-    $txt=$txt."'cla_".$v["id"]."':"."'CLASSE : ".$v["nom"]."',";
-}
-foreach(get_groupes($bdd) as $k=>$v){
+foreach(requete($bdd, "SELECT * FROM groupes;") as $k=>$v){
     $txt=$txt."'grp_".$v["id"]."':"."'GROUPE : ".$v["nom"]."',";
 }
 if(endsWith($txt, ",")){
