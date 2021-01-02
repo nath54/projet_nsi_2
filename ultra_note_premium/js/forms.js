@@ -1,20 +1,28 @@
 
+// Liste des caracteres autorisés dans les nom/prénom/pseudos/password
 var characteres_autorises = [
-    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", 
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
     "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
     "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1",
     "2", "3", "4", "5", "6", "7", "8", "9", "_", "&", "*"
 ]
 
+
+/*
+Fonction qui vérifie le formulaire avant de l'envoyer au php
+*/
 function before_submit(id_f="finscription"){
-    console.log(id_f)
     var ps1=document.getElementById("ipassword").value;
     var ps2=document.getElementById("ipassword2").value;
+    var ps=document.getElementById("ipassword").placeholder;
     var fs = {
         "inom": {"nom":"nom", "min": 2, "max": 18},
         "iprenom": {"nom":"prénom", "min": 2, "max": 18},
-        "ipseudo": {"nom":"pseudo", "min": 6, "max": 18},
-        "ipassword": {"nom":"mot de passe", "min": 8, "max": 18},
+        "ipseudo": {"nom":"pseudo", "min": 6, "max": 18}
+    }
+    // Pour éviter de bloquer quand on ne veut pas modifier le mot de passe quand on veut modifier les infos d'un compte
+    if(ps!="Keep Empty to Keep"){
+        fs["ipassword"]={"nom":"mot de passe", "min": 8, "max": 18};
     }
     //
     for(f of Object.keys(fs)){
@@ -48,7 +56,11 @@ function before_submit(id_f="finscription"){
 }
 
 
-
+/*
+Fonction qui va mettre a jour l'apparence du formulaire
+(cacher les <div> qui ne sont pas adaptées)
+ex: si le type devient élève, on va cacher les infos liées au profs, aux admin et aux parents
+*/
 function update_inscription(){
     var tp = document.getElementById("stype").value;
     if(tp=="eleve"){
@@ -81,6 +93,12 @@ function update_inscription(){
     }
 }
 
+/*
+Fonction qui va enlever le dernier élément d'un autre élément html
+Est utilisé dans le cas de l'inscription, pour les profs/parents
+Ex: Quand le prof s'est trompé dans les matières dans lesquels il enseigne,
+il va l'enlever dans la liste des matieres qu'il enseigne
+*/
 function rem(id_){
     var sel = document.getElementById(id_);
     if(sel.children.length >= 1){
@@ -89,7 +107,10 @@ function rem(id_){
     }
 }
 
-
+/*
+Fonction qui va rajouter un champs de sélection d'une matière
+dans la liste des matières qu'un prof enseigne
+*/
 function add_mat(){
     var c = document.createElement("select")
     c.setAttribute("class", "smat");
@@ -102,6 +123,10 @@ function add_mat(){
     document.getElementById("smats").appendChild(c);
 }
 
+/*
+Fonction qui va rajouter un champs de sélection d'un enfant
+dans la liste des enfants qu'un parent a
+*/
 function add_enf(){
     var c = document.createElement("select")
     c.setAttribute("class", "senf");
@@ -115,6 +140,10 @@ function add_enf(){
     document.getElementById("senfs").appendChild(c);
 }
 
+/*
+Fonction qui va rajouter un champs de sélection d'un groupe d'élève
+dans la liste des groupes qu'un prof doit prendre en charge
+*/
 function add_grp(){
     var c = document.createElement("select")
     c.setAttribute("class", "sgrp");

@@ -15,14 +15,18 @@ $bdd = load_db("../");
 
 $mon_compte = get_account($bdd, $_SESSION["id"]);
 
+
+// On récupère sous la forme d'un dictionnaire pour chaque élève quelle classe il a
 foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes;") as $k=>$data){
     echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
 }
+// On récupère sous la forme d'un dictionnaire pour chaque élève quels groupes il a
 foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>$data){
     echo "eleves_groupes[".$data["id_eleve"]."]=".$data["id_groupe"];
 }
 
 ?>
+
 <div class="row_wrap" id="filtres_comptes">
     <h2 class="margin_15 margin_v_auto">Filtrer </h2>
     <div class="margin_15 margin_v_auto">

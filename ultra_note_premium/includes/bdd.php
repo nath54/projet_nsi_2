@@ -86,6 +86,9 @@ function modification_compte($db, $data, $id_compte){
     //
     $txt = "";
     foreach($data as $key=>$value){
+        if($key=="password_" && $value==""){
+            break;
+        }
         if(gettype($value) == "string"){
             $txt.= $key." = '".$value."', ";
         }
