@@ -119,9 +119,9 @@ function update_filtres(){
         else{ d.style.display = "none"; }
         // recherche
         if(rech!=""){
-            if( data["pseudo"].include(rech) ||
-                (data["nom"]+" "+data["prenom"]).include(rech) ||
-                (data["prenom"]+" "+data["nom"]).include(rech) ){
+            if( data["pseudo"].includes(rech) ||
+                (data["nom"]+" "+data["prenom"]).includes(rech) ||
+                (data["prenom"]+" "+data["nom"]).includes(rech) ){
                 d.style.display = "initial";
             }
             else{
