@@ -1,8 +1,8 @@
 <?php
 
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 $mode="defaut";
 if(isset($_GET["mode"])){
@@ -73,6 +73,11 @@ if( isset($_SESSION["id_compte_modif"]) ){
 }
 
 ?>
+
+
+<input id="prof_groupes" name="igrps" style="display:none;" value="" />
+<input id="prof_matieres" name="imats" style="display:none;" value="" />
+<input id="parent_enfants" name="ienfs" style="display:none;" value="" />
 
 <div class="frow">
     <?php

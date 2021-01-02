@@ -41,6 +41,11 @@ TABLE `comptes`
  - `prenom` _TEXT_ : Le prénom de l'élève
  - `naissance` _DATE_ : La date de naissance de la personne
 
+TABLE `parents_enfants`
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
+ - `id_compte` _INT_ : identifiant du compte
+ - `id_enfant` _INT_ : identifiant du compte de l'enfant
+
 TABLE `amis`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `id_compte` _INT_ : identifiant du compte

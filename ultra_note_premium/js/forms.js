@@ -51,6 +51,27 @@ function before_submit(id_f="finscription"){
         alert("Les mots de passes sont différents !");
         return
     }
+    //
+    var tp = document.getElementById("itype").value;
+    if(tp == "prof"){
+        var mats=[];
+        for(el of document.getElementsByClassName("smat")){
+            mats.push(el.value);
+        }
+        document.getElementById("prof_matieres").value = mats.join("|");
+        var grps=[];
+        for(el of document.getElementsByClassName("sgrp")){
+            grps.push(el.value);
+        }
+        document.getElementById("prof_groupes").value = grps.join("|");
+    }
+    if(tp == "parent"){
+        var enfs=[];
+        for(el of document.getElementsByClassName("senf")){
+            enfs.push(el.value);
+        }
+        document.getElementById("parent_enfants").value = enfs.join("|");
+    }
     // on submit si c'est bon
     document.getElementById(id_f).submit();
 }
