@@ -56,19 +56,19 @@ function before_submit(id_f="finscription"){
     if(tp == "prof"){
         var mats=[];
         for(el of document.getElementsByClassName("smat")){
-            mats.push(el.value);
+            if(!mats.includes(el.value)){ mats.push(el.value) };
         }
         document.getElementById("prof_matieres").value = mats.join("|");
         var grps=[];
         for(el of document.getElementsByClassName("sgrp")){
-            grps.push(el.value);
+            if(!grps.includes(el.value)){ grps.push(el.value) };
         }
         document.getElementById("prof_groupes").value = grps.join("|");
     }
     if(tp == "parent"){
         var enfs=[];
         for(el of document.getElementsByClassName("senf")){
-            enfs.push(el.value);
+            if(!enfs.includes(el.value)){ enfs.push(el.value) };
         }
         document.getElementById("parent_enfants").value = enfs.join("|");
     }

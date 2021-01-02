@@ -195,7 +195,7 @@ if( isset($_SESSION["id_compte_modif"]) ){
         </div>
 
         <div class="row">
-            <label>Groupes/Classes :</label>
+            <label>Groupes :</label>
             <div id="sgrps"></div>
             <a class="bt_m" href="#" onclick="rem('sgrps');"> - </a>
             <a class="bt_m" href="#" onclick="add_grp();"> + </a>
@@ -223,13 +223,18 @@ if( isset($_SESSION["id_compte_modif"]) ){
 </div>
 <script>
 update_inscription();
-</script>
 <?php
-if($dc["type_"]=="prof"){
-    $requete = "SELECT * FROM profs_matieres INNER JOIN matieres ON matieres.id = id_matiere WHERE id_prof = ".$idc;
-    echo $requete;
-    foreach(requete($bdd, $requete) as $i=>$data){
-        echo "\nadd_mat(".$data["id"].");";
+if($mod){
+    if($dc["type_"]=="prof"){
+        $requete = "SELECT * FROM profs_matieres INNER JOIN matieres ON matieres.id = id_matiere WHERE id_prof = ".$idc;
+        foreach(requete($bdd, $requete) as $i=>$data){
+            echo "\nadd_mat(".$data["id"].");";
+        }
+        $requete = "SELECT * FROM profs_groupes INNER JOIN groupes ON groupes.id = id_groupe WHERE id_prof = ".$idc;
+        foreach(requete($bdd, $requete) as $i=>$data){
+            echo "\nadd_grp(".$data["id"].");";
+        }
     }
 }
 ?>
+</script>
