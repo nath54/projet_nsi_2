@@ -82,10 +82,10 @@ if( isset($_SESSION["id_compte_modif"]) ){
         else if($mode=="admin"){echo "<label >Type du compte : </label>";}
     ?>
     <select name="itype" id="stype" onchange="update_inscription();" class="i_form">
-        <option value="eleve">un élève</option>
-        <option value="prof">un professeur</option>
-        <option value="admin">un administrateur</option>
-        <option value="parent">un parent</option>
+        <option value="eleve" <?php if($mod && $dc["type_"]=="eleve"){ echo "selected"; } ?> >un élève</option>
+        <option value="prof" <?php if($mod && $dc["type_"]=="prof"){ echo "selected"; } ?>>un professeur</option>
+        <option value="admin" <?php if($mod && $dc["type_"]=="admin"){ echo "selected"; } ?>>un administrateur</option>
+        <option value="parent" <?php if($mod && $dc["type_"]=="parent"){ echo "selected"; } ?>>un parent</option>
     </select>
 </div>
 <div class="frow">
@@ -166,7 +166,7 @@ if($mod){
     }
 
     foreach($classes as $k=>$v){
-        alert($v["id"]."-".$classe_eleve["id_classe"]);
+        // alert($v["id"]."-".$classe_eleve["id_classe"]);
         if($v["id"]==$classe_eleve["id_classe"]){
             echo("<option value=".$v["id"]." selected>".$v["niveau"].", ".$v["nom"]."</option>");
         }else{

@@ -123,7 +123,7 @@ il va l'enlever dans la liste des matieres qu'il enseigne
 function rem(id_){
     var sel = document.getElementById(id_);
     if(sel.children.length >= 1){
-        var c = sel.children[sel.children.length - 1];
+        var c = sel.childrdzen[sel.children.length - 1];
         sel.removeChild(c);
     }
 }
