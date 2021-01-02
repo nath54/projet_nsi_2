@@ -26,7 +26,7 @@ foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes;") as $k=>
         $eleves_classes[$data["id_classe"]]=array();
         array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
     }
-    // echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
+    echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
 }
 // On récupère sous la forme d'un dictionnaire pour chaque élève quels groupes il a
 foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>$data){
