@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS `eleves_classes` (id INT PRIMARY KEY AUTO_INCREMENT,
                                              id_classe INT,
                                              id_eleve INT);
 
-CREATE TABLE IF NOT EXISTS `profs_classes` (id INT PRIMARY KEY AUTO_INCREMENT,
-                                           id_prof INT,
-                                           id_classe INT);
+-- CREATE TABLE IF NOT EXISTS `profs_classes` (id INT PRIMARY KEY AUTO_INCREMENT,
+--                                            id_prof INT,
+--                                            id_classe INT);
 
 
 CREATE TABLE IF NOT EXISTS `groupes` (id INT PRIMARY KEY AUTO_INCREMENT,

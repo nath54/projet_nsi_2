@@ -53,6 +53,10 @@ foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>
             ?>
         </select>
     </div>
+    <div class="f_eleve margin_15 margin_v_auto">
+        <label>Rechercher : </label>
+        <input type="text" id="input_search" onchange="update_filtres();"/>
+    </div>
 </div>
 
 <div class="row_wrap">
@@ -98,6 +102,7 @@ foreach($accounts as $i=>$data){
 
 function update_filtres(){
     var ftype = document.getElementById("f_type").value;
+    var rech = document.getElementById("input_search").value;
     //
     var cg = document.getElementById("f_classe").value;
     var e_classes=[];
@@ -112,8 +117,17 @@ function update_filtres(){
         // type
         if(ftype=="tout" || data["type_"]==ftype){ d.style.display = "initial"; }
         else{ d.style.display = "none"; }
-        //
-
+        // recherche
+        if(rech!=""){
+            if( data["pseudo"].includes(rech) ||
+                (data["nom"]+" "+data["prenom"]).includes(rech) ||
+                (data["prenom"]+" "+data["nom"]).includes(rech) ){
+                d.style.display = "initial";
+            }
+            else{
+                d.style.display = "none";
+            }
+        }
     }
 }
 

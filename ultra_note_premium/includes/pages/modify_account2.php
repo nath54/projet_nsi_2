@@ -17,18 +17,18 @@ if(isset($_POST["itype"])){
     $data["type_"] = $_POST["itype"];
     $data["id_etablissement"] = intval($_POST["ietablissement"]);
     $data["naissance"] = "".$_POST["ian"]."-".$_POST["imois"]."-".$_POST["ijour"];
-    $ope="inscription";
-    if(isset($_POST["operation"]) && $_POST["operation"]=="modification" && isset($_SESSION["id_compte_modif"])){
-        $ope="modification";
-        $succeed = modification_compte($bdd, $data, $_SESSION["id_compte_modif"]);
-    }
-    else{
-        $succeed = inscription($bdd, $data);
-    }
+    //$ope="inscription";
+    //if(isset($_POST["operation"]) && $_POST["operation"]=="modification" && isset($_SESSION["id_compte_modif"])){
+    $ope="modification";
+    $succeed = modification_compte($bdd, $data, $_SESSION["id_compte_modif"]);
+    // }
+    // else{
+    //     $succeed = inscription($bdd, $data);
+    // }
     //
     if($succeed){
         if($ope=="modification"){
-
+            action($bdd, "DELETE FROM profs_matieres ")
         }
         foreach($_POST as $k=>$v){
             if(startsWith($k, "imatiere")){
