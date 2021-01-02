@@ -98,7 +98,7 @@ function modification_compte($db, $data, $id_compte){
             $txt.= $key." = ".$value.", ";
         }
     }
-    $txt = substr($txt, 0, -2).")";
+    $txt = substr($txt, 0, -2);
     //
     $requested = "UPDATE comptes SET ".$txt." WHERE id=".$id_compte.";";
     $db->query($requested);

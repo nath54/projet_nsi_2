@@ -215,7 +215,14 @@ if( isset($_SESSION["id_compte_modif"]) ){
     <div class="m_r">
         <a class="bt_form" href="#" onclick="before_submit();"><?php
             if($mode=="defaut"){ echo "S'inscrire"; }
-            else if($mode=="admin"){ echo "Créer le compte"; }
+            else if($mode=="admin"){
+                if($mod){
+                    echo "Modifier le compte";
+                }
+                else{
+                    echo "Créer le compte";
+                }
+            }
         ?></a>
     </div>
 
