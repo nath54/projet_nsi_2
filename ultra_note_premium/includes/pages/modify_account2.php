@@ -8,6 +8,7 @@ include_once "../bdd.php";
 $bdd = load_db("../");
 
 if(isset($_POST["itype"])){
+    $id_compte=$_SESSION["id_compte_modif"];
     //
     $data = array();
     $data["pseudo"] = $_POST["ipseudo"];
@@ -17,10 +18,8 @@ if(isset($_POST["itype"])){
     $data["type_"] = $_POST["itype"];
     $data["id_etablissement"] = intval($_POST["ietablissement"]);
     $data["naissance"] = "".$_POST["ian"]."-".$_POST["imois"]."-".$_POST["ijour"];
-    $ope="modification";
-    $succeed = modification_compte($bdd, $data, $_SESSION["id_compte_modif"]);
+    $succeed = modification_compte($bdd, $data, $id_compte);
     if($succeed){
-        $id_compte=$_SESSION["id_compte_modif"];
         if($data["type_"]=="prof"){
             action($bdd, "DELETE FROM profs_matieres WHERE id_prof = ".$id_compte);
             action($bdd, "DELETE FROM profs_groupes WHERE id_prof = ".$id_compte);
@@ -34,7 +33,8 @@ if(isset($_POST["itype"])){
             $grps = $_POST["prof_groupes"];
             $id_grps = explode("|", $grps);
             foreach($id_grps as $i=>$id_){
-                action($bdd, "INSERT INTO profs_groupes (id_groupe, id_prof) VALUES (".$id_.", ".$id_compte.");");
+                $requested="INSERT INTO profs_groupes (id_groupe, id_prof) VALUES (".$id_.", ".$id_compte.");";
+                action($bdd, $requested);
             }
         }
         //

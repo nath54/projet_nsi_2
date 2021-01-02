@@ -44,7 +44,7 @@ echo $txt;
 $classes = get_classes($bdd);
 $txt="<script>var grpclasses = {";
 foreach(requete($bdd, "SELECT * FROM groupes;") as $k=>$v){
-    $txt=$txt."'grp_".$v["id"]."':"."'GROUPE : ".$v["nom"]."',";
+    $txt=$txt.$v["id"].":"."'GROUPE : ".$v["nom"]."',";
 }
 if(endsWith($txt, ",")){
     $txt=substr($txt, 0, -1);
@@ -60,7 +60,6 @@ $mb=null;
 $ab=null;
 if( isset($_SESSION["id_compte_modif"]) ){
     $idc=$_SESSION["id_compte_modif"];
-    $_SESSION["id_compte_modif"]=null;
     $mod=true;
     $dc = requete($bdd, "SELECT * FROM comptes WHERE id=".$idc.";")[0];
     $dcl = explode("-", $dc["naissance"]);

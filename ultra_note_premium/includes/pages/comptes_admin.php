@@ -13,6 +13,8 @@ include_once("../bdd.php");
 
 $bdd = load_db("../");
 
+$_SESSION["id_compte_modif"]=null;
+
 $mon_compte = get_account($bdd, $_SESSION["id"]);
 
 
