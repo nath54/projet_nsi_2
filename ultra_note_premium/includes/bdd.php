@@ -77,7 +77,8 @@ function inscription($db, $data){
         //
         if($data["type_"]=="eleve"){
             $requested = "INSERT INTO eleves_classes (id_eleve, id_classe) VALUES (".$id_compte.", ".$data["id_classe"]." );";
-            // echo $requested;
+            $db->query($requested);
+            $requested = "INSERT INTO eleves_groupes (id_eleve, id_groupe) VALUES (".$id_compte.", ".$data["id_classe"]." );";
             $db->query($requested);
         }
         return array("succeed"=>true, "id_compte"=>$id_compte);
@@ -102,6 +103,17 @@ function modification_compte($db, $data, $id_compte){
     //
     $requested = "UPDATE comptes SET ".$txt." WHERE id=".$id_compte.";";
     $db->query($requested);
+    //
+    if($data["type_"]=="eleve"){
+        $requested = "DELETE FROM eleves_classes WHERE id_eleve=".$id_compte.";";
+        $db->query($requested);
+        $requested = "DELETE FROM eleves_groupes WHERE id_eleve=".$id_compte.";";
+        $db->query($requested);
+        $requested = "INSERT INTO eleves_classes (id_eleve, id_classe) VALUES (".$id_compte.", ".$data["id_classe"]." );";
+        $db->query($requested);
+        $requested = "INSERT INTO eleves_groupes (id_eleve, id_groupe) VALUES (".$id_compte.", ".$data["id_classe"]." );";
+        $db->query($requested);
+    }
     return true;
 }
 
