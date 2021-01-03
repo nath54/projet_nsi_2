@@ -38,7 +38,7 @@ INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TD", "terminale", 1
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TE", "terminale", 1);
 INSERT INTO classes (nom, niveau, id_etablissement) VALUES ("TF", "terminale", 1);
 
-
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("aucun", "aucun", 1);
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2A", "seconde", 1);
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2B", "seconde", 1);
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("seconde 2C", "seconde", 1);
