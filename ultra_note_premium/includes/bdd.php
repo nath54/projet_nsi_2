@@ -12,7 +12,6 @@ function open_json($file_path){
     return $data;
 }
 
-
 function load_db($pathe=""){
     $file_path = $pathe."mysql-config.json";
     $data_account = open_json($file_path);

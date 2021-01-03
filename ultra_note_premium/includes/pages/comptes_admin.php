@@ -19,29 +19,21 @@ $mon_compte = get_account($bdd, $_SESSION["id"]);
 
 
 // On récupère sous la forme d'un dictionnaire pour chaque classe quels eleves il y a dedans
-$eleves_classes=array();
 foreach(requete($bdd, "SELECT id FROM classes;") as $k=>$data){
-    $eleves_classes[$data["id"]]=array();
     echo "<script>eleves_classes[".$data["id"]."]=[]</script>";
 }
 foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes;") as $k=>$data){
-    echo "<script>eleves_classes[".$data["id_classe"]."]=[".$data["id_eleve"]."];</script>";
-    $eleves_classes[$data["id_classe"]]=array();
-    array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
+    echo "<script>eleves_classes[".$data["id_classe"]."].push(".$data["id_eleve"].");</script>";
 }
 
 
 
 // On récupère sous la forme d'un dictionnaire pour chaque groupe quels eleves il y a dedans
-$eleves_groupes=array();
 foreach(requete($bdd, "SELECT id FROM groupes;") as $k=>$data){
-    $eleves_groupes[$data["id"]]=array();
     echo "<script>eleves_groupes[".$data["id"]."]=[]</script>";
 }
 foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>$data){
-    echo "<script>eleves_groupes[".$data["id_groupe"]."]=[".$data["id_eleve"]."];</script>";
-    $eleves_groupes[$data["id_groupe"]]=array();
-    array_push($eleves_groupes[$data["id_groupe"]], $data["id_eleve"]);
+    echo "<script>eleves_groupes[".$data["id_groupe"]."].push(".$data["id_eleve"].");</script>";
 }
 
 ?>

@@ -76,3 +76,4 @@ sessionStorage["actual_page"]="accueil_"+sessionStorage['tp_compte'];
         <?php include("includes/footer.php"); ?>
     </body>
 </html>
+<script src="js/prenoms.js"></script>

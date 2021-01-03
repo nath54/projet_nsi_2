@@ -113,3 +113,4 @@ echo $txt;
         </div>
     </body>
 </html>
+<script src="js/prenoms.js"></script>

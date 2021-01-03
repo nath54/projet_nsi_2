@@ -188,3 +188,48 @@ function add_grp(value=null){
     document.getElementById("sgrps").appendChild(c);
 }
 
+
+
+
+function gen_el(){
+    var modeles=["cvcv", "cvcvc", "cvccvc", "vcvcv", "cvv", "cvcvcv"];
+    var lfs = {"a": 71, "b": 11, "c": 32, "d":37, "e": 121, "f": 11, "g": 12, "h": 11, "i": 66, "j": 3, "k": 3, "l": 50, "m": 26, "n": 64, "o": 50, "p": 25, "q": 7, "r": 60, "s": 65, "t": 59, "u": 45, "v": 11, "w": 2, "x": 4, "y": 5, "z": 2};
+    var voys=[];
+    var cons=[];
+    for(l of ["a", "e", "y", "u", "i", "o"]){
+        for(x=0; x<lfs[l]; x++){ voys.push(l); }
+    }
+    for(l of ["z","r","t","p","q","s","d","f","g","h","j","k","l","m","w","x","c","v","b","n"]){
+        for(x=0; x<lfs[l]; x++){ cons.push(l); }
+    }
+    var iprenom = document.getElementById("iprenom");
+    var prenom=prenoms[parseInt(Math.random()*prenoms.length)];
+    iprenom.value=prenom;
+    var inom = document.getElementById("inom");
+    var nom = "";
+    for(l of modeles[parseInt(Math.random()*modeles.length)]){
+        var a = "";
+        if(l=="c"){ a=cons[parseInt(Math.random()*cons.length)]; }
+        else{ a=voys[parseInt(Math.random()*voys.length)]; }
+        if(nom==""){ a=a.toUpperCase(); }
+        nom+=a;
+    }
+    inom.value=nom;
+    var ipseudo = document.getElementById("ipseudo");
+    ipseudo.value=nom.toLowerCase()+prenom.toLowerCase();
+    var ips1 = document.getElementById("ipassword");
+    var ips2 = document.getElementById("ipassword2");
+    var password="";
+    for(x=0; x<12; x++){
+        password+=characteres_autorises[parseInt(Math.random()*characteres_autorises.length)];
+    }
+    ips1.value=password;
+    ips2.value=password;
+    var ij = document.getElementById("ijour");
+    ij.value = 1+parseInt(Math.random()*29);
+    var im = document.getElementById("imois");
+    im.value = 1+parseInt(Math.random()*11);
+    var ia = document.getElementById("ian");
+    ia.value = 1995+parseInt(Math.random()*10);
+    //
+}

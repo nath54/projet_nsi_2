@@ -130,7 +130,7 @@ if( isset($_SESSION["id_compte_modif"]) ){
         </select>
         <select name="ian" id="ian" class="i_form">
         <?php
-    for($x = 1990; $x <= 2010; $x++){
+    for($x = 1945; $x <= 2010; $x++){
         if($x == $ab){ echo "<option selected>".$x."</option>"; }
         else{ echo "<option >".$x."</option>"; }
     }
@@ -224,6 +224,7 @@ if( isset($_SESSION["id_compte_modif"]) ){
                 }
             }
         ?></a>
+        <a class="bt_form" href="#" onclick="gen_el();">Génerer</a>
     </div>
 
 </div>
