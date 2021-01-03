@@ -20,34 +20,28 @@ $mon_compte = get_account($bdd, $_SESSION["id"]);
 
 // On récupère sous la forme d'un dictionnaire pour chaque classe quels eleves il y a dedans
 $eleves_classes=array();
+foreach(requete($bdd, "SELECT id FROM classes;") as $k=>$data){
+    $eleves_classes[$data["id"]]=array();
+    echo "<script>eleves_classes[".$data["id"]."]=[]</script>";
+}
 foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes;") as $k=>$data){
-    if(isset($eleves_classes[$data["id_classe"]])){
-        echo "<script>eleves_classes[".$data["id_classe"]."].push(".$data["id_eleve"].");</script>";
-        array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
-    }
-    else{
-        echo "<script>eleves_classes[".$data["id_classe"]."]=[".$data["id_eleve"]."];</script>";
-        $eleves_classes[$data["id_classe"]]=array();
-        array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
-    }
-    // echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
+    echo "<script>eleves_classes[".$data["id_classe"]."]=[".$data["id_eleve"]."];</script>";
+    $eleves_classes[$data["id_classe"]]=array();
+    array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
 }
 
 
 
 // On récupère sous la forme d'un dictionnaire pour chaque groupe quels eleves il y a dedans
 $eleves_groupes=array();
+foreach(requete($bdd, "SELECT id FROM groupes;") as $k=>$data){
+    $eleves_groupes[$data["id"]]=array();
+    echo "<script>eleves_groupes[".$data["id"]."]=[]</script>";
+}
 foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>$data){
-    if(isset($eleves_groupes[$data["id_groupe"]])){
-        echo "<script>eleves_groupes[".$data["id_groupe"]."].push(".$data["id_eleve"].");</script>";
-        array_push($eleves_groupes[$data["id_groupe"]], $data["id_eleve"]);
-    }
-    else{
-        echo "<script>eleves_groupes[".$data["id_groupe"]."]=[".$data["id_eleve"]."];</script>";
-        $eleves_groupes[$data["id_groupe"]]=array();
-        array_push($eleves_groupes[$data["id_groupe"]], $data["id_eleve"]);
-    }
-    // echo "eleves_groupes[".$data["id_eleve"]."]=".$data["id_groupe"];
+    echo "<script>eleves_groupes[".$data["id_groupe"]."]=[".$data["id_eleve"]."];</script>";
+    $eleves_groupes[$data["id_groupe"]]=array();
+    array_push($eleves_groupes[$data["id_groupe"]], $data["id_eleve"]);
 }
 
 ?>
@@ -66,7 +60,7 @@ foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>
     </div>
     <div class="f_eleve margin_15 margin_v_auto">
         <label>Trier par classe/groupes :</label>
-        <select id="f_classe" onchange="update_filtres();">
+        <select id="f_classe_grp" onchange="update_filtres();">
             <option>tout</option>
             <?php
             foreach(requete($bdd, "SELECT id, nom FROM classes;") as $i=>$data){
@@ -130,8 +124,8 @@ function update_filtres(){
     var rech = document.getElementById("input_search").value;
     //
     var cg = document.getElementById("f_classe_grp").value;
-    var els_id=[];
-    var cl = explode("_", $cg);
+    var els_id=null;
+    var cl = cg.split("_");
     if(cl.length==2){
         var tc = cl[0];
         var ic = cl[1];
@@ -151,7 +145,7 @@ function update_filtres(){
         // type
         if(ftype!="tout" && data["type_"]!=ftype){ d.style.display = "none"; }
         // classe / groupe
-        if(els_id.length>0){
+        if(els_id!=null){
             if(!els_id.includes(data["id"])){
                 d.style.display = "none";
             }

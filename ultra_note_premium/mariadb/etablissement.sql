@@ -50,6 +50,7 @@ INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1B", "prem
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1C", "premiere", 1);
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1D", "premiere", 1);
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("premiere 1E", "premiere", 1);
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TA", "terminale", 1);
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TB", "terminale", 1);
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TC", "terminale", 1);
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("terminale TD", "terminale", 1);
