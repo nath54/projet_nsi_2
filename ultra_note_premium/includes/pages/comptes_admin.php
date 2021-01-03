@@ -146,7 +146,15 @@ function update_filtres(){
         if(ftype!="tout" && data["type_"]!=ftype){ d.style.display = "none"; }
         // classe / groupe
         if(els_id!=null){
-            if(!els_id.includes(data["id"])){
+            var is_in = false;
+            for(ide of els_id){
+                if(ide == data["id"]){
+                    is_in = true;
+                    break;
+                }
+            }
+            //
+            if(! is_in ){
                 d.style.display = "none";
             }
         }
