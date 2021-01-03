@@ -18,21 +18,36 @@ $_SESSION["id_compte_modif"]=null;
 $mon_compte = get_account($bdd, $_SESSION["id"]);
 
 
-// On récupère sous la forme d'un dictionnaire pour chaque élève quelle classe il a
+// On récupère sous la forme d'un dictionnaire pour chaque classe quels eleves il y a dedans
 $eleves_classes=array();
 foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes;") as $k=>$data){
     if(isset($eleves_classes[$data["id_classe"]])){
+        echo "<script>eleves_classes[".$data["id_classe"]."].push(".$data["id_eleve"].");</script>";
         array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
     }
     else{
+        echo "<script>eleves_classes[".$data["id_classe"]."]=[".$data["id_eleve"]."];</script>";
         $eleves_classes[$data["id_classe"]]=array();
         array_push($eleves_classes[$data["id_classe"]], $data["id_eleve"]);
     }
-    echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
+    // echo "eleves_classes[".$data["id_eleve"]."]=".$data["id_classe"];
 }
-// On récupère sous la forme d'un dictionnaire pour chaque élève quels groupes il a
+
+
+
+// On récupère sous la forme d'un dictionnaire pour chaque groupe quels eleves il y a dedans
+$eleves_groupes=array();
 foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>$data){
-    echo "eleves_groupes[".$data["id_eleve"]."]=".$data["id_groupe"];
+    if(isset($eleves_groupes[$data["id_groupe"]])){
+        echo "<script>eleves_groupes[".$data["id_groupe"]."].push(".$data["id_eleve"].");</script>";
+        array_push($eleves_groupes[$data["id_groupe"]], $data["id_eleve"]);
+    }
+    else{
+        echo "<script>eleves_groupes[".$data["id_groupe"]."]=[".$data["id_eleve"]."];</script>";
+        $eleves_groupes[$data["id_groupe"]]=array();
+        array_push($eleves_groupes[$data["id_groupe"]], $data["id_eleve"]);
+    }
+    // echo "eleves_groupes[".$data["id_eleve"]."]=".$data["id_groupe"];
 }
 
 ?>
@@ -114,11 +129,18 @@ function update_filtres(){
     var ftype = document.getElementById("f_type").value;
     var rech = document.getElementById("input_search").value;
     //
-    var cg = document.getElementById("f_classe").value;
-    var e_classes=[];
-    var e_grps=[];
-    if(cg[0]=="c"){
-        
+    var cg = document.getElementById("f_classe_grp").value;
+    var els_id=[];
+    var cl = explode("_", $cg);
+    if(cl.length==2){
+        var tc = cl[0];
+        var ic = cl[1];
+        if(tc=="c"){
+            els_id = eleves_classes[ic];
+        }
+        else if(tc=="g"){
+            els_id = eleves_groupes[ic];
+        }
     }
     //
     for(i of Object.keys(datas_account)){
@@ -128,6 +150,12 @@ function update_filtres(){
         d.style.display = "initial";
         // type
         if(ftype!="tout" && data["type_"]!=ftype){ d.style.display = "none"; }
+        // classe / groupe
+        if(els_id.length>0){
+            if(!els_id.includes(data["id"])){
+                d.style.display = "none";
+            }
+        }
         // recherche
         if(rech!=""){
             if( !data["pseudo"].includes(rech) &&
