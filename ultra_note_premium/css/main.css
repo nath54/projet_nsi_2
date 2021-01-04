@@ -152,6 +152,11 @@
 .margin_15{
     margin: 15px;
 }
+
+.margin_auto{
+    margin: auto;
+}
+
 .margin_v_auto{
     margin-top: auto;
     margin-bottom: auto;

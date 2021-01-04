@@ -39,7 +39,9 @@ function change_page(page, bt_actif=null, arguments=""){
     sessionStorage["actual_page"]=page;
     var d=document.getElementById("div_main");
     clear();
-    $( "#div_main" ).load( "includes/pages/"+page+".php?"+arguments, function( response, status, xhr ) {
+    var requete = "includes/pages/"+page+".php?"+arguments;
+    // alert(requete);
+    $( "#div_main" ).load( requete, function( response, status, xhr ) {
         if ( status == "error" ) {
           var msg = "Sorry but there was an error: ";
           alert( msg + xhr.status + " " + xhr.statusText );
@@ -53,10 +55,12 @@ function change_page(page, bt_actif=null, arguments=""){
         }
     }
     //
-    if(bt_actif!=null){
+    if(bt_actif!=null ){
         var b = document.getElementById(bt_actif);
-        b.setAttribute("class", "bt_header_active");
-        b.disabled = true;
+        if(b!=undefined){
+            b.setAttribute("class", "bt_header_active");
+            b.disabled = true;
+        }
     }
 }
 

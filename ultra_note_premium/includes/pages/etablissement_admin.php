@@ -42,7 +42,7 @@ function create_group(gid){
     nom.innerHTML=groupes[gid]["nom"];
     var modifier=document.createElement("button");
     modifier.innerHTML="modifier";
-    modifier.setAttribute("onclick", "change_page('modify_group', arguments='gid="+gid+"');");
+    modifier.setAttribute("onclick", "change_page('modify_group', bt_actif=null, arguments='gid="+gid+"');");
     dg.appendChild(nom);
     dg.appendChild(modifier);
     document.getElementById("div_groups").appendChild(dg);
