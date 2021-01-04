@@ -109,7 +109,7 @@ TABLE `notes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : identifiant unique de ce devoir
  - `id_matiere` _INT_ : Identifiant de la matère
  - `id_prof` _INT_ : Identifiant du prof
- - `id_classe` _INT_ : Identifiant de la classe
+ - `id_groupe` _INT_ : Identifiant du groupe
  - `coef` _FLOAT_ : Coefficient de la note de ce devoir
  - `jour` _DATE_ : Jour de la mise de la note sur pronote
  - `jour_visible` _DATE_ : Jour où les élèves pourront voir cette note
