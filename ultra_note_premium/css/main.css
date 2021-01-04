@@ -160,3 +160,17 @@
 #filtres_comptes{
     border-bottom: 1px solid black;
 }
+
+.tableau_note, .ligne_titre_note, .ligne_note, td{
+    border-collapse: 1px;
+    background-color: rgb(50, 29, 243);
+    
+}
+
+.ligne_titre_note{
+
+}
+
+.ligne_note{
+
+}
