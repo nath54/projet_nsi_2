@@ -14,4 +14,7 @@ echo "<script>var id_groupe=".$_GET["gid"].";</script>"
     <a class="bt" href="#" onclick="">Ok</a>
 </form>
 <script>
+
+
+
 </script>
