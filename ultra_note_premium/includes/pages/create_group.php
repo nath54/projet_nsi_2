@@ -29,6 +29,6 @@ foreach(requete($bdd, "SELECT id,nom FROM etablissements") as $i=>$data){
 }
             ?>
         </select>
-        <button>Creer le groupe</button>
     </div>
+    <button>Creer le groupe</button>
 </form>
