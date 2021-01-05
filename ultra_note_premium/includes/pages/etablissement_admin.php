@@ -27,7 +27,13 @@ foreach(requete($bdd, "SELECT id_groupe, id_eleve FROM eleves_groupes;") as $i=>
     <!-- gestion groupes -->
     <div>
         <h1>Groupes :</h1>
-        <div id="div_groups" class="row">
+        <div class="row">
+            <div id="div_groups" class="row">
+            </div>
+            <div id="group_plus" class="div_compte" onclick="change_page('create_group');">
+                <h1>+</h1>
+            </div>
+
         </div>
     </div>
 

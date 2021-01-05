@@ -17,10 +17,10 @@ echo "<script>var eleves={};</script>"
 echo "var id_groupe=".$_GET["gid"].";";
 echo "var eleves={};";
 $niveau_groupe=requete($bdd, "SELECT niveau FROM groupes WHERE id=".$_GET["gid"])[0]["niveau"];
-$requested="SELECT * FROM comptes INNER JOIN eleves_classes ON comptes.id=id_eleve INNER JOIN classes ON classes.id=id_classe WHERE type_='eleve' AND niveau='".$niveau_groupe."';";
-echo "</script>".$requested."<script>";
+$requested="SELECT comptes.* FROM comptes INNER JOIN eleves_classes ON comptes.id=id_eleve INNER JOIN classes ON classes.id=id_classe WHERE type_='eleve' AND niveau='".$niveau_groupe."';";
+// echo "</script>".$requested."<script>";
 $eleves = requete($bdd, $requested);
-
+// echo "</script>".aff_array($eleves, false)."<script>";
 foreach($eleves as $i=>$data){
     echo "eleves[".$data["id"]."]='".$data["nom"]." ".$data["prenom"]."';";
 }
