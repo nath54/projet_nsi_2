@@ -69,18 +69,30 @@ function update_groups(){
     }
     deleves.children=[];
     deleves.innerHTML="";
-    for(ide of eleves_groupe){
-        var d=document.createElement("div");
-        d.setAttribute("class","row")
-        var t=document.createElement("h2");
-        t.innerHTML=eleves[ide];
-        var bt_del=document.createElement("img");
-        bt_del.setAttribute("class","bt_delete");
-        bt_del.setAttribute("href", "#");
-        bt_del.setAttribute("onclick","delete_groups("+ide+");");
-        d.appendChild(t);
-        d.appendChild(bt_del);
-        deleves.appendChild(d);
+    
+    if(eleves_groupe.length==0){
+        var p = document.createElement("p");
+        p.innerHTML = "Il n'y a pas d'éleves dans ce groupe"
+        deleves.appendChild(p);
+    }
+    else{
+        var t = document.createElement("h1");
+        t.innerHTML = "Eleves du groupe : "
+        deleves.appendChild(t);
+        for(ide of eleves_groupe){
+            var d=document.createElement("div");
+            d.setAttribute("class","row row_grp")
+            var t=document.createElement("h2");
+            t.innerHTML=eleves[ide];
+            var bt_del=document.createElement("img");
+            bt_del.setAttribute("class","bt_delete");
+            bt_del.setAttribute("href", "#");
+            bt_del.setAttribute("style", "margin: auto; margin-right:5px;");
+            bt_del.setAttribute("onclick","delete_groups("+ide+");");
+            d.appendChild(t);
+            d.appendChild(bt_del);
+            deleves.appendChild(d);
+        }
     }
 }
 
