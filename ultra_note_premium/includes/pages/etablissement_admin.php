@@ -5,17 +5,19 @@ include_once("../bdd.php");
 
 $bdd = load_db("../");
 
+$mon_compte = get_account($bdd, $_SESSION["id"]);
+
 ?>
 <script>
 
 var groupes={};
 
 <?php
-foreach(requete($bdd, "SELECT id, nom FROM groupes;") as $i=>$data){
+foreach(requete($bdd, "SELECT id, nom FROM groupes WHERE id_etablissement=".$mon_compte["id_etablissement"].";") as $i=>$data){
     echo "groupes[".$data["id"]."]={'nom': '".$data["nom"]."', 'eleves':[] };";
 }
 
-foreach(requete($bdd, "SELECT id_groupe, id_eleve FROM eleves_groupes;") as $i=>$data){
+foreach(requete($bdd, "SELECT id_groupe, id_eleve FROM eleves_groupes INNER JOIN groupes ON id_groupe=groupes.id WHERE id_etablissement=".$mon_compte["id_etablissement"].";") as $i=>$data){
     echo "groupes[".$data["id_groupe"]."]['eleves'].push(".$data["id_eleve"].");";
 }
 
@@ -23,7 +25,6 @@ foreach(requete($bdd, "SELECT id_groupe, id_eleve FROM eleves_groupes;") as $i=>
 
 </script>
 <div>
-
     <!-- gestion groupes -->
     <div>
         <h1>Groupes :</h1>
@@ -33,7 +34,6 @@ foreach(requete($bdd, "SELECT id_groupe, id_eleve FROM eleves_groupes;") as $i=>
             <div id="group_plus" class="div_compte" onclick="change_page('create_group');">
                 <h1>+</h1>
             </div>
-
         </div>
     </div>
 

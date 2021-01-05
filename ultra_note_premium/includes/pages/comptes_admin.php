@@ -17,22 +17,19 @@ $_SESSION["id_compte_modif"]=null;
 
 $mon_compte = get_account($bdd, $_SESSION["id"]);
 
-
 // On récupère sous la forme d'un dictionnaire pour chaque classe quels eleves il y a dedans
-foreach(requete($bdd, "SELECT id FROM classes;") as $k=>$data){
+foreach(requete($bdd, "SELECT id FROM classes WHERE id_etablissement=".$mon_compte["id_etablissement"].";") as $k=>$data){
     echo "<script>eleves_classes[".$data["id"]."]=[]</script>";
 }
-foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes;") as $k=>$data){
+foreach(requete($bdd, "SELECT id_eleve, id_classe FROM eleves_classes INNER JOIN classes ON id_classe=classes.id WHERE id_etablissement=".$mon_compte["id_etablissement"].";") as $k=>$data){
     echo "<script>eleves_classes[".$data["id_classe"]."].push(".$data["id_eleve"].");</script>";
 }
-
-
 
 // On récupère sous la forme d'un dictionnaire pour chaque groupe quels eleves il y a dedans
 foreach(requete($bdd, "SELECT id FROM groupes;") as $k=>$data){
     echo "<script>eleves_groupes[".$data["id"]."]=[]</script>";
 }
-foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>$data){
+foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes INNER JOIN groupes ON id_groupe=groupes.id WHERE id_etablissement=id_etablissement=".$mon_compte["id_etablissement"].";") as $k=>$data){
     echo "<script>eleves_groupes[".$data["id_groupe"]."].push(".$data["id_eleve"].");</script>";
 }
 
@@ -77,7 +74,7 @@ foreach(requete($bdd, "SELECT id_eleve, id_groupe FROM eleves_groupes;") as $k=>
 // normalement, la variable $bdd contient l'objet connecté a la base de donnée, car initialisée
 // au début de la création de la page
 
-$accounts = requete($bdd, "SELECT * FROM comptes;");
+$accounts = requete($bdd, "SELECT * FROM comptes WHERE id_etablissement=".$mon_compte["id_etablissement"].";");
 
 foreach($accounts as $i=>$data){
     $td = "<div class='div_compte' id=".$data["id"].">";

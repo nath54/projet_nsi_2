@@ -137,7 +137,7 @@ if( isset($_SESSION["id_compte_modif"]) ){
             ?>
         </select>
     </div>
-    <div id="ielprof">
+    <div id="ielprofadmin">
         <div class="frow">
         <label>Établissement : </label>
             <select id="ietablissement" name="ietablissement" class="i_form">

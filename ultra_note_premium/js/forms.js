@@ -86,25 +86,25 @@ function update_inscription() {
     if (tp == "eleve") {
         document.getElementById("ieleve").style.display = "initial";
         document.getElementById("iprof").style.display = "none";
-        document.getElementById("ielprof").style.display = "initial";
+        document.getElementById("ielprofadmin").style.display = "initial";
         document.getElementById("iadmin").style.display = "none";
         document.getElementById("iparent").style.display = "none";
     } else if (tp == "prof") {
         document.getElementById("ieleve").style.display = "none";
         document.getElementById("iprof").style.display = "initial";
-        document.getElementById("ielprof").style.display = "initial";
+        document.getElementById("ielprofadmin").style.display = "initial";
         document.getElementById("iadmin").style.display = "none";
         document.getElementById("iparent").style.display = "none";
     } else if (tp == "admin") {
         document.getElementById("ieleve").style.display = "none";
         document.getElementById("iprof").style.display = "none";
-        document.getElementById("ielprof").style.display = "none";
+        document.getElementById("ielprofadmin").style.display = "initial";
         document.getElementById("iadmin").style.display = "initial";
         document.getElementById("iparent").style.display = "none";
     } else if (tp == "parent") {
         document.getElementById("ieleve").style.display = "none";
         document.getElementById("iprof").style.display = "none";
-        document.getElementById("ielprof").style.display = "none";
+        document.getElementById("ielprofadmin").style.display = "none";
         document.getElementById("iadmin").style.display = "none";
         document.getElementById("iparent").style.display = "initial";
     }
