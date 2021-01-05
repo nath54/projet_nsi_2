@@ -3,6 +3,8 @@
 include_once "../init.php";
 include_once "../bdd.php";
 
+$bdd = load_db("../");
+
 ?>
 <form id="fgroup" method="POST", action="includes/pages/create_group2.php">
     <h1>Nouveau Groupe</h1>
@@ -22,7 +24,7 @@ include_once "../bdd.php";
         <label>Etablissement</label>
         <select name="etablissement">
             <?php
-foreach(requete($bdd, "SELECT id, nom FROM etablissements") as $i=>$data){
+foreach(requete($bdd, "SELECT id,nom FROM etablissements") as $i=>$data){
     echo "<option value=".$data["id"].">".$data["nom"]."</option>";
 }
             ?>
