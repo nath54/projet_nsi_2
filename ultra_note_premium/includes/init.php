@@ -11,12 +11,24 @@ function endsWith($var, $txt) {
     return substr_compare($var, $txt, -strlen($txt)) === 0;
 }
 
-function aff_array($ar){
-    echo "<table>";
+function aff_array($ar, $echo=true){
+    $txtecho="<table class='tabarray'>";
     foreach($ar as $k=>$v){
-        echo "<tr><td>".$k."</td><td>".$v."</td></tr>";
+        if(gettype($v)=="array"){
+            $vv=aff_array($v, false);
+        }
+        else{
+            $vv=$v;
+        }
+        $txtecho.= "<tr class='tabarray'><td class='tabarray'>".$k."</td><td class='tabarray'>".$vv."</td></tr>";
     }
-    echo "</table>";
+    $txtecho.= "</table>";
+    if($echo){
+        echo $txtecho;
+    }
+    else{
+        return $txtecho;
+    }
 }
 
 function alert($txt){

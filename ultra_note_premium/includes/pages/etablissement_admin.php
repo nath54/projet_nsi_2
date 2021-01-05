@@ -27,7 +27,13 @@ foreach(requete($bdd, "SELECT id_groupe, id_eleve FROM eleves_groupes;") as $i=>
     <!-- gestion groupes -->
     <div>
         <h1>Groupes :</h1>
-        <div id="div_groups" class="row">
+        <div class="row">
+            <div id="div_groups" class="row">
+            </div>
+            <div id="group_plus" class="div_compte" onclick="change_page('create_group');">
+                <h1>+</h1>
+            </div>
+
         </div>
     </div>
 
@@ -42,7 +48,7 @@ function create_group(gid){
     nom.innerHTML=groupes[gid]["nom"];
     var modifier=document.createElement("button");
     modifier.innerHTML="modifier";
-    modifier.setAttribute("onclick", "change_page('modify_group', arguments='gid="+gid+"');");
+    modifier.setAttribute("onclick", "change_page('modify_group', bt_actif=null, arguments='gid="+gid+"');");
     dg.appendChild(nom);
     dg.appendChild(modifier);
     document.getElementById("div_groups").appendChild(dg);

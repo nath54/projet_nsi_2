@@ -1,5 +1,4 @@
-
-.header{
+.header {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -12,8 +11,10 @@
     background-color: rgb(92, 13, 92);
     border-bottom: 2px solid rgb(20, 20, 20);
     border-radius: 0 0 15px 15px;
-}.header:hover{
-    width:99.9%;
+}
+
+.header:hover {
+    width: 99.9%;
     height: 70px;
     background-color: rgb(104, 18, 104);
     border: 1px solid rgb(20, 20, 20);
@@ -21,12 +22,13 @@
     border-radius: 0 0 20px 20px;
 }
 
-.header_left{
+.header_left {
     display: flex;
     flex-direction: row;
     height: 100%;
 }
-.header_right{
+
+.header_right {
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -35,17 +37,17 @@
     margin-right: 20px;
 }
 
-.ha{
+.ha {
     text-decoration: none;
     color: white;
     font-size: 1em;
 }
 
-.hel{
+.hel {
     margin: 20px;
 }
 
-.bt_sortie{
+.bt_sortie {
     margin-left: 0;
     width: 30px;
     height: 30px;
@@ -53,52 +55,60 @@
     background-image: url("../res/sortie.svg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-}.bt_sortie:hover{
-    margin-top:24px;
+}
+
+.bt_sortie:hover {
+    margin-top: 24px;
     width: 26px;
     height: 26px;
     background-image: url("../res/sortie_hover.svg");
 }
 
-.bt_header{
-    border:none;
-    margin-left:1px;
+.bt_header {
+    border: none;
+    margin-left: 1px;
     transition-duration: 0.8s;
     background-color: rgba(30, 30, 30, 0.2);
-    font-size:  1em;
+    font-size: 1em;
     color: white;
-}.bt_header:hover{
+}
+
+.bt_header:hover {
     border-bottom: 2px solid rgb(180, 41, 180);
     background-color: rgba(20, 20, 20, 0.8);
-    font-size:  1.05em;
+    font-size: 1.05em;
     color: rgb(180, 41, 180);
     text-shadow: 2px 2px black;
     cursor: pointer;
 }
-.bt_header_active{
+
+.bt_header_active {
     transition-duration: 0.5s;
-    border:none;
+    border: none;
     border-bottom: 2px solid rgb(180, 41, 180);
     background-color: rgba(20, 20, 20, 1);
-    font-size:  1.05em;
+    font-size: 1.05em;
     color: rgb(180, 41, 180);
     text-shadow: 2px 2px black;
 }
 
-.div_main{
+.div_main {
     margin-top: 60px;
     width: 100%;
+    height: 80%;
+    padding: 20px;
+    padding-bottom: 50px;
     overflow-y: scroll;
 }
 
-.row_wrap{
+.row_wrap {
     width: 100%;
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.div_compte{
+.div_compte {
     font-size: 0.8em;
     min-width: 50px;
     min-height: 50px;
@@ -109,25 +119,30 @@
     text-align: center;
     transition-duration: 0.6s;
     background-color: rgb(50, 50, 50);
-}.div_compte:hover{
+}
+
+.div_compte:hover {
     background-color: rgb(60, 60, 60);
 }
-#compte_plus{
+
+#compte_plus {
     font-size: 1.5em;
     padding-top: 13px;
-    min-width:100px;
-}
-#compte_plus:hover{
-    cursor:pointer;
+    min-width: 100px;
 }
 
-.row_bt{
+#compte_plus:hover {
+    cursor: pointer;
+}
+
+.row_bt {
     text-align: center;
     padding: 5px;
-    margin:auto;
+    margin: auto;
 }
 
-.bt_edit, .bt_delete{
+.bt_edit,
+.bt_delete {
     width: 25px;
     height: 25px;
     background-color: transparent;
@@ -137,39 +152,51 @@
     transition-duration: 0.5s;
 }
 
-.bt_delete{
+.bt_delete {
     background-image: url("../res/delete.svg");
-}.bt_delete:hover{
+}
+
+.bt_delete:hover {
     transform: scale(0.9);
 }
 
-.bt_edit{
+.bt_edit {
     background-image: url("../res/edit.svg");
-}.bt_edit:hover{
+}
+
+.bt_edit:hover {
     transform: rotateZ(-25deg);
 }
 
-.margin_15{
+.margin_15 {
     margin: 15px;
 }
-.margin_v_auto{
+
+.margin_auto {
+    margin: auto;
+}
+
+.margin_v_auto {
     margin-top: auto;
     margin-bottom: auto;
 }
 
-#filtres_comptes{
+#filtres_comptes {
     border-bottom: 1px solid black;
 }
 
-.tableau_note, .ligne_titre_note, .ligne_note, td{
+.tableau_note,
+.ligne_titre_note,
+.ligne_note,
+td {
     border-collapse: 1px;
-    
 }
 
-.ligne_titre_note{
+.ligne_titre_note {}
 
-}
+.ligne_note {}
 
-.ligne_note{
-
+.tabarray {
+    border: 1px solid grey;
+    border-collapse: collapse;
 }
