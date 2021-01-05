@@ -33,7 +33,7 @@ foreach(requete($bdd, "SELECT * FROM eleves_groupes WHERE id_groupe=".$_GET["gid
 
 </script>
 <form id="form_group" name="form_group" method="POST" action="includes/pages/modify_group2.php">
-    <input name="action" value="modif" />
+    <input id="action" name="action" value="modif" />
     <input id="eleves_groups" name="eleves_groups" style="display:none;" value=""/>
     <input id="id_groupe" name="id_groupe" style="display:none;" value=""/>
     <div id="eleves">
@@ -45,7 +45,7 @@ foreach(requete($bdd, "SELECT * FROM eleves_groupes WHERE id_groupe=".$_GET["gid
     </div>
     <div class="row">
         <a class="bt_form margin_15" href="#" onclick="submit_groups();">Ok</a>
-        <a class="bt_form margin_15" href="#" onclick="delete_group();">Supprimer le groupe</a>lass="row">
+        <a class="bt_form margin_15" href="#" onclick="delete_group();">Supprimer le groupe</a>
     </div>
 </form>
 <script>
