@@ -87,6 +87,12 @@ TABLE `eleves_classes`
  - `id_classe` _INT_ : id de la classe
  - `id_eleve` _INT_ : id de l'eleve qui est dans la classe
 
+TABLE `cours`:
+ - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
+ - `id_matiere` _INT_ : Identifiant de la matiere
+ - `id_prof` _INT_ : Identifiant du prof
+ - `id_groupe` _INT_ : Identifiant du groupe
+
 TABLE `groupes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
  - `nom` _TEXT_ : Nom de la classe
