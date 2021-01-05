@@ -33,7 +33,7 @@ foreach(requete($bdd, "SELECT * FROM eleves_groupes WHERE id_groupe=".$_GET["gid
 
 </script>
 <form id="form_group" name="form_group" method="POST" action="includes/pages/modify_group2.php">
-    <input id="action" name="action" value="modif" />
+    <input id="action" name="action" value="modif" style="display:none;" />
     <input id="eleves_groups" name="eleves_groups" style="display:none;" value=""/>
     <input id="id_groupe" name="id_groupe" style="display:none;" value=""/>
     <div id="eleves">
@@ -41,6 +41,7 @@ foreach(requete($bdd, "SELECT * FROM eleves_groupes WHERE id_groupe=".$_GET["gid
     </div>
     <div class="">
         <select class="margin_15" id="select_eleves"></select>
+        <p id="pas_eleves" style="display:none;">Il n'y a pas d'élèves à ajouter</p>
         <a class="bt_form" href="#" onclick="ajouter_groups();">Ajouter</a>
     </div>
     <div class="row">
@@ -57,10 +58,22 @@ function update_groups(){
     for(c of dsel.children){
         dsel.removeChild(c);
     }
-    dsel.children=[];
-    dsel.innerHTML="";
+    var seleves=[];
     for(ide of Object.keys(eleves)){
         if(!eleves_groupe.includes(parseInt(ide))){
+            seleves.push(ide);
+        }
+    }
+    dsel.children=[];
+    dsel.innerHTML="";
+    if(seleves.length==0){
+        dsel.style.display="none";
+        document.getElementById("pas_eleves").style.display="initial";
+    }
+    else{
+        dsel.style.display="initial";
+        document.getElementById("pas_eleves").style.display="none";
+        for(ide of seleves){
             var o = document.createElement("option");
             o.setAttribute("value", ide);
             o.innerHTML=eleves[ide];
@@ -100,9 +113,11 @@ function update_groups(){
 }
 
 function ajouter_groups(){
-    var ide=document.getElementById("select_eleves").value;
-    eleves_groupe.push(parseInt(ide));
-    update_groups();
+    if(document.getElementById("select_eleves").children.length>0){
+        var ide=document.getElementById("select_eleves").value;
+        eleves_groupe.push(parseInt(ide));
+        update_groups();
+    }
 }
 function delete_eleve(ide){
     eleves_groupe = eleves_groupe.filter(item => item !== ide);
@@ -116,9 +131,11 @@ function submit_groups(){
 }
 
 function delete_group(){
-    document.getElementById("action").value="delete";
-    document.getElementById("id_groupe").value=id_groupe;
-    document.getElementById("form_group").submit();
+    if(confirm("Cette action va supprimer ce groupe, voulez vous vraiment le faire ?")){
+        document.getElementById("action").value="delete";
+        document.getElementById("id_groupe").value=id_groupe;
+        document.getElementById("form_group").submit();
+    }
 }
 
 update_groups();
