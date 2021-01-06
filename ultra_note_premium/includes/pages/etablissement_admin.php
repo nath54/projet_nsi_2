@@ -5,7 +5,7 @@ include_once("../bdd.php");
 
 $bdd = load_db("../");
 
-$mon_compte = requete($bdd, "SELECT * FROM comptes WHERE id_etablissement=".$_SESSION["id"])[0];
+$mon_compte = requete($bdd, "SELECT * FROM comptes WHERE id=".$_SESSION["id"])[0];
 ?>
 <script>
 

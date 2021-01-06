@@ -77,7 +77,7 @@ INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("MATH grp2", "termin
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("NSI", "terminale", 2); /*11*/
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("MATH", "terminale", 2); /*12*/
 INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("Physique-Chimie", "terminale", 2); /*13*/
-INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("MATH grp2", "terminale", 1); /*14*/
+INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("MATH grp2", "terminale", 2); /*14*/
 
 -- emplois du temps :
 
@@ -102,7 +102,7 @@ INSERT INTO profs_groupes SET id_prof=2, id_groupe=2;
 INSERT INTO profs_groupes SET id_prof=2, id_groupe=3;
 INSERT INTO comptes SET type_='prof', id_etablissement=1, nom='Poincaré', prenom='Henri', pseudo='henri.poincare', password_='henripoincare', naissance='1854-04-29'; /*3*/
 INSERT INTO profs_matieres SET id_prof=3, id_matiere=1;
-INSERT INTO profs_groupes SET id_prof=2, id_groupe=3;
+INSERT INTO profs_groupes SET id_prof=3, id_groupe=3;
 
 -- kleber :
 
