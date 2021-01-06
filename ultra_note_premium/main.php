@@ -6,9 +6,9 @@ $bdd = load_db("includes/");
 
 if(isset($_SESSION["id"])){
     $id_account = $_SESSION["id"];
-    $r = get_account($bdd, $id_account);
-    if(count($r)>0){
-        $compte = $r[0];
+    $results = requete($bdd, "SELECT * FROM comptes WHERE id=".$id_account);
+    if(count($results)>0){
+        $compte = $results[0];
         echo("<script>sessionStorage['tp_compte']='".$compte["type_"]."'</script>");
     }
     else{

@@ -15,7 +15,7 @@ $bdd = load_db("../");
 
 $_SESSION["id_compte_modif"]=null;
 
-$mon_compte = requete($bdd, "SELECT * FROM comptes WHERE id_etablissement=".$_SESSION["id"])[0];
+$mon_compte = requete($bdd, "SELECT * FROM comptes WHERE id=".$_SESSION["id"])[0];
 
 // On récupère sous la forme d'un dictionnaire pour chaque classe quels eleves il y a dedans
 foreach(requete($bdd, "SELECT id FROM classes WHERE id_etablissement=".$mon_compte["id_etablissement"].";") as $k=>$data){
