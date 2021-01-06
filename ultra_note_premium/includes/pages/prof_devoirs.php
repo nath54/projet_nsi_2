@@ -13,13 +13,21 @@ $groupes = requete($bdd, "SELECT groupes.* FROM groupes INNER JOIN profs_groupes
 <style>
 #div_nouveau{
     position: absolute;
-    top: 5%;
-    left:10%;
-    right: 10%;
-    bottom: 5%;
-    background-color: rgba(50, 50, 50, 0.95);
+    top: 15%;
+    left:20%;
+    right: 20%;
+    bottom: 25%;
+    background-color: rgba(60, 60, 60, 0.96);
+    border-radius: 25px;
     padding: 20px;
 }
+
+.elt_nv_devoir{
+    margin: 15px;
+    display: flex;
+    flex-direction:row;
+}
+
 </style>
 
 <div>
@@ -38,34 +46,37 @@ foreach($groupes as $i=>$data){
 </div>
 
 <div id="div_nouveau" style="display:none;">
-    <form>
+    <form name="nouveau_devoir" id="f_nouveau_devoir" action="nouveau_devoir.php" method="POST">
         <h1>Nouveau devoir</h1>
-        <select id="id_groupe" name="id_groupe">
+        <div class="elt_nv_devoir">
+            <label>Groupe :</label>
+            <select id="id_groupe" name="id_groupe">
 
-        </select>
-        <div>
+            </select>
+        </div>
+        <div class="elt_nv_devoir">
             <label>Titre :</label>
             <input type="text" id="titre" name="titre" value="" placeholder="exemple: Exercices de Math"/>
         </div>
-        <div>
+        <div class="elt_nv_devoir">
             <label>Description :</label>
             <input type="textarea" id="description_" name="description_" value="" placeholder="exemple: Faire les exercices 4 et 2 de la page 42 du manuel"/>
         </div>
-        <div>
+        <div class="elt_nv_devoir">
             <label>jour :</label>
             <input type="date" id="date" name="date"/>
         </div>
-        <div>
+        <div class="elt_nv_devoir">
             <label>Mettre dans le devoir le temps qu'il demandera (environ)</label>
-            <input type="checkbox" name="mettre_temps" id="mettre_temps" />
+            <input type="checkbox" name="mettre_temps" id="mettre_temps" onchange="if(document.getElementById('mettre_temps').checked){ document.getElementById('dtemps').style.display='initial'; }else{ document.getElementById('dtemps').style.display='none'; }" />
         </div>
-        <div>
+        <div id="dtemps" class="elt_nv_devoir">
             <label>Temps que le devoir prendra :</label>
             <input type="number" id="temps" name="temps" value="" placeholder="5"/><span> minutes</span>
         </div>
-        <div class="row">
-            <a href="#" onclick="submite()">Envoyer</a>
-            <a href="#" onclick="document.getElementById('div_nouveau').style.display='none'">Annuler</a>
+        <div class="row" style="margin-left: 25%;">
+            <a class="bt_form margin_15" href="#" onclick="submite()">Envoyer</a>
+            <a class="bt_form margin_15" href="#" onclick="document.getElementById('div_nouveau').style.display='none'">Annuler</a>
         </div>
     </form>
 </div>
