@@ -102,6 +102,7 @@ TABLE `groupes`
  - `nom` _TEXT_ : Nom de la classe
  - `niveau` _TEXT_ : niveau de la classe "*seconde*", "*premiere*", "*terminale*"
  - `id_etablissement` _INT_ : id de l'etablissement
+ - `id_matiere` _INT_ : id de la matiere du groupe, est null si le groupe n'a pas de matieres spécifiques
 
 TABLE `eleves_groupes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
