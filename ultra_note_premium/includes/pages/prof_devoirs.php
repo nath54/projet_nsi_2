@@ -27,21 +27,23 @@ $groupes = requete($bdd, "SELECT groupes.* FROM groupes INNER JOIN profs_groupes
     display: flex;
     flex-direction:row;
 }
-
 </style>
 
 <div>
 
-<?php
+<h1>Devoirs par groupe d'eleves :</h1>
 
-foreach($groupes as $i=>$data){
-    echo "<div>";
-    echo "<h1>".$data["nom"]."</h1>";
-    echo "<button onclick='nouveau_devoir(".$data["id"].");'>Nouveau devoir</button>";
-    echo "</div>";
+<div class="row">
+
+<select id="select_groupe" onchange="update_devoirs()">
+    <?php
+foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN profs_groupes ON id_groupe=groupes.id AND id_prof=".$id_prof) as $i=>$data){
+    echo "<option value='".$data["id_groupe"]."'>".$data["nom"]."</option>";
 }
+    ?>
+</select>
 
-?>
+</div>
 
 </div>
 

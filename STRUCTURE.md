@@ -1,20 +1,17 @@
 # Structure du projet
 
-## Web : 
+## Web :
 
-==/!\ D'abord designer le site pour téléphone avant de l'adapter sur PC /!\==
-
-- Quand on arrive sur le site, on est sur une page d'acceuil, qui nous permet de nous connecter
+- Quand on arrive sur le site, on est sur une page d’accueil, qui nous permet de nous connecter
 (On pourra aussi se créer un compte, mais normalement, sur les sites scolaires, tous les comptes pour tous les étudiants sont déjà créés)
-Option pour rester connecter (on utilisera des cookies)
 
 - Se connecter
     On ne change pas de page, mais une div apparait fluidement
-    => Requete PHP, avec un POST
+    => Requête PHP, avec un POST
 
 - S'inscrire
     Pareil que pour se connecter,
-    => Requete PHP, avec un POST
+    => Requête PHP, avec un POST
 
 - Page d'accueil quand on est connecté 
     Il faut une page d'accueil fluide, agréable
@@ -33,7 +30,7 @@ Il faut plusieurs bases de données pour tout structurer
 
 TABLE `comptes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
- - `type_` _TEXT_ : "*administrateur*", "*eleve*", "*prof*" ou "*parent*"
+ - `type_` _TEXT_ : "*administrateur*", "*élève*", "*prof*" ou "*parent*"
  - `id_etablissement` _INT_ : Identifiant de l'établissement de l'élève
  - `pseudo` _TEXT_ : Le pseudo utilisé pour se connecter
  - `password_` _TEXT_ : Le mot de passe utilisé pour se connecter
@@ -62,7 +59,7 @@ TABLE `abscences`
  - `debut` _DATETIME_ : début de l'absence
  - `fin` _DATETIME_ : fin de l'absence
 
-### Matère :
+### Matière :
 
 TABLE `matieres`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique de la matière
@@ -72,7 +69,7 @@ TABLE `matieres`
 TABLE `profs_matieres`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : l'identifiant unique de cette ligne
  - `id_prof` _INT_ : Identifiant du prof
- - `id_matiere` _INT_ : Identifiant de la matiere
+ - `id_matiere` _INT_ : Identifiant de la matière
 
 ### Classe :
 
@@ -80,16 +77,16 @@ TABLE `classes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
  - `nom` _TEXT_ : Nom de la classe
  - `niveau` _TEXT_ : niveau de la classe "*seconde*", "*premiere*", "*terminale*"
- - `id_etablissement` _INT_ : id de l'etablissement
+ - `id_etablissement` _INT_ : id de établissement
 
 TABLE `eleves_classes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `id_classe` _INT_ : id de la classe
- - `id_eleve` _INT_ : id de l'eleve qui est dans la classe
+ - `id_eleve` _INT_ : id de élève qui est dans la classe
 
 TABLE `cours`:
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
- - `id_matiere` _INT_ : Identifiant de la matiere
+ - `id_matiere` _INT_ : Identifiant de la matière
  - `id_prof` _INT_ : Identifiant du prof
  - `id_groupe` _INT_ : Identifiant du groupe
  - `jour` _INT_ : Jour de la semaine du cours (1-6)
@@ -101,12 +98,12 @@ TABLE `groupes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
  - `nom` _TEXT_ : Nom de la classe
  - `niveau` _TEXT_ : niveau de la classe "*seconde*", "*premiere*", "*terminale*"
- - `id_etablissement` _INT_ : id de l'etablissement
+ - `id_etablissement` _INT_ : id de établissement
 
 TABLE `eleves_groupes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `id_groupe` _INT_ : id du groupe
- - `id_eleve` _INT_ : id de l'eleve qui est dans la classe
+ - `id_eleve` _INT_ : id de l’élève qui est dans la classe
 
 TABLE `profs_groupes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
@@ -117,22 +114,22 @@ TABLE `profs_groupes`
 
 TABLE `notes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : identifiant unique de ce devoir
- - `id_matiere` _INT_ : Identifiant de la matère
+ - `id_matiere` _INT_ : Identifiant de la matière
  - `id_prof` _INT_ : Identifiant du prof
  - `id_groupe` _INT_ : Identifiant du groupe
  - `coef` _FLOAT_ : Coefficient de la note de ce devoir
- - `jour` _DATE_ : Jour de la mise de la note sur pronote
+ - `jour` _DATE_ : Jour de la mise de la note sur le site
  - `jour_visible` _DATE_ : Jour où les élèves pourront voir cette note
- - `trimestre` _INT_ : Trimèstre de la note (1, 2, 3)
+ - `trimestre` _INT_ : Trimestre de la note (1, 2, 3)
  - `titre` _TEXT_ : Titre/Nom de la note
  - `description_` _TEXT_ : Description de la note
 
 TABLE `eleves_notes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
  - `id_note` _INT_ : id du devoir/note
- - `id_eleve` _INT_ : id de l'eleve
- - `note` _FLOAT_ : note de l'eleve
- - `appreciation` _TEXT_ : appreciation du professeur
+ - `id_eleve` _INT_ : id de l’élève
+ - `note` _FLOAT_ : note de l'élève
+ - `appreciation` _TEXT_ : appréciation du professeur
 
 ### Devoir :
 
@@ -140,7 +137,7 @@ TABLE `devoirs`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique du devoir
  - `id_prof` _INT_ : Identifiant du professeur qui a posté ce devoir
  - `id_groupe` _INT_ : Identifiant du groupe pour le devoir
- - `type_` _TEXT_ : Type du devoir "*lecon*", "*exercices*", "*ds*", "*dm*"
+ - `type_` _TEXT_ : Type du devoir "leçon", "*exercices*", "DS", "*dm*"
  - `titre` _TEXT_ : Titre du devoir
  - `description_` _TEXT_ : Description du devoir
  - `jour` _DATE_ : Jour où il faut faire ce devoir
@@ -168,7 +165,7 @@ TABLE `etablissements`
 
 TABLE `membres_etablissements`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
- - `id_etablissement` _INT_ : id de l'etablissement
+ - `id_etablissement` _INT_ : id de l'établissement
  - `id_compte` _INT_ : id du compte
 
 ### Pièces jointes :
