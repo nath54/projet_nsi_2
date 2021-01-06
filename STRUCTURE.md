@@ -92,6 +92,10 @@ TABLE `cours`:
  - `id_matiere` _INT_ : Identifiant de la matiere
  - `id_prof` _INT_ : Identifiant du prof
  - `id_groupe` _INT_ : Identifiant du groupe
+ - `jour` _INT_ : Jour de la semaine du cours (1-6)
+ - `heure_debut` : Heure du début du cours (8h10-17h15)
+ - `heure_fin` : Heure de la fin du cours (9h10-18h15)
+ - `semaine`: Si toutes les semaines (0), si juste semaine A(1), si juste semaine B(2)
 
 TABLE `groupes`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique de la classe
