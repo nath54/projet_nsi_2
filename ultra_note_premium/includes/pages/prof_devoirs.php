@@ -37,7 +37,7 @@ $groupes = requete($bdd, "SELECT groupes.* FROM groupes INNER JOIN profs_groupes
 foreach($groupes as $i=>$data){
     echo "<div>";
     echo "<h1>".$data["nom"]."</h1>";
-    echo "<button onclick='nouveau_devoir(".$data["id"].")'>Nouveau devoir</button>";
+    echo "<button onclick='nouveau_devoir(".$data["id"].");'>Nouveau devoir</button>";
     echo "</div>";
 }
 
@@ -47,11 +47,16 @@ foreach($groupes as $i=>$data){
 
 <div id="div_nouveau" style="display:none;">
     <form name="nouveau_devoir" id="f_nouveau_devoir" action="nouveau_devoir.php" method="POST">
+        <input id="id_groupe" name="id_groupe" value="" style="display:none;" />
         <h1>Nouveau devoir</h1>
         <div class="elt_nv_devoir">
-            <label>Groupe :</label>
-            <select id="id_groupe" name="id_groupe">
-
+            <label>Matiere :</label>
+            <select id="id_matiere" name="id_matiere">
+                <?php
+foreach(requete("SELECT matieres.nom, matieres.id FROM matieres INNER JOIN profs_matieres ON matieres.id=id_matiere AND id_prof=".$id_prof) as $i=>$data){
+    echo "<option value=".$data["id"].">".$data["nom"]."</option>";
+}
+                ?>
             </select>
         </div>
         <div class="elt_nv_devoir">
@@ -88,7 +93,7 @@ function nouveau_devoir(id_groupe){
 }
 
 function submite(){
-    
+    document.getElementById("form_devoir").submit();
 }
 
 </script>

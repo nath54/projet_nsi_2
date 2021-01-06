@@ -83,6 +83,7 @@
 }
 
 .bt_header_active {
+    cursor: pointer;
     transition-duration: 0.5s;
     border: none;
     border-bottom: 2px solid rgb(180, 41, 180);
