@@ -59,7 +59,7 @@ function change_page(page, bt_actif = null, arguments = "") {
         var b = document.getElementById(bt_actif);
         if (b != undefined) {
             b.setAttribute("class", "bt_header_active");
-            b.disabled = true;
+            // b.disabled = true;
         }
     }
 }
