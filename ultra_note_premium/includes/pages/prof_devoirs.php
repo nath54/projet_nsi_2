@@ -27,6 +27,14 @@ $groupes = requete($bdd, "SELECT groupes.* FROM groupes INNER JOIN profs_groupes
     display: flex;
     flex-direction:row;
 }
+
+.selecte1{
+    border-radius: 10px;
+    font-size: 1.2em;
+    decoration: none;
+    border: none;
+}
+
 </style>
 
 <div>
@@ -35,13 +43,21 @@ $groupes = requete($bdd, "SELECT groupes.* FROM groupes INNER JOIN profs_groupes
 
 <div class="row">
 
-<select id="select_groupe" onchange="update_devoirs()">
-    <?php
+<div class="selecte1">
+    <select id="select_groupe" onchange="update_devoirs()">
+        <?php
 foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN profs_groupes ON id_groupe=groupes.id AND id_prof=".$id_prof) as $i=>$data){
     echo "<option value='".$data["id_groupe"]."'>".$data["nom"]."</option>";
 }
-    ?>
-</select>
+        ?>
+    </select>
+</div>
+
+<div>
+    <table id="table_devoirs">
+
+    </table>
+</div>
 
 </div>
 
