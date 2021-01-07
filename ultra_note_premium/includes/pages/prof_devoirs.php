@@ -20,7 +20,6 @@ foreach(requete($bdd,"SELECT * FROM devoirs INNER JOIN matieres ON id_matiere=ma
 }
 echo "</script>";
 
-
 ?>
 
 <script>
@@ -37,12 +36,17 @@ function submite(){
     // tests
     // on récupere les valeurs
     var idg=document.getElementById("id_groupe").value;
+    var type_=document.getElementById("type_").value;
     var titre=document.getElementById("titre").value;
     var description=document.getElementById("description_").value;
     var jour=document.getElementById("jour").value;
     var mettre_temps=document.getElementById("mettre_temps").checked;
     var temps=document.getElementById("temps");
     // on teste
+    if(!["exercices", "lecon", "ds", "dm"].includes(type_)){
+        alert("Probleme au niveau du type");
+        return;
+    }
     if(idg=="" || !isNumeric(idg)){
         alert("Probleme d'identifiant du groupe");
         return;
