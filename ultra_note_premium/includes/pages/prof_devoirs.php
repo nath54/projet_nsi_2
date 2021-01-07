@@ -23,6 +23,50 @@ echo "</script>";
 
 ?>
 
+<script>
+
+function nouveau_devoir(){
+    var id_groupe=document.getElementById("select_groupe").value;
+    document.getElementById("div_nouveau").style.display="initial";
+    document.getElementById("id_groupe").value=id_groupe;
+}
+
+function submite(){
+    document.getElementById("form_devoir").submit();
+}
+
+function update_devoirs(){
+    var id_groupe=document.getElementById("select_groupe").value;
+    var tab=document.getElementById("tableau_devoirs");
+    // On nettoie le tableau
+    for(c of tab.children){
+        tab.removeChild(c);
+    }
+    tab.children=[];
+    tab.innerHTML="";
+    //
+    for(di of Object.keys(devoirs_grps)){
+        var dev=devoirs_grps[di];
+        if(dev["id_prof"]==id_prof && dev["id_groupe"]==id_groupe){
+            var drow=document.createElement("tr");
+            drow.setAttribute("alt", dev["description_"])
+            var cmat=document.createElement("td");
+            cmat.innerHTML=dev["matiere"];
+            var ctitre=document.createElement("td");
+            var titre=document.createElement("h2");
+            titre.innerHTML=dev["titre"];
+            var bt_edit=document.createElement("button");
+            bt_edit.setAttribute("class", "bt_edit");
+            bt_edit.onclick="";
+            var bt_delete=document.createElement("button");
+            bt_delete.setAttribute("class", "bt_delete");
+            bt_delete.onclick="";
+            //
+        }
+    }
+}
+
+</script>
 <style>
 #div_nouveau{
     position: absolute;
@@ -54,10 +98,10 @@ echo "</script>";
 
 <h1>Devoirs par groupe d'eleves :</h1>
 
-<div class="row">
+<div>
 
 <div class="selecte1">
-    <select id="select_groupe" onchange="update_devoirs()">
+    <select id="select_groupe" onchange="update_devoirs();">
         <?php
 foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN profs_groupes ON id_groupe=groupes.id AND id_prof=".$id_prof) as $i=>$data){
     echo "<option value='".$data["id_groupe"]."'>".$data["nom"]."</option>";
@@ -66,10 +110,12 @@ foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN pro
     </select>
 </div>
 
-<div>
-    <table id="table_devoirs">
+<div class="column">
+    <table id="tableau_devoirs">
 
     </table>
+    
+    <button onclick="nouveau_devoir()" class="bt_1">Nouveau devoir</button>
 </div>
 
 </div>
@@ -116,46 +162,3 @@ foreach(requete("SELECT matieres.nom, matieres.id FROM matieres INNER JOIN profs
         </div>
     </form>
 </div>
-
-<script>
-
-function nouveau_devoir(id_groupe){
-    document.getElementById("div_nouveau").style.display="initial";
-}
-
-function submite(){
-    document.getElementById("form_devoir").submit();
-}
-
-function update_devoirs(){
-    var id_groupe=document.getElementById("select_groupe").value;
-    var tab=document.getElementById("tableau_devoirs");
-    // On nettoie le tableau
-    for(c of tab.children){
-        tab.removeChild(c);
-    }
-    tab.children=[];
-    tab.innerHTML="";
-    //
-    for(di of Object.keys(devoirs_grps)){
-        var dev=devoirs_grps[di];
-        if(dev["id_prof"]==id_prof && dev["id_groupe"]==id_groupe){
-            var drow=document.createElement("tr");
-            drow.setAttribute("alt", dev["description_"])
-            var cmat=document.createElement("td");
-            cmat.innerHTML=dev["matiere"];
-            var ctitre=document.createElement("td");
-            var titre=document.createElement("h2");
-            titre.innerHTML=dev["titre"];
-            var bt_edit=document.createElement("button");
-            bt_edit.setAttribute("class", "bt_edit");
-            bt_edit.onclick="";
-            var bt_delete=document.createElement("button");
-            bt_delete.setAttribute("class", "bt_delete");
-            bt_delete.onclick="";
-            //
-        }
-    }
-}
-
-</script>

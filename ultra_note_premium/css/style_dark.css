@@ -1,32 +1,36 @@
-html{
+html {
     font-family: 'Arvo', serif;
     font-size: 1em;
-    background-color: rgb(40,40,40);
+    background-color: rgb(40, 40, 40);
     color: white;
     overflow: hidden;
 }
 
-body{
+body {
     overflow: hidden;
 }
 
-p{
+p {
     font-family: 'Lato', sans-serif;
 }
 
-.row{
+.row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.m_r{
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.m_r {
     margin: 15px;
     padding-left: 10%;
 }
 
-
-.bt_m{
+.bt_m {
     background-color: rgb(250, 250, 250);
     color: black;
     font-weight: 1000;
@@ -41,11 +45,11 @@ p{
     text-align: center;
 }
 
-.frow{
+.frow {
     margin: 10px;
 }
 
-.i_form{
+.i_form {
     font-family: 'Arvo', serif;
     font-size: 1em;
     padding-left: 8px;
@@ -54,11 +58,11 @@ p{
     padding-bottom: 5px;
     border-radius: 8px;
     border: none;
-    background-color: rgb(30,30,30);
+    background-color: rgb(30, 30, 30);
     color: white;
 }
 
-.bt_form{
+.bt_form {
     text-decoration: none;
     color: rgb(60, 60, 70);
     font-family: 'Arvo', serif;
@@ -71,12 +75,14 @@ p{
     border: none;
     transition-duration: 0.6s;
     background-color: rgb(150, 150, 150);
-}.bt_form:hover{
+}
+
+.bt_form:hover {
     color: rgb(50, 0, 0);
     background-color: rgb(130, 140, 180);
 }
 
-.bt_oeil{
+.bt_oeil {
     position: relative;
     top: 7px;
     width: 25px;
@@ -88,16 +94,17 @@ p{
     background-repeat: no-repeat;
     background-size: 100% 100%;
     transition-duration: 0.5s;
-}.bt_oeil:hover{
+}
+
+.bt_oeil:hover {
     transform: scale(0.8);
-}.bt_oeil:active{
+}
+
+.bt_oeil:active {
     background-image: url("../res/oeil_active.svg");
 }
 
-.selecte1{
+.selecte1 {
     border-radius: 10px;
     font-size: 1.2em;
-    
 }
-
-

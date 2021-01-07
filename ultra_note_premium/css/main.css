@@ -210,3 +210,21 @@ td {
     padding-left: 15px;
     margin: 5px;
 }
+
+.bt_1 {
+    max-width: 170px;
+    min-height: 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: rgb(80, 41, 80);
+    transition-duration: 0.5s;
+    margin: 15px;
+    padding: 5px;
+}
+
+.bt_1:hover {
+    background-color: rgb(180, 41, 180);
+    border-radius: 15px;
+}
