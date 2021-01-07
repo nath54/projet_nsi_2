@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `devoirs` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       titre TEXT,
                                       description_ TEXT,
                                       jour DATE,
-                                      temps_evalue INT);
+                                      temps_evalue INT DEFAULT NULL);
 
 
 CREATE TABLE IF NOT EXISTS `fichiers_devoirs` (id INT PRIMARY KEY AUTO_INCREMENT,
