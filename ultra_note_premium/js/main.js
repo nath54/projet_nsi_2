@@ -88,3 +88,15 @@ function on_load() {
         change_page(page);
     }
 }
+
+// Fonction qui vérifie si une chaine de characteres donné peut-être transformé en int/float ou pas
+function isNumeric(str) {
+    if (typeof str != "string") return false // we only process strings!  
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+           !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}
+
+// Fonction qui teste si une chaine de charactere donnée est de format date valide
+function isDateValid(date) {
+    return (new Date(date) !== "Invalid Date") && !isNaN(new Date(date));
+}
