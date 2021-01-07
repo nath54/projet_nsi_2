@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `eleves_notes` (id INT PRIMARY KEY AUTO_INCREMENT,
 
 CREATE TABLE IF NOT EXISTS `devoirs` (id INT PRIMARY KEY AUTO_INCREMENT,
                                       id_prof INT,
-                                      id_classe INT,
+                                      id_groupe INT,
                                       id_matiere INT,
                                       type_ TEXT,
                                       titre TEXT,

@@ -204,7 +204,7 @@ foreach(requete($bdd, "SELECT matieres.nom, matieres.id FROM matieres INNER JOIN
         </div>
         <div class="elt_nv_devoir">
             <label>Mettre dans le devoir le temps qu'il demandera (environ)</label>
-            <input type="checkbox" name="mettre_temps" id="mettre_temps" onchange="if(document.getElementById('mettre_temps').checked){ document.getElementById('dtemps').style.display='initial'; }else{ document.getElementById('dtemps').style.display='none'; }" />
+            <input type="checkbox" name="mettre_temps" id="mettre_temps" value=true onchange="if(document.getElementById('mettre_temps').checked){ document.getElementById('dtemps').style.display='initial'; }else{ document.getElementById('dtemps').style.display='none'; }" />
         </div>
         <div id="dtemps" class="elt_nv_devoir" style="display:none;">
             <label>Temps que le devoir prendra :</label>
