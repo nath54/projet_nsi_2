@@ -137,12 +137,12 @@ TABLE `devoirs`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : Identifiant unique du devoir
  - `id_prof` _INT_ : Identifiant du professeur qui a posté ce devoir
  - `id_groupe` _INT_ : Identifiant du groupe pour le devoir
+ - `id_matiere` _INT_ : Identifiant de la matiere du devoir
  - `type_` _TEXT_ : Type du devoir "leçon", "*exercices*", "DS", "*dm*"
  - `titre` _TEXT_ : Titre du devoir
  - `description_` _TEXT_ : Description du devoir
  - `jour` _DATE_ : Jour où il faut faire ce devoir
- - `temps_evalué` _FLOAT_ : Temps que cela va prendre de faire le devoir (à peu près), NULL s'il n'y a pas.
-
+ - `temps_evalue` _FLOAT_ : Temps que cela va prendre de faire le devoir (à peu près), NULL s'il n'y a pas.
 
 TABLE `fichiers_devoirs`
  - `id` *INT PRIMARY KEY AUTO_INCREMENT* : id unique de la ligne
