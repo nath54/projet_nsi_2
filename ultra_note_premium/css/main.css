@@ -191,6 +191,8 @@
 .ligne_note,
 td {
     border-collapse: 1px;
+    margin: 6px;
+    margin-right: 10px;
 }
 
 .ligne_titre_note {}
