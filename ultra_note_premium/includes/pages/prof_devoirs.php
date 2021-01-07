@@ -168,6 +168,15 @@ foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN pro
         <input id="id_groupe" name="id_groupe" value="" style="display:none;" />
         <h1>Nouveau devoir</h1>
         <div class="elt_nv_devoir">
+            <label>Type :</label>
+            <select id="type_" name="type_">
+                <option>exercices</option>
+                <option>lecon</option>
+                <option>ds</option>
+                <option>dm</option>
+            </select>
+        </div>
+        <div class="elt_nv_devoir">
             <label>Matiere :</label>
             <select id="id_matiere" name="id_matiere">
                 <?php

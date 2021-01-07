@@ -138,7 +138,7 @@ TABLE `devoirs`
  - `id_prof` _INT_ : Identifiant du professeur qui a posté ce devoir
  - `id_groupe` _INT_ : Identifiant du groupe pour le devoir
  - `id_matiere` _INT_ : Identifiant de la matiere du devoir
- - `type_` _TEXT_ : Type du devoir "leçon", "*exercices*", "DS", "*dm*"
+ - `type_` _TEXT_ : Type du devoir "*lecon*", "*exercices*", "*ds*", "*dm*"
  - `titre` _TEXT_ : Titre du devoir
  - `description_` _TEXT_ : Description du devoir
  - `jour` _DATE_ : Jour où il faut faire ce devoir
