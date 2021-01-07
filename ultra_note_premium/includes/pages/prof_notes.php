@@ -21,6 +21,7 @@ foreach($mats as $i=>$data){
 
 
 $requete = "SELECT * FROM profs_groupes INNER JOIN groupes ON id_groupe=groupes.id WHERE id_prof=".$id_prof;
+echo "<table class='tableau_note'> <tr class='ligne_titre_note'> <td>classes</td> <td>groupe</td>  </tr>";
 foreach(requete($bdd, $requete) as $i=>$data){
     $data["nom"];
     echo "<table class='tableau_note'> <tr class='ligne_titre_note'> <td>".$data["nom"]."</td> <td>".$data["id_groupe"]."</td>  </tr>";
