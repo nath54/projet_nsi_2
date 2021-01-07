@@ -24,8 +24,8 @@ $requete = "SELECT * FROM profs_groupes INNER JOIN groupes ON id_groupe=groupes.
 foreach(requete($bdd, $requete) as $i=>$data){
     $data["nom"];
     echo "<table class='tableau_note'> <tr class='ligne_titre_note'> <td>".$data["nom"]."</td> <td>".$data[""]."</td>  </tr>";
-}
     echo "</table>";
+}
 
 
 ?>
