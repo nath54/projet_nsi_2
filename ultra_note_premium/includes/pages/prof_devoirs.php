@@ -1,3 +1,69 @@
+
+<style>
+#div_nouveau{
+    position: absolute;
+    top: 15%;
+    left:20%;
+    right: 20%;
+    bottom: 25%;
+    background-color: rgba(60, 60, 60, 0.96);
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.elt_nv_devoir{
+    margin: 15px;
+    display: flex;
+    flex-direction:row;
+}
+
+.selecte1{
+    margin: 15px;
+    padding: 5px;
+}
+
+/*
+On peut se permettre ici de mettre les propriétés du tableau directement avec table, tr, td et th
+car il n'y aura pas d'autre tableaux sur cette page avec lesquels ces propriétés peuvent déranger
+*/
+
+table, tr, td, th{
+    border: 1px solid rgb(150,150,150);
+    border-collapse: collapse;
+}
+
+table{
+    margin: 15px;
+    border-color: rgb(150,150,150);
+}
+
+td, th{
+    padding: 10px;
+}
+th{
+    background-color: rgb(20,20,20);
+    font-size: 1.05em;
+}
+td{
+    background-color: rgb(40,40,40);
+    font-size: 1em;
+}
+.bt_edit, .bt_delete{
+    margin-top:auto;
+    margin-bottom:auto;
+}
+
+.descr{
+    max-width: 250px;
+    text-wrap: wrap;
+    margin: 2.5px;
+    padding: 2.5px;
+    background-color: rgba(255,255,255, 0.05);
+    border-radius: 5px;
+}
+
+</style>
+
 <?php
 
 include_once("../init.php");
@@ -14,8 +80,8 @@ echo "var devoirs_grps={};";
 foreach($groupes as $i=>$data){
     echo "devoirs_grps[".$data["id"]."]=[];";
 }
-foreach(requete($bdd,"SELECT * FROM devoirs INNER JOIN matieres ON id_matiere=matieres.id;") as $i=>$data){
-    $dev = "{'id_prof':".$data["id_prof"].", 'id_groupe':".$data["id_groupe"].", 'type_':'".$data["type_"]."', 'titre':'".$data["titre"]."', 'description_':'".$data["description_"]."', 'jour':'".$data["jour"]."', 'temps_evalue':".$data["temps_evalue"].", 'matiere':'".$data["matiere"]."', 'couleur':'".$data["couleur"]."'}";
+foreach(requete($bdd,"SELECT * FROM devoirs INNER JOIN matieres ON id_matiere=matieres.id ORDER BY jour ASC;") as $i=>$data){
+    $dev = "{'id_prof':".$data["id_prof"].", 'id_groupe':".$data["id_groupe"].", 'type_':'".$data["type_"]."', 'titre':'".$data["titre"]."', 'description_':'".$data["description_"]."', 'jour':'".$data["jour"]."', 'temps_evalue':".$data["temps_evalue"].", 'matiere':'".$data["nom"]."', 'couleur':'".$data["couleur"]."'}";
     echo "devoirs_grps[".$data["id_groupe"]."].push(".$dev.");";
 }
 echo "</script>";
@@ -81,6 +147,9 @@ function submite(){
     document.getElementById("f_nouveau_devoir").submit();
 }
 
+var jours = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+var mois = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+
 function update_devoirs(){
     var id_groupe=document.getElementById("select_groupe").value;
     var tab=document.getElementById("tableau_devoirs");
@@ -91,79 +160,94 @@ function update_devoirs(){
     tab.children=[];
     tab.innerHTML="";
     //
-    for(di of Object.keys(devoirs_grps)){
-        var dev=devoirs_grps[di];
-        if(dev["id_prof"]==id_prof && dev["id_groupe"]==id_groupe){
-            var drow=document.createElement("tr");
-            drow.setAttribute("alt", dev["description_"])
-            var cmat=document.createElement("td");
-            cmat.innerHTML=dev["matiere"];
-            var ctitre=document.createElement("td");
-            var titre=document.createElement("h2");
-            titre.innerHTML=dev["titre"];
-            var bt_edit=document.createElement("button");
-            bt_edit.setAttribute("class", "bt_edit");
-            bt_edit.onclick="";
-            var bt_delete=document.createElement("button");
-            bt_delete.setAttribute("class", "bt_delete");
-            bt_delete.onclick="";
-            //
+    var devsgrp=devoirs_grps[id_groupe];
+    if(devsgrp.length==0){
+        document.getElementById("pasdevoirs").style.display="initial";
+    }
+    else{
+        document.getElementById("pasdevoirs").style.display="none";
+        var hr = document.createElement("tr");
+        var h0 = document.createElement("th");
+        h0.innerHTML="Jour";
+        var h1 = document.createElement("th");
+        h1.innerHTML="Matiere";
+        var h2 = document.createElement("th");
+        h2.innerHTML="Devoir";
+        hr.appendChild(h0);
+        hr.appendChild(h1);
+        hr.appendChild(h2);
+        tab.appendChild(hr);
+        for(dev of devsgrp){
+            console.log(dev);
+            if(dev["id_prof"]==id_prof){
+                var drow=document.createElement("tr");
+                drow.setAttribute("alt", dev["description_"])
+                var cjour=document.createElement("td");
+                var dj = new Date(dev["jour"]);
+                cjour.innerHTML=jours[dj.getDay()]+" "+dj.getDate()+" "+mois[dj.getMonth()]+" "+dj.getYear();
+                //cjour.innerHTML=dj.toUTCString();
+                var cmat=document.createElement("td");
+                cmat.innerHTML=dev["matiere"];
+                var ctitre=document.createElement("td");
+                var rowtitre = document.createElement("div");
+                rowtitre.setAttribute("class", "row")
+                var titre=document.createElement("b");
+                titre.innerHTML=dev["titre"];
+                titre.setAttribute("style", "margin-top:auto; margin-bottom:auto;")
+                var descr=document.createElement("p");
+                descr.innerHTML="("+dev["description_"]+")";
+                descr.setAttribute("class", "descr")
+                var bt_edit=document.createElement("button");
+                bt_edit.setAttribute("class", "bt_edit");
+                bt_edit.onclick="";
+                var bt_delete=document.createElement("button");
+                bt_delete.setAttribute("class", "bt_delete");
+                bt_delete.onclick="";
+                rowtitre.appendChild(titre);
+                rowtitre.appendChild(descr);
+                rowtitre.appendChild(bt_edit);
+                rowtitre.appendChild(bt_delete);
+                ctitre.appendChild(rowtitre);
+                drow.appendChild(cjour);
+                drow.appendChild(cmat);
+                drow.appendChild(ctitre);
+                //
+                tab.appendChild(drow);
+            }
         }
     }
 }
 
 </script>
-<style>
-#div_nouveau{
-    position: absolute;
-    top: 15%;
-    left:20%;
-    right: 20%;
-    bottom: 25%;
-    background-color: rgba(60, 60, 60, 0.96);
-    border-radius: 25px;
-    padding: 20px;
-}
 
-.elt_nv_devoir{
-    margin: 15px;
-    display: flex;
-    flex-direction:row;
-}
+<div onload="update_devoirs();">
 
-.selecte1{
-    border-radius: 10px;
-    font-size: 1.2em;
-    decoration: none;
-    border: none;
-}
+    <h1>Devoirs par groupe d'eleves :</h1>
 
-</style>
-
-<div>
-
-<h1>Devoirs par groupe d'eleves :</h1>
-
-<div>
-
-<div class="selecte1">
-    <select id="select_groupe" onchange="update_devoirs();">
-        <?php
+    <div class="row">
+        <h2>Groupe : </h2>
+        <select  class="selecte1" id="select_groupe" onchange="update_devoirs();">
+            <?php
 foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN profs_groupes ON id_groupe=groupes.id AND id_prof=".$id_prof) as $i=>$data){
     echo "<option value='".$data["id_groupe"]."'>".$data["nom"]."</option>";
 }
-        ?>
-    </select>
-</div>
+            ?>
+        </select>
+    </div>
 
-<div class="column">
-    <table id="tableau_devoirs">
+    <div>
 
-    </table>
-    <button onclick="document.getElementById('div_nouveau').style.display='initial'; document.getElementById('id_groupe').value=document.getElementById('select_groupe').value;" class="bt_1">Nouveau devoir</button>
-</div>
+        <p id="pasdevoirs">Vous n'avez pas donné de devoirs à ce groupe</p>
+        <div class="column">
+            <table>
+                <div id="tableau_devoirs">
+                </div>
+            </table>
+            <button onmouseover="document.getElementById('explics').style.display='initial';" onmouseout="document.getElementById('explics').style.display='none';"  onclick="document.getElementById('div_nouveau').style.display='initial'; document.getElementById('id_groupe').value=document.getElementById('select_groupe').value;" class="bt_1">Nouveau devoir</button>
+            <i id="explics" style="font-weight=300; display:none;">(rajoute un devoir au groupe selectionné)</i>
+        </div>
 
-</div>
+    </div>
 
 </div>
 
@@ -216,3 +300,6 @@ foreach(requete($bdd, "SELECT matieres.nom, matieres.id FROM matieres INNER JOIN
         </div>
     </form>
 </div>
+<script>
+update_devoirs();
+</script>

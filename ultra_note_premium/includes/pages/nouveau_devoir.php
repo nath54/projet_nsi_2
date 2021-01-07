@@ -26,4 +26,6 @@ if($mettre_temps){
 echo $requested;
 action($bdd, $requested);
 
+header("Location: ../../main.php?page=prof_devoirs");
+
 ?>
