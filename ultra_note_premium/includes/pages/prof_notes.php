@@ -26,6 +26,7 @@ foreach(requete($bdd, $requete) as $i=>$data){
     echo "<table class='tableau_note'> <tr class='ligne_titre_note'> <td>".$data["nom"]."</td> <td>".$data["id_groupe"]."</td>  </tr>";
 }
     echo "</table>";
+}
 
 
 ?>
