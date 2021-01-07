@@ -155,4 +155,5 @@ CREATE TABLE IF NOT EXISTS `cours` (
     jour DATE,
     heure_debut FLOAT,
     heure_fin FLOAT,
-    semaine INT)
+    semaine INT,
+    salle TEXT)

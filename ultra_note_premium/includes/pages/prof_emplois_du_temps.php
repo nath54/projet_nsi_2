@@ -55,7 +55,7 @@ on a 11 heures a afficher => 40 px de hauteur par heure
     top: 400px;
 }
 
-.cour{
+.divcour{
     border: none;
     text-align: center;
     display: flex;
@@ -77,8 +77,8 @@ $id_prof = $_SESSION["id"];
 
 window.jour_actu=new Date();
 // on veut récupérer le lundi de la semaine actuelle
-window.jour_actu.setDate(date.getDate() - (date.getDay()-1));
-alert(date.toUTCString());
+window.jour_actu.setDate(window.jour_actu.getDate() - (window.jour_actu.getDay()-1));
+alert(window.jour_actu.toUTCString());
 
 var jours_travail=["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 var cours=[];
@@ -92,7 +92,7 @@ foreach(requete($bdd, $requette) as $i=>$data){
 
 </script>
 <div onload="update_edt();">
-    <div>
+    <div class="row" style="text-align:center; margin-left:auto; margin-right:auto;">
         <button onclick="sem_avant();"><</button>
         <div>Semaine du <span id="j1"></span> au <span id="j2"></span></div>
         <button onclick="sem_apres();">></button>
@@ -140,7 +140,7 @@ function sem_apres(){
 function update_edt(){
     // on recupere le jour du debut
     var jdb = window.jour_debut;
-    // on nettoie 
+    // on nettoie
     for(idj of jours_travail){
         var j=document.getElementById(idj);
         for(c of j.children){
@@ -150,6 +150,48 @@ function update_edt(){
         j.innerHTML="";
     }
     // on parcours les cours du prof, et si ils sont dans la semaine actuelle, on les affiches
+    var i=0;
+    for(c of cours){
+        // on regarde le jour et on teste s'il est dans la semaine actuelle
+        var cj=new Date(c["jour"]);
+        var dist = cj.getDate()-window.jour_actu.getDate();
+        if(!(dist>=0 && dist<=6)){ continue; }
+        // on crée la div cour
+        var divcour=document.createElement("div");
+        divcour.setAttribute("id", "d_"+i);
+        divcour.style.background_color = c["couleur"];
+        divcour.classList.add("divcour");
+        var matiere=document.createElement("b");
+        var groupe=document.createElement("p");
+        var salle=document.createElement("p");
+        divcour.appendChild(matiere);
+        divcour.appendChild(groupe);
+        divcour.appendChild(salle);
+        document.getElementById(jours_travail[cj.getDay()]).appendChild(divcour);
+        //
+        var divcour=document.getElementById("d_"+i);
+        divcour.style.top=0;
+        var hd=c["heure_debut"];
+        var hdh=parseInt(hd);
+        var hdm=hd-hdh*100;
+        var hf=c["heure_debut"];
+        var hfh=parseInt(hf);
+        var hfm=hf-hfh;
+        // l'heure ne peut pas commencer avant 8h et apres 19h
+        var y=(hdh-8)*40;
+        y+=parseInt(hdm/60*40);
+        var dh=hfh-hdh;
+        var dm=hfm-hdm;
+        if(dm<0){
+            dh-=1;
+            dm=60+dm;
+        }
+        //
+        var t=40*dh;
+        t+=parseInt(m/60*40);
+        //
+        i++;
+    }
 }
 
 </script>
