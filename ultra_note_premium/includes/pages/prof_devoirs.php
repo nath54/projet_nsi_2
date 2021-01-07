@@ -25,14 +25,10 @@ echo "</script>";
 
 <script>
 
-function nouveau_devoir(){
-    var id_groupe=document.getElementById("select_groupe").value;
-    document.getElementById("div_nouveau").style.display="initial";
-    document.getElementById("id_groupe").value=id_groupe;
-}
-
 function submite(){
-    document.getElementById("form_devoir").submit();
+    // tests
+    // verifications
+    document.getElementById("f_nouveau_devoir").submit();
 }
 
 function update_devoirs(){
@@ -114,8 +110,7 @@ foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN pro
     <table id="tableau_devoirs">
 
     </table>
-    
-    <button onclick="nouveau_devoir()" class="bt_1">Nouveau devoir</button>
+    <button onclick="document.getElementById('div_nouveau').style.display='initial'; document.getElementById('id_groupe').value=document.getElementById('select_groupe').value;" class="bt_1">Nouveau devoir</button>
 </div>
 
 </div>
@@ -128,9 +123,9 @@ foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN pro
         <h1>Nouveau devoir</h1>
         <div class="elt_nv_devoir">
             <label>Matiere :</label>
-            <select id="id_matiere" name="id_matiere" onchange="update_devoirs();">
+            <select id="id_matiere" name="id_matiere">
                 <?php
-foreach(requete("SELECT matieres.nom, matieres.id FROM matieres INNER JOIN profs_matieres ON matieres.id=id_matiere AND id_prof=".$id_prof) as $i=>$data){
+foreach(requete($bdd, "SELECT matieres.nom, matieres.id FROM matieres INNER JOIN profs_matieres ON matieres.id=id_matiere AND id_prof=".$id_prof) as $i=>$data){
     echo "<option value=".$data["id"].">".$data["nom"]."</option>";
 }
                 ?>
@@ -152,7 +147,7 @@ foreach(requete("SELECT matieres.nom, matieres.id FROM matieres INNER JOIN profs
             <label>Mettre dans le devoir le temps qu'il demandera (environ)</label>
             <input type="checkbox" name="mettre_temps" id="mettre_temps" onchange="if(document.getElementById('mettre_temps').checked){ document.getElementById('dtemps').style.display='initial'; }else{ document.getElementById('dtemps').style.display='none'; }" />
         </div>
-        <div id="dtemps" class="elt_nv_devoir">
+        <div id="dtemps" class="elt_nv_devoir" style="display:none;">
             <label>Temps que le devoir prendra :</label>
             <input type="number" id="temps" name="temps" value="" placeholder="5"/><span> minutes</span>
         </div>
