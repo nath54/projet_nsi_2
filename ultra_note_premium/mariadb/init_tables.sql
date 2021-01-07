@@ -147,3 +147,12 @@ CREATE TABLE IF NOT EXISTS `menu_cantine` (id INT PRIMARY KEY AUTO_INCREMENT,
                                            menu TEXT);
 
 
+CREATE TABLE IF NOT EXISTS `cours` (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_matiere INT,
+    id_prof INT,
+    id_groupe INT,
+    jour DATE,
+    heure_debut FLOAT,
+    heure_fin FLOAT,
+    semaine INT)

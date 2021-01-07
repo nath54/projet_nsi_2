@@ -20,7 +20,9 @@ $id_prof = $_SESSION["id"];
 var cours=[];
 
 <?php
-foreach(requete($bdd, "SELECT cours.*, matieres.nom, matieres.couleur FROM cours INNER JOIN matieres ON id_matiere=matieres.id WHERE id_prof=".$id_prof) as $i=>$data){
+$requette="SELECT cours.*, matieres.nom, matieres.couleur FROM cours INNER JOIN matieres ON id_matiere=matieres.id WHERE id_prof=".$id_prof;
+echo "</script>".$requette."<script>";
+foreach(requete($bdd, $requette) as $i=>$data){
     echo "cours.push({'id': ".$data["id"].",'id_matiere': ".$data["id_matiere"].",'id_groupe': ".$data["id_groupe"].",'jour': '".$data["jour"]."','heure_debut': ".$data["heure_fin"].",'heure_fin': ".$data["heure_debut"].",'semaine': ".$data["semaine"]."});";
 }
 ?>
