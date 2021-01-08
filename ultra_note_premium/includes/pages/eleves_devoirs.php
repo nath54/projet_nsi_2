@@ -119,7 +119,7 @@ function update_devoirs(){
             cjour.innerHTML=jours[dj.getDay()]+" "+dj.getDate()+" "+mois[dj.getMonth()]+" "+(1900+dj.getYear());
             //cjour.innerHTML=dj.toUTCString();
             var cmat=document.createElement("td");
-            cmat.innerHTML=dev["matiere"];
+            cmat.innerHTML=dev["nom"];
             var ctitre=document.createElement("td");
             var rowtitre = document.createElement("div");
             rowtitre.setAttribute("class", "row")
