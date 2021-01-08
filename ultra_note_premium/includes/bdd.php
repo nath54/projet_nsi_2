@@ -1,5 +1,8 @@
 <?php
 
+/*
+Fonction qui ouvre un fichier json et qui le décode pour le renvoyer avec la variable $data
+*/
 function open_json($file_path){
     if( file_exists($file_path) ){
         $texte = file_get_contents($file_path);
@@ -12,7 +15,12 @@ function open_json($file_path){
     return $data;
 }
 
-// fonction qui renvoie la base de donnée charger
+/*
+Fonction qui sert a charger la base de donnée,
+Le parametre $pathe est du au fait que ce fichier est inclus dans d'autre fichiers un peu
+partout dans l'aborescence du projet
+Il renvoie un objet de la classe PDO
+*/
 function load_db($pathe="./"){
     $file_path = $pathe."mysql-config.json";
     $data_account = open_json($file_path);
@@ -34,7 +42,11 @@ function load_db($pathe="./"){
     }
     return $db;
 }
-// fonction qui serta se connecter
+
+/*
+Fonction qui regarde si le pseudo et le password d'un utilisateur sont bon pour le connecter,
+S'ils ne le sont pas, la page de connection va afficher un message d'erreur
+*/
 function connection($pseudo, $password, $db){
     $requested = "SELECT id FROM comptes WHERE pseudo='".$pseudo."' AND password_='".$password."';";
     $reponse = $db->query($requested);
@@ -44,7 +56,12 @@ function connection($pseudo, $password, $db){
     }
     return array("succeed"=>false, "error"=>"Le compte n'existe pas ou le mot de passe est erroné");
 }
-//fonction qui sert a s'inscrir
+
+/*
+Fonction qui sert à inscrire un compte,
+On ne peut pas avoir deux comptes avec le meme pseudo,
+Les informations du compte sont dans le tableau $data
+*/
 function inscription($db, $data){
     $requested = "SELECT (pseudo) FROM comptes WHERE pseudo='".$data["pseudo"]."';";
     $reponse = $db->query($requested);
@@ -84,7 +101,11 @@ function inscription($db, $data){
         return array("succeed"=>true, "id_compte"=>$id_compte);
     }
 }
-//fonction qui sert à modifier un compte
+
+/*
+Fonction qui modifie un compte donné,
+Avec les nouvelles données dans le tableau $data
+*/
 function modification_compte($db, $data, $id_compte){
     //
     $txt = "";
@@ -116,7 +137,9 @@ function modification_compte($db, $data, $id_compte){
     }
     return true;
 }
-//le fonctions suivante recuperent les infoRmations (établissement,matièrees,...)
+
+
+//le fonctions suivante recuperent les informations de différents tables (établissement,matièrees,...)
 function get_etablissements($db){
     $requested = "SELECT nom, id FROM etablissements;";
     $reponse = $db->query($requested);
@@ -162,7 +185,9 @@ function get_account($db, $id_){
 
 // Fonction pour recuperer des infos depuis la bdd
 // C'est plus pratique que de faire des milliers de fonctions comme ci-dessus
-// Cette fonction sert a récupérer des infos depuis la base de donnéee
+// Cette fonction sert a récupérer des infos depuis la base de donnée
+// On lui donne en argument la requete a effectuer ($requested)
+// On renvoie ensuite les resultats sous la forme d'un tableau
 function requete($db, $requested){
     $reponse = $db->query($requested);
     $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
@@ -172,6 +197,7 @@ function requete($db, $requested){
 // Fonction pour executer une requete pour la bdd
 // C'est bien plus pratique que de faire des milliers de fonctions comme ci-dessus
 // Cette fonction sert a insérer/modifier des infos a la base de donnéee
+// On lui donne en argument la requete a effectuer ($action)
 function action($db, $action){
     $db->query($action);
 }
@@ -181,6 +207,11 @@ function action($db, $action){
 $requested = "";
 $reponse = $db->query('SELECT * FROM '.$requested);
 $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
+*/
+
+/*
+La fonction suivante est appelée à chaque début de page php, 
+pour tester si l'utilisateur qui veut acceder a la page est bien un admin, un prof, un élève ou un parent
 */
 
 function test_admin($bdd){
