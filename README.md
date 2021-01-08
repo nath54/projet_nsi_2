@@ -18,6 +18,8 @@ nous n'avons pas eu le temps de faire :
  - On ne peut pas modifier un devoir
  - Un meilleur style visuel
 
+Remarque : Personnelement, je trouve que le site est un peu plus joli sur firefox que sur chrome ou bien edge
+
 ## Groupe
 
 Membres du groupe :

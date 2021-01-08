@@ -4,6 +4,14 @@
 
 Il faut avoir déjà avoir installé un serveur web local (sous Windows, vous pouvez utiliser *WampServer* par exemple), avec PHP et mariadb d'installés
 
+## Déplacer le dossier dans le répertoire localhost
+
+Il faudra ensuite copier/déplacer le dossier projet_nsi_2 dans votre dossier localhost
+
+Vous pourrez ainsi acceder au site grâce à ce lien :
+
+ - http://localhost/projet_nsi_2/ultra_note_premium/index.php
+
 **La suite des opérations suivantes devront être effectuées depuis un accès à _mariadb_ depuis un _terminal_ ou depuis _phpMyAdmin_.**
 
 ## Création de la base de donnée :

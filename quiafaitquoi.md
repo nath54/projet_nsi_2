@@ -9,7 +9,11 @@ travail partiel sur :
     `eleves_notes.php`
 a commenté quelques fonctions
 
-
 ## Nathan :
 
 Tout le reste.
+Base du projet,
+gestion coté SQL,
+Fichiers php, 
+Tout le javascript,
+Quelques Commentaires aussi
