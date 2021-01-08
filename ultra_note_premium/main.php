@@ -48,6 +48,7 @@ sessionStorage["actual_page"]="accueil_"+sessionStorage['tp_compte'];
     <body onload="on_load();">
         <!-- header -->
         <?php
+        // on load le bon header selon le type de compte
         if($compte["type_"]=="eleve"){
             include("includes/header_eleve.html");
         }else if($compte["type_"]=="prof"){
@@ -60,7 +61,8 @@ sessionStorage["actual_page"]="accueil_"+sessionStorage['tp_compte'];
         ?>
         <!-- Main -->
         <div id="div_main" class="div_main">
-            <?php
+            <?php 
+            //
             if($compte["type_"]=="eleve"){
                 include("includes/pages/accueil_eleve.php");
             }else if($compte["type_"]=="prof"){

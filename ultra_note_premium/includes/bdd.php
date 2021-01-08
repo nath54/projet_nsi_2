@@ -12,6 +12,7 @@ function open_json($file_path){
     return $data;
 }
 
+// fonction qui renvoie la base de donnée charger
 function load_db($pathe=""){
     $file_path = $pathe."mysql-config.json";
     $data_account = open_json($file_path);
@@ -33,7 +34,7 @@ function load_db($pathe=""){
     }
     return $db;
 }
-
+// fonction qui serta se connecter
 function connection($pseudo, $password, $db){
     $requested = "SELECT id FROM comptes WHERE pseudo='".$pseudo."' AND password_='".$password."';";
     $reponse = $db->query($requested);
@@ -43,7 +44,7 @@ function connection($pseudo, $password, $db){
     }
     return array("succeed"=>false, "error"=>"Le compte n'existe pas ou le mot de passe est erroné");
 }
-
+//fonction qui sert a s'inscrir
 function inscription($db, $data){
     $requested = "SELECT (pseudo) FROM comptes WHERE pseudo='".$data["pseudo"]."';";
     $reponse = $db->query($requested);
@@ -83,7 +84,7 @@ function inscription($db, $data){
         return array("succeed"=>true, "id_compte"=>$id_compte);
     }
 }
-
+//fonction qui sert à modifier un compte
 function modification_compte($db, $data, $id_compte){
     //
     $txt = "";
@@ -115,7 +116,7 @@ function modification_compte($db, $data, $id_compte){
     }
     return true;
 }
-
+//le fonctions suivante recuperent les infoRmations (établissement,matièrees,...)
 function get_etablissements($db){
     $requested = "SELECT nom, id FROM etablissements;";
     $reponse = $db->query($requested);
