@@ -2,12 +2,12 @@
 
 ## Alexis :
 travail partiel sur :
-    index.php
-    main.php
-    style_dark.css
-    prof_notes.php
-    éleves_notes.php
-a commenter quelques fonctions
+    index.php (présentation)
+    main.php 
+    style_dark.css (quelques feuille de style)
+    prof_notes.php (initialisation des travaux)
+    éleves_notes.php (initialisation des travaux)
+a commenter quelques fonctions (environt 10)
 
 
 ## Nathan :
