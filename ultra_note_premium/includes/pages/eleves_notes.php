@@ -14,23 +14,35 @@ foreach($mats as $i=>$data){
 }
 
 ?>
+<script>
+<?php
+echo "var notes_matiere={};";
 
+foreach($groupes as $i=>$data){
+    echo "notes_matiere[".$data["id"]."]=[];";
+}
+$requested="SELECT * FROM notes ";
+foreach(requete($bdd, $requested) as $i=>$data){
+    $note="{'id': ".$data["id"]."}";
+    echo "notes_matieres.push(".$note.");"
+}
+ 
+?>
+</script>
 <div>
 
-<?php
+<div class="row">
 
-foreach($matieres as $id_mat=>$nom){
-    $notes = requete($bdd, "SELECT * FROM notes INNER JOIN eleves_notes ON eleves_notes.id_note=notes.id WHERE id_matiere=".$id_mat." AND id_eleve=".$id_eleve);
-    if(count($notes)==0){
-        continue;
-    }
-    echo "<table class='tableau_note'> <tr class='ligne_titre_note'> <td>".$nom."</td> <td>notes</td>  </tr>";
-    foreach($notes as $ii=>$data_note){
-        echo "<tr class='ligne_note'> <td>".$data_note["titre"]."</td> <td>".$data_note["note"]."</td> </tr>";
-    }
-    echo "</table>";
-}
+    <div>
+        <table>
+            <thead>
+                <tr></tr>
+           </thead>
+            
+           <tbody id="tableau_note">
 
-?>
+           </tbody>
+        </table>
+    </div>
 
 </div>
