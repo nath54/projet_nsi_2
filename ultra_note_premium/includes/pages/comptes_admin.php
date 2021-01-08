@@ -8,7 +8,8 @@ var eleves_groupes={}; // key = id_eleve, value = id_groupe
 </script>
 <?php
 
-include_once(".../init.php");
+echo getcwd();
+include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd=load_db("../");

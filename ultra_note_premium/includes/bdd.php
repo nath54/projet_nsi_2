@@ -13,7 +13,7 @@ function open_json($file_path){
 }
 
 // fonction qui renvoie la base de donnée charger
-function load_db($pathe=""){
+function load_db($pathe="./"){
     $file_path = $pathe."mysql-config.json";
     $data_account = open_json($file_path);
     $pseudo = $data_account["pseudo"];

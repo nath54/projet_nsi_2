@@ -1,9 +1,12 @@
 <?php
 
-include_once("init.php");
-include_once("bdd.php");
+echo getcwd();
 
-$bdd=load_db();
+
+include_once("includes/init.php");
+include_once("includes/bdd.php");
+
+$bdd=load_db("includes/");
 
 $compte = requete($bdd, "SELECT * FROM comptes WHERE id=".$_SESSION["id"])[0];
 

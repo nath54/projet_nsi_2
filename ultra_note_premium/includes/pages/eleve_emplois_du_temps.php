@@ -71,7 +71,7 @@ on a 11 heures a afficher => 40 px de hauteur par heure
 </style>
 <?php
 
-include_once(".../init.php");
+include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd=load_db("../");
