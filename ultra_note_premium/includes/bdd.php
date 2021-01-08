@@ -187,11 +187,11 @@ function test_admin($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
     if(count($compte)==0){
-        header("Location: ../index.php");
+        header("Location: index.php");
     }
     else{
         if($compte[0]["type_"]!="admin"){
-            header("Location: ../index.php");
+            header("Location: index.php");
         }
     }
 }
@@ -200,11 +200,11 @@ function test_prof($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
     if(count($compte)==0){
-        header("Location: ../index.php");
+        header("Location: index.php");
     }
     else{
-        if($compte[0]["type_"]!="admin"){
-            header("Location: ../index.php");
+        if($compte[0]["type_"]!="prof"){
+            header("Location: index.php");
         }
     }
 }
@@ -213,11 +213,11 @@ function test_eleve($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
     if(count($compte)==0){
-        header("Location: ../index.php");
+        header("Location: index.php");
     }
     else{
-        if($compte[0]["type_"]!="admin"){
-            header("Location: ../index.php");
+        if($compte[0]["type_"]!="eleve"){
+            header("Location: index.php");
         }
     }
 }
@@ -226,11 +226,11 @@ function test_parent($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
     if(count($compte)==0){
-        header("Location: ../index.php");
+        header("Location: index.php");
     }
     else{
-        if($compte[0]["type_"]!="admin"){
-            header("Location: ../index.php");
+        if($compte[0]["type_"]!="parent"){
+            header("Location: index.php");
         }
     }
 }
