@@ -188,7 +188,7 @@ function update_edt(){
     var i=0;
     for(c of cours){
         // on regarde si notre semaine est en semaine A ou B
-        // et si il n'est en bonne semaine, bah on skip ce cours
+        // et si il n'est en bonne semaine, on ne l'affiche pas
         if(c["semaine"]!=0 && c["semaine"]!=$tp_sem){
             continue;
         }

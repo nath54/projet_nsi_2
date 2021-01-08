@@ -1,5 +1,6 @@
 <?php
 
+
 $pathe=explode(DIRECTORY_SEPARATOR,getcwd());
 $laste=$pathe[count($pathe)-1];
 if($laste=="pages"){
@@ -21,11 +22,9 @@ else if($laste=="ultra_note_premium"){
 
 test_admin($bdd);
 
-$requested="INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ('".$_POST["nom"]."', '".$_POST["niveau"]."', ".$_POST["etablissement"]." );";
-echo $requested;
+$requested="DELETE FROM devoirs WHERE id=".$_POST["id"];
 action($bdd, $requested);
 
-echo "<script>window.location.href='../../main.php?page=etablissement_admin'</script>";
+echo "<script>window.location.href='../../main.php?page=prof_devoirs'</script>";
 
 ?>
-
