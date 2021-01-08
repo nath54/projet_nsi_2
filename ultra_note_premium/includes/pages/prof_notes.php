@@ -7,6 +7,7 @@ $bdd = load_db("../");
 $id_prof = $_SESSION["id"];
 $mats = requete($bdd,"SELECT * FROM matieres");
 $notes = requete($bdd,"SELECT * FROM notes");
+$groupes=requete($bdd, "SELECT * FROM groupes");
 
 $matieres=array();
 foreach($mats as $i=>$data){
@@ -14,20 +15,46 @@ foreach($mats as $i=>$data){
 }
 
 ?>
+<script>
+<?php
+echo "var notes_matiere={};";
 
+foreach($groupes as $i=>$data){
+    echo "notes_matiere[".$data["id"]."]=[];";
+}
+$requested="SELECT * FROM notes WHERE notes.id_prof=".$id_prof;
+echo "</script>".$requested."<script>";
+foreach(requete($bdd, $requested) as $i=>$data){
+    $note="{'id': ".$data["id"]."}";
+    echo "notes_matieres.push(".$note.");";
+}
+ 
+?>
+</script>
 <div>
 
-<?php
-
-
-$requete = "SELECT * FROM profs_groupes INNER JOIN groupes ON id_groupe=groupes.id WHERE id_prof=".$id_prof;
-echo "<table class='tableau_note'> <tr class='ligne_titre_note'> <td>classes</td> <td>groupe</td>  </tr>";
-foreach(requete($bdd, $requete) as $i=>$data){
-    $data["nom"];
-    echo "<table class='tableau_note'> <tr class='ligne_titre_note'> <td>".$data["nom"]."</td> <td>".$data["id_groupe"]."</td>  </tr>";
-    echo "</table>";
+<div class="row">
+        <h2>Groupe : </h2>
+        <select  class="selecte1" id="select_groupe" onchange="update_devoirs();">
+            <?php
+foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN profs_groupes ON id_groupe=groupes.id AND id_prof=".$id_prof) as $i=>$data){
+    echo "<option value='".$data["id_groupe"]."'>".$data["nom"]."</option>";
 }
+            ?>
+        </select>
+    </div>
 
-?>
+
+    <div>
+        <table>
+            <thead>
+                <tr></tr>
+           </thead>
+            
+           <tbody id="tableau_note">
+
+           </tbody>
+        </table>
+    </div>
 
 </div>
