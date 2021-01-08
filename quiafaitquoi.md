@@ -12,8 +12,11 @@ a commenté quelques fonctions
 ## Nathan :
 
 Tout le reste.
+
 Base du projet,
 gestion coté SQL,
 Fichiers php, 
 Tout le javascript,
+Du style css,
 Quelques Commentaires aussi
+
