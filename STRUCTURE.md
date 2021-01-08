@@ -22,10 +22,16 @@ Mais il y a plusieurs types de comptes :
 
 L'admin a acces a plusieurs pages pour l'instant :
 
- - La page 
+ - La page Gestion Comptes, qui permet a l'utilisateur de gerer les comptes des utilisateurs de son lycée
+ - La page Gestion Emploi du temps : Qui n'est pas encore faite
+ - La page Gestion Etablissement Qui ne permet actuellement à l'admin que de créer/modifier/supprimer des groupes d'élèves
 
 ### Comptes Profs 
 
+Le prof a acces a plusieurs pages pour l'instant :
+ - La page Notes, qui n'est pas faite pour l'instant
+ - La page Devoirs, qui permet au prof de pouvoir créer/modifier/supprimer des devoirs pour chacun des ses groupes d'élèves
+  - La page Emploi du temps qui permet au prof de visualiser son emploi du temps
 
 ### Comptes Eleves
 
