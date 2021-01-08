@@ -22,7 +22,7 @@ partout dans l'aborescence du projet
 Il renvoie un objet de la classe PDO
 */
 function load_db($pathe="./"){
-    $file_path = $pathe."mysql-config.json";
+    $file_path = $pathe."mariadb-config.json";
     $data_account = open_json($file_path);
     $pseudo = $data_account["pseudo"];
     $password = $data_account["password"];
@@ -202,13 +202,6 @@ function action($db, $action){
     $db->query($action);
 }
 
-/* exemple de requete
-
-$requested = "";
-$reponse = $db->query('SELECT * FROM '.$requested);
-$tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
-*/
-
 /*
 La fonction suivante est appelée à chaque début de page php, 
 pour tester si l'utilisateur qui veut acceder a la page est bien un admin, un prof, un élève ou un parent
@@ -229,56 +222,4 @@ function test_compte($bdd, $tp_compte){
         }
     }
 }
-/*
-function test_admin($bdd){
-    $id=$_SESSION["id"];
-    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$_SESSION["id"]);
-    if(count($compte)==0){
-        header("Location: index.php");
-    }
-    else{
-        if($compte[0]["type_"]!="admin"){
-            header("Location: index.php");
-        }
-    }
-}
-
-function test_prof($bdd){
-    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$_SESSION["id"]);
-    if(count($compte)==0){
-        header("Location: ../../index.php");
-    }
-    else{
-        if($compte[0]["type_"]!="prof"){
-            header("Location: ../../index.php");
-        }
-    }
-}
-
-function test_eleve($bdd){
-    $id=$_SESSION["id"];
-    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$_SESSION["id"]);
-    if(count($compte)==0){
-        header("Location: ../../index.php");
-    }
-    else{
-        if($compte[0]["type_"]!="eleve"){
-            header("Location: ../../index.php");
-        }
-    }
-}
-
-function test_parent($bdd){
-    $id=$_SESSION["id"];
-    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$_SESSION["id"]);
-    if(count($compte)==0){
-        header("Location: ../../index.php");
-    }
-    else{
-        if($compte[0]["type_"]!="parent"){
-            header("Location: ../../index.php");
-        }
-    }
-}
-*/
 ?>
