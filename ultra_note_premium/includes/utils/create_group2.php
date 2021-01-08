@@ -2,7 +2,7 @@
 
 $pathe=explode(DIRECTORY_SEPARATOR,getcwd());
 $laste=$pathe[count($pathe)-1];
-if($laste=="pages"){
+if($laste=="pages" || $laste=="utils"){
     include_once("../init.php");
     include_once("../bdd.php");
     $bdd=load_db("../");

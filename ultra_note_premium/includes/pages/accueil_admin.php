@@ -1,5 +1,8 @@
 <?php
-// on récupére la base de donnée pour crée les sessions
+
+/*
+
+*/
 $pathe=explode(DIRECTORY_SEPARATOR,getcwd());
 $laste=$pathe[count($pathe)-1];
 if($laste=="pages"){
@@ -23,6 +26,6 @@ test_admin($bdd);
 
 
 ?>
-<div style="display:center;">
-    <p style="margin: auto;">Cette page n'a pas encore été developpée</p>
+<div style="display:center; width:100%; height:100%;">
+    <p style="position: absolute; top:50%; left:35%; font-size: 1.2em;">Cette page n'a pas encore été developpée</p>
 </div>

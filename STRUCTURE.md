@@ -20,16 +20,38 @@ Mais il y a plusieurs types de comptes :
 
 ### Comptes Admin 
 
+L'admin a acces a plusieurs pages pour l'instant :
+
+ - La page Gestion Comptes, qui permet a l'utilisateur de gerer les comptes des utilisateurs de son lycée
+ - La page Gestion Emploi du temps : Qui n'est pas encore faite
+ - La page Gestion Etablissement Qui ne permet actuellement à l'admin que de créer/modifier/supprimer des groupes d'élèves
 
 ### Comptes Profs 
 
+Le prof a acces a plusieurs pages pour l'instant :
+ - La page Notes, qui n'est pas faite pour l'instant
+ - La page Devoirs, qui permet au prof de pouvoir créer/modifier/supprimer des devoirs pour chacun des ses groupes d'élèves
+  - La page Emploi du temps qui permet au prof de visualiser son emploi du temps
 
 ### Comptes Eleves
 
-L'élève a acces a plusieurs pages :
+L'élève a acces a plusieurs pages pour l'instant :
 
 - La page note : Pas encore faite 
-- La page devoirs : L'élève peut voir les devoirs qu'il doit faire, triés bien évidemment pas 
+- La page devoirs : L'élève peut voir les devoirs qu'il doit faire
+- La page Emploi du temps : L'élève peut voir son emploi du temps 
+ (Réflexion pour plus tard : Pour les modifications de l'emploi du temps, je créerai sans doute une table `edt_modifs` où il y aura les informations de modifications des différents cours)
+
+### Comptes Parents
+
+Ils n'ont pour l'instant accès à rien
+
+### Tous les comptes
+
+Tous les comptes auront tous acces à la page messagerie **(qui n'est pas encore faite)**,
+qui, inspirée de discord, contiendra des salons, chaque utilisateur pourra créer un nouveau salon et y inviter les personnes qu'il veut (d'ailleur, un compte pourra aussi avoir des "amis", pour pouvoir discuter avec eux plus facilement). J'aimerai aussi plus tard, mettre en place un systeme de vocal, pour pouvoir faire des appels audio, et qui sait un jour, pourra aussi permettre le stream d'écran.
+
+
 
 ### Comptes Parents
 
