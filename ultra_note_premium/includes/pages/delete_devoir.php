@@ -19,7 +19,7 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
-
+//le prof peut suprimer les devoirs
 test_prof($bdd);
 
 $requested="DELETE FROM devoirs WHERE id=".$_POST["did"];
