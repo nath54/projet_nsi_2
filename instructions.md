@@ -32,9 +32,14 @@ GRANT ALL PRIVILEGES ON ultranote.* TO ultranote@localhost;
 
 ## Initialisation de la base de donnée :
 
-2 possibilités s'offrent à vous :
+Il faudra que vous importiez le fichier sql `init_tables.sql` dans la base de données `ultranote`, 
+le fichier se trouve dans le sous répertoire `mariadb/`
+Il faudra ensuite importer le fichier sql `rempli_tables.sql`
 
-### 1ere possibilité (recommandée) : Importer le fichier SQL de la base de donnée
 
+## Utilisation
 
+Maintenant, le site est prêt.
+Pour vous connecter,
+vous pourrez regarder dans le fichier `comptes_base.md`
 
