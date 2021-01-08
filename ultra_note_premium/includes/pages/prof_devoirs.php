@@ -323,7 +323,7 @@ foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN pro
 </div>
 
 <div id="div_nouveau" style="display:none;">
-    <form name="nouveau_devoir" id="f_nouveau_devoir" action="includes/pages/nouveau_devoir.php" method="POST">
+    <form name="nouveau_devoir" id="f_nouveau_devoir" action="includes/utils/nouveau_devoir.php" method="POST">
         <input id="id_groupe" name="id_groupe" value="" style="display:none;" />
         <h1>Nouveau devoir</h1>
         <div class="elt_nv_devoir">
