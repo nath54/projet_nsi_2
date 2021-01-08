@@ -1,8 +1,8 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include_once("$root/projet_nsi_2/ultra_note_premium/includes/init.php");
+include_once("$root/includes/bdd.php");
 
 $mode="defaut";
 if(isset($_GET["mode"])){

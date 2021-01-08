@@ -1,6 +1,9 @@
 <?php
-include("includes/init.php");
-include("includes/bdd.php");
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include_once("$root/includes/init.php");
+include_once("$root/includes/bdd.php");
+
+$id=$_SESSION["id"];
 
 $bdd = load_db("includes/");
 
