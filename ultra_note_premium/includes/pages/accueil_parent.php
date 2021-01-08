@@ -31,8 +31,7 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
-
-test_parent($bdd);
+test_compte($bdd, "parent");
 
 ?>
 <div style="display:center; width:100%; height:100%;">

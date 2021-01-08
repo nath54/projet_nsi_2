@@ -118,7 +118,7 @@ else if($laste=="ultra_note_premium"){
 }
 
 
-test_prof($bdd);
+test_compte($bdd, "prof");
 $id_prof = $_SESSION["id"];
 
 $groupes = requete($bdd, "SELECT groupes.* FROM groupes INNER JOIN profs_groupes ON groupes.id=id_groupe AND id_prof=".$id_prof);

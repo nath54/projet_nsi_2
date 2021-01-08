@@ -31,8 +31,7 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
-
-test_admin($bdd);
+test_compte($bdd, "admin");
 
 $requested="INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ('".$_POST["nom"]."', '".$_POST["niveau"]."', ".$_POST["etablissement"]." );";
 echo $requested;

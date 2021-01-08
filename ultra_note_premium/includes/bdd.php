@@ -214,6 +214,22 @@ La fonction suivante est appelée à chaque début de page php,
 pour tester si l'utilisateur qui veut acceder a la page est bien un admin, un prof, un élève ou un parent
 */
 
+function test_compte($bdd, $tp_compte){
+    if(!isset($_SESSION["id"])){
+        header("Location: index.php");
+    }
+    $id=$_SESSION["id"];
+    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$_SESSION["id"]);
+    if(count($compte)==0){
+        header("Location: index.php");
+    }
+    else{
+        if($compte[0]["type_"]!=$tp_compte){
+            header("Location: index.php");
+        }
+    }
+}
+/*
 function test_admin($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$_SESSION["id"]);
@@ -264,5 +280,5 @@ function test_parent($bdd){
         }
     }
 }
-
+*/
 ?>

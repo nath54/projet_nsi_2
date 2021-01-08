@@ -102,8 +102,7 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
-
-test_eleve($bdd);
+test_compte($bdd, "eleve");
 
 $id_eleve = $_SESSION["id"];
 

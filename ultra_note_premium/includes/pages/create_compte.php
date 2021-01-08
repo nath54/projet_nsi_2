@@ -31,8 +31,7 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
-
-test_admin($bdd);
+test_compte($bdd, "admin");
 
 ?>
 <form id="finscription" method="POST", action="includes/utils/create_compte2.php">

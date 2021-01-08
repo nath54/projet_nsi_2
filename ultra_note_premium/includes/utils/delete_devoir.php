@@ -33,7 +33,7 @@ else if($laste=="ultra_note_premium"){
 }
 
 //le prof peut suprimer les devoirs
-test_prof($bdd);
+test_compte($bdd, "prof");
 
 $requested="DELETE FROM devoirs WHERE id=".$_POST["did"];
 action($bdd, $requested);

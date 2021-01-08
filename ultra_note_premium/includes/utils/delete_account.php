@@ -30,7 +30,7 @@ else if($laste=="ultra_note_premium"){
     include_once("includes/bdd.php");
     $bdd=load_db("includes/");
 }
-
+test_compte($bdd, "admin");
 
 if(isset($_GET["id_account"]) && $_GET["id_account"]!=null){
     action($bdd, "DELETE FROM comptes WHERE id=".$_GET["id_account"]);

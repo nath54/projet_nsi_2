@@ -39,8 +39,7 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
-
-test_admin($bdd);
+test_compte($bdd, "admin");
 
 $_SESSION["id_compte_modif"]=null;
 

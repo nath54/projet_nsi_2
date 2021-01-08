@@ -32,7 +32,7 @@ else if($laste=="ultra_note_premium"){
 }
 
 
-test_eleve($bdd);
+test_compte($bdd, "eleve");
 
 ?> 
 <div style="display:center; width:100%; height:100%;">

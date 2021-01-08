@@ -55,8 +55,7 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
-
-test_prof($bdd);
+test_compte($bdd, "prof");
 
 $id_prof = $_SESSION["id"];
 $mats = requete($bdd,"SELECT * FROM matieres");

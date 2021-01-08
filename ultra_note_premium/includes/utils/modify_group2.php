@@ -31,7 +31,7 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
-test_admin($bdd);
+test_compte($bdd, "admin");
 
 $id_groupe = $_POST["id_groupe"];
 if($_POST["action"]=="delete"){
