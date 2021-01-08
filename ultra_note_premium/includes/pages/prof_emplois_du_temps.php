@@ -1,3 +1,4 @@
+<script>document.body.onresize=null;</script>
 <style>
 
 .jour{
@@ -64,6 +65,7 @@ on a 11 heures a afficher => 40 px de hauteur par heure
     width: 100%;
     font-size: 0.8em;
     overflow: hidden;
+    overflow-y: scroll;
 }
 
 </style>

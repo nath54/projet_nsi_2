@@ -263,12 +263,11 @@ foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN pro
     </div>
 
     <div>
-
         <p id="pasdevoirs">Vous n'avez pas donné de devoirs à ce groupe</p>
         <div class="column" >
             <table id="tabledevoirs">
                 <thead>
-                    <tr> <th>Jour</th> <th>Matiere</th> <th>Devoir</th> </tr>
+                    <tr> <th>Jour</th> <th>Matiere</th> <th style="width: 100%;">Devoir</th> </tr>
                 </thead>
                 <tbody id="tableau_devoirs">
 

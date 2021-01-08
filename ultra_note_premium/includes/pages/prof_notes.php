@@ -1,3 +1,4 @@
+<script>document.body.onresize=null;</script>
 <?php
 
 include_once("../init.php");
