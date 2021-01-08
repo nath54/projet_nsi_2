@@ -1,5 +1,5 @@
 <?php
-// fonction qui créer la page d'accueil des éléves
+// on récupére la base de donnée pour crée les sessions
 $pathe=explode(DIRECTORY_SEPARATOR,getcwd());
 $laste=$pathe[count($pathe)-1];
 if($laste=="pages"){
