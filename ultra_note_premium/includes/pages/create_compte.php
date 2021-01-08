@@ -3,7 +3,7 @@
 include_once("../init.php");
 include_once("../bdd.php");
 
-test_admin();
+test_admin($bdd);
 
 ?>
 <form id="finscription" method="POST", action="includes/pages/create_compte2.php">

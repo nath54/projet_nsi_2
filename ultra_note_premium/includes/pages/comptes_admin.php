@@ -11,7 +11,7 @@ var eleves_groupes={}; // key = id_eleve, value = id_groupe
 include_once("../init.php");
 include_once("../bdd.php");
 
-test_admin();
+test_admin($bdd);
 
 $bdd = load_db("../");
 

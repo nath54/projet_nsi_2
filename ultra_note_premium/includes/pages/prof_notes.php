@@ -5,7 +5,7 @@ include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd = load_db("../");
-test_prof();
+test_prof($bdd);
 
 $id_prof = $_SESSION["id"];
 $mats = requete($bdd,"SELECT * FROM matieres");

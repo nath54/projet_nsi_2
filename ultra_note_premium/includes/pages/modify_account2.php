@@ -6,7 +6,7 @@ include_once "../init.php";
 include_once "../bdd.php";
 
 $bdd = load_db("../");
-test_admin();
+test_admin($bdd);
 
 if(isset($_POST["itype"])){
     $id_compte=$_SESSION["id_compte_modif"];

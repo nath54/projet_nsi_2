@@ -5,7 +5,7 @@ include_once("../bdd.php");
 
 $bdd=load_db("../");
 
-test_admin();
+test_admin($bdd);
 
 $requested="INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ('".$_POST["nom"]."', '".$_POST["niveau"]."', ".$_POST["etablissement"]." );";
 echo $requested;

@@ -3,7 +3,7 @@
 include_once "../init.php";
 include_once "../bdd.php";
 
-test_eleve();
+test_admin($bdd);
 
 $bdd = load_db("../");
 //on crée les classes

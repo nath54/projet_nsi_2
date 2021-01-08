@@ -90,7 +90,7 @@ include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd = load_db("../");
-test_prof();
+test_prof($bdd);
 $id_prof = $_SESSION["id"];
 
 $groupes = requete($bdd, "SELECT groupes.* FROM groupes INNER JOIN profs_groupes ON groupes.id=id_groupe AND id_prof=".$id_prof);

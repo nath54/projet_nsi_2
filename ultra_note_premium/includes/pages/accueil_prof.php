@@ -3,6 +3,6 @@
 include_once("../init.php");
 include_once("../bdd.php");
 
-test_prof();
+test_prof($bdd);
 
 ?>

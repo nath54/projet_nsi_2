@@ -3,6 +3,6 @@
 include_once("../init.php");
 include_once("../bdd.php");
 
-test_eleve();
+test_eleve($bdd);
 
 ?>

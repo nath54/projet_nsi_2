@@ -5,7 +5,7 @@ include_once "../bdd.php";
 
 $bdd = load_db("../");
 
-test_admin();
+test_admin($bdd);
 
 $id_groupe = $_POST["id_groupe"];
 if($_POST["action"]=="delete"){
