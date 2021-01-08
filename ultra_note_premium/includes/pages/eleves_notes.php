@@ -4,6 +4,8 @@ include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd = load_db("../");
+test_eleve();
+
 $id_eleve = $_SESSION["id"];
 $mats = requete($bdd,"SELECT * FROM matieres");
 $notes = requete($bdd,"SELECT * FROM notes");
@@ -21,12 +23,12 @@ echo "var notes_matiere={};";
 foreach($groupes as $i=>$data){
     echo "notes_matiere[".$data["id"]."]=[];";
 }
-$requested="SELECT * FROM notes ";
+$requested="SELECT * FROM notes";
 foreach(requete($bdd, $requested) as $i=>$data){
     $note="{'id': ".$data["id"]."}";
-    echo "notes_matieres.push(".$note.");"
+    echo "notes_matieres.push(".$note.");";
 }
- 
+
 ?>
 </script>
 <div>
@@ -38,7 +40,7 @@ foreach(requete($bdd, $requested) as $i=>$data){
             <thead>
                 <tr></tr>
            </thead>
-            
+
            <tbody id="tableau_note">
 
            </tbody>

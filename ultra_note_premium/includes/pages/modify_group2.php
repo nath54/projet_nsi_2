@@ -5,6 +5,8 @@ include_once "../bdd.php";
 
 $bdd = load_db("../");
 
+test_admin();
+
 $id_groupe = $_POST["id_groupe"];
 if($_POST["action"]=="delete"){
     action($bdd, "DELETE FROM eleves_groupes WHERE id_groupe=".$id_groupe);

@@ -182,4 +182,56 @@ $reponse = $db->query('SELECT * FROM '.$requested);
 $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
 */
 
+function test_admin(){
+    $id=$_SESSION["id"];
+    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
+    if(count($compte)==0){
+        header("Location: ../index.php");
+    }
+    else{
+        if($compte[0]["type_"]!="admin"){
+            header("Location: ../index.php");
+        }
+    }
+}
+
+function test_prof(){
+    $id=$_SESSION["id"];
+    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
+    if(count($compte)==0){
+        header("Location: ../index.php");
+    }
+    else{
+        if($compte[0]["type_"]!="admin"){
+            header("Location: ../index.php");
+        }
+    }
+}
+
+function test_eleve(){
+    $id=$_SESSION["id"];
+    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
+    if(count($compte)==0){
+        header("Location: ../index.php");
+    }
+    else{
+        if($compte[0]["type_"]!="admin"){
+            header("Location: ../index.php");
+        }
+    }
+}
+
+function test_parent(){
+    $id=$_SESSION["id"];
+    $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
+    if(count($compte)==0){
+        header("Location: ../index.php");
+    }
+    else{
+        if($compte[0]["type_"]!="admin"){
+            header("Location: ../index.php");
+        }
+    }
+}
+
 ?>

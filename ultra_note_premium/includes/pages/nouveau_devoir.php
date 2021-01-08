@@ -6,6 +6,8 @@ include_once("../bdd.php");
 
 $bdd = load_db("../");
 
+test_admin();
+
 aff_array($_POST);
 
 $titre = $_POST["titre"];

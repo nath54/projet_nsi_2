@@ -1,7 +1,9 @@
 <?php
 
-include_once "../init.php";
-include_once "../bdd.php";
+include_once("../init.php");
+include_once("../bdd.php");
+
+test_admin();
 
 ?>
 <form id="finscription" method="POST", action="includes/pages/create_compte2.php">

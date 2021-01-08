@@ -11,6 +11,8 @@ var eleves_groupes={}; // key = id_eleve, value = id_groupe
 include_once("../init.php");
 include_once("../bdd.php");
 
+test_admin();
+
 $bdd = load_db("../");
 
 $_SESSION["id_compte_modif"]=null;

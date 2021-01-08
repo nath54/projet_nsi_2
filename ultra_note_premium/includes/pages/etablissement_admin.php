@@ -5,6 +5,8 @@ include_once("../bdd.php");
 
 $bdd = load_db("../");
 
+test_admin();
+
 $mon_compte = requete($bdd, "SELECT * FROM comptes WHERE id=".$_SESSION["id"])[0];
 ?>
 <script>

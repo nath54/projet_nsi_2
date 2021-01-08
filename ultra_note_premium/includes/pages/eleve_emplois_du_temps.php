@@ -75,6 +75,9 @@ include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd = load_db("../");
+
+test_eleve();
+
 $id_eleve = $_SESSION["id"];
 
 

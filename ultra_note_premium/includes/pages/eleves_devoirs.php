@@ -15,8 +15,6 @@ table{
     margin: 15px;
     margin-right: 30px;
     border-color: rgb(150,150,150);
-    overflow-y: scroll;
-    max-height: 300px;
 }
 
 td, th{
@@ -40,7 +38,7 @@ thead{
 }
 tbody{
     overflow-y: auto;
-    max-height: 350px;
+    max-height: 150px;
 }
 
 .descr{
@@ -59,6 +57,7 @@ include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd = load_db("../");
+test_eleve();
 $id_eleve = $_SESSION["id"];
 
 ?>
@@ -151,18 +150,21 @@ function update_devoirs(){
 
 <div onload="update_devoirs();">
 
-<p id="pasdevoirs" style="display:none;">Vous n'avez apparament pas de devoirs</p>
-<table id="tabledevoirs">
-    <thead>
-        <tr>
-            <th>Jour</th>
-            <th>Matiere</th>
-            <th>Devoir</th>
-        </tr>
-    </thead>
-    <tbody id="tableau_devoirs">
-        
-    </tbody>
-</table>
+    <p id="pasdevoirs" style="display:none;">Vous n'avez apparament pas de devoirs</p>
+    <table id="tabledevoirs">
+        <thead>
+            <tr>
+                <th>Jour</th>
+                <th>Matiere</th>
+                <th>Devoir</th>
+            </tr>
+        </thead>
+        <tbody id="tableau_devoirs">
+            
+        </tbody>
+    </table>
 
 </div>
+<script>
+update_devoirs();
+</script>

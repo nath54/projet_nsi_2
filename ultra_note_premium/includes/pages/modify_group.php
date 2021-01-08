@@ -5,6 +5,7 @@ include_once "../bdd.php";
 
 $bdd = load_db("../");
 
+test_admin();
 
 // aff_array($_GET);
 echo "<script>var id_groupe=".$_GET["gid"].";</script>";

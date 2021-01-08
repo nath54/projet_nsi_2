@@ -7,6 +7,8 @@ include_once "../bdd.php";
 
 $bdd = load_db("../");
 
+test_admin();
+
 if(isset($_POST["itype"])){
     //on prépare le tableau data avant de l'envoyer à la variable de sessesion
     $data = array();
