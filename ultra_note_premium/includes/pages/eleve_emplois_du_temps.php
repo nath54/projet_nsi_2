@@ -64,6 +64,8 @@ on a 11 heures a afficher => 40 px de hauteur par heure
     width: 100%;
     font-size: 0.8em;
     overflow: hidden;
+    overflow-y: scroll;
+    padding-bottom: 5px;
 }
 
 </style>
@@ -216,7 +218,7 @@ function update_edt(){
         //
         divcour.style.position="absolute";
         var tope=divjour.offsetTop+y+122;
-        var lefte=divjour.offsetLeft+39;
+        var lefte=divjour.offsetLeft+34-(5-j);
         divcour.style.width=""+divjour.offsetWidth+"px";
         divcour.style.height=""+t+"px";
         divcour.style.left=""+lefte+"px";
