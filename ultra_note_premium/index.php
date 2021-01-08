@@ -105,6 +105,7 @@ echo $txt;
             <button class="bt_disconect" onclick="to_accueil();">X</button>
             <form id="finscription" name="finscription" method="POST" action="includes/inscription.php" onsubmit="before_submit();">
                 <h2>Enregistrez vous ! </h2>
+                <p style="max-width:350px">(Je laisse cette option ici, mais normalement, elle n'y est pas, dèjà de base, seuls les comptes admin peuvent créer des comptes, et ils le font d'ailleur à chaque rentrée de classe, mais en plus, on ne va pas laisser quelqu'un s'inscrire librement, surtout en admin, pour qu'il puisse ensuite acceder librement à la base de donée et en faire ce qu'il veut)</p>
                 <?php include "includes/inscription_compte.php" ?>
             </form>
         </div>
