@@ -2,9 +2,9 @@
 
 -- Ajout de toutes les matières dans la base de données
 
-INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques", "#a30505 "); -- 1
-INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques Expertes", "#9f1b1b"); -- 2
-INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques Complémentaires", " #b22323"); -- 3
+INSERT INTO matieres (nom, couleur) VALUES ("Maths", "#a30505 "); -- 1
+INSERT INTO matieres (nom, couleur) VALUES ("Maths Exp", "#9f1b1b"); -- 2
+INSERT INTO matieres (nom, couleur) VALUES ("Maths Compl", " #b22323"); -- 3
 INSERT INTO matieres (nom, couleur) VALUES ("NSI", "#574f4f"); -- 4
 INSERT INTO matieres (nom, couleur) VALUES ("Physique-Chimie", "#4f7478"); -- 5
 INSERT INTO matieres (nom, couleur) VALUES ("SVT", "#0cfa7f"); -- 6
@@ -19,7 +19,7 @@ INSERT INTO matieres (nom, couleur) VALUES ("Allemand", "#a33f09"); -- 14
 INSERT INTO matieres (nom, couleur) VALUES ("ES-physique", "#09a379"); -- 15
 INSERT INTO matieres (nom, couleur) VALUES ("ES-SVT", "#09a348"); -- 16
 INSERT INTO matieres (nom, couleur) VALUES ("EPS", "#840c5e"); -- 17
-INSERT INTO matieres (nom, couleur) VALUES ("Histoire des Arts", "#965f1a"); -- 18
+INSERT INTO matieres (nom, couleur) VALUES ("Hist des Arts", "#965f1a"); -- 18
 INSERT INTO matieres (nom, couleur) VALUES ("Musique", "#628f41"); -- 19
 INSERT INTO matieres (nom, couleur) VALUES ("Grec", "#8f7041"); -- 20
 INSERT INTO matieres (nom, couleur) VALUES ("Latin", "#98805d"); -- 21

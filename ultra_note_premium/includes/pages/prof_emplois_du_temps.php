@@ -57,6 +57,7 @@ on a 11 heures a afficher => 40 px de hauteur par heure
 }
 
 .divcour{
+    font-family: 'Arvo', serif;
     margin: 0;
     text-align: center;
     display: flex;

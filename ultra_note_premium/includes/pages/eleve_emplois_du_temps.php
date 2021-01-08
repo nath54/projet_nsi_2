@@ -56,6 +56,7 @@ on a 11 heures a afficher => 40 px de hauteur par heure
 }
 
 .divcour{
+    font-family: 'Arvo', serif;
     margin: 0;
     text-align: center;
     display: flex;
@@ -65,7 +66,6 @@ on a 11 heures a afficher => 40 px de hauteur par heure
     font-size: 0.8em;
     overflow: hidden;
     overflow-y: scroll;
-    padding-bottom: 5px;
 }
 
 </style>
@@ -164,6 +164,8 @@ function sem_apres(){
 function update_edt(){
     // on recupere le jour du debut
     var jdb = window.jour_actu;
+    if((jdb.getWeek()+jdb.getYear())%2==0){ $tp_sem=1; }
+    else{ $tp_sem=2; }
     // on affiche quelle semaine on va traiter
     var jf = new Date();
     jf.setDate(jdb.getDate()+7);
@@ -183,7 +185,7 @@ function update_edt(){
     for(c of cours){
         // on regarde si notre semaine est en semaine A ou B
         // et si il n'est en bonne semaine, bah on skip ce cours
-        if(false){
+        if(c["semaine"]!=0 && c["semaine"]!=$tp_sem){
             continue;
         }
         // on crée la div cour
