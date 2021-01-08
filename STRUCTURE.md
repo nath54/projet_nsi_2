@@ -6,7 +6,7 @@
 (On pourra aussi se créer un compte, mais normalement, sur les sites scolaires, tous les comptes pour tous les étudiants sont déjà créés)
 
 - Se connecter
-    On ne change pas de page, mais une div apparait fluidement
+    On ne change pas de page, mais une div apparait grâce à l'attribut `display:(none=caché, initial=visible)`
     => Requête PHP, avec un POST
 
 - S'inscrire
@@ -14,13 +14,28 @@
     => Requête PHP, avec un POST
 
 - Page d'accueil quand on est connecté 
-    Il faut une page d'accueil fluide, agréable
-    Onglets : 
-      - Notifications (nouveaux messages, nouvelles notes, )
+    Elle n'est pas encore faite
 
-    - Menu Notes
-    - Menu Devoirs
-    - Menu Messagerie
+Mais il y a plusieurs types de comptes : 
+
+### Comptes Admin 
+
+
+### Comptes Profs 
+
+
+### Comptes Eleves
+
+L'élève a acces a plusieurs pages :
+
+- La page note : Pas encore faite 
+- La page devoirs : L'élève peut voir les devoirs qu'il doit faire, triés bien évidemment pas 
+
+### Comptes Parents
+
+Pas encore travaillé dessus
+
+
 
 ## SQL :
 

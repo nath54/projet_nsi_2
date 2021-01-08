@@ -1,3 +1,4 @@
+Structure : *pseudo* *password*
 
 # admins
 ## Poinca

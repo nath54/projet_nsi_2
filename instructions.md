@@ -42,4 +42,5 @@ Il faudra ensuite importer le fichier sql `rempli_tables.sql`
 Maintenant, le site est prêt.
 Pour vous connecter,
 vous pourrez regarder dans le fichier `comptes_base.md`
+Il y a dedans des identifiants déjà prêts pour tester des trucs
 

@@ -34,13 +34,13 @@ foreach($mats as $i=>$data){
 <?php
 echo "var notes_matiere={};";
 
-foreach($groupes as $i=>$data){
+foreach($matieres as $i=>$data){
     echo "notes_matiere[".$data["id"]."]=[];";
 }
 $requested="SELECT * FROM notes";
 foreach(requete($bdd, $requested) as $i=>$data){
     $note="{'id': ".$data["id"]."}";
-    echo "notes_matieres.push(".$note.");";
+    echo "notes_matieres[".$data["id_matiere"]."].push(".$note.");";
 }
 
 ?>
@@ -50,9 +50,10 @@ foreach(requete($bdd, $requested) as $i=>$data){
 <div class="row">
 
     <div>
-        <table>
+        <p id="pasdenotes">Vous n'avez pas donné de notes</p>
+        <table id="tableau_notes">
             <thead>
-                <tr></tr>
+                <th>Notes</th>
            </thead>
 
            <tbody id="tableau_note">
