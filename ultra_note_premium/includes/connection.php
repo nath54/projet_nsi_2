@@ -1,6 +1,10 @@
 <?php
 
 /*
+Page qui est appelée pour la connection d'un compte
+*/
+
+/*
 Ici, on va faire un include sur le fichier `init.php`,
 qui chargera la session ainsi que quelques petites fonctons en php,
 On va aussi inclure le fichier `bdd.php`, 

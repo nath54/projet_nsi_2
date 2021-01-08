@@ -31,6 +31,9 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
+/*
+Page qui est appelée pour déconnecter le compte actif
+*/
 
 $bdd = null;
 $_SESSION=array();

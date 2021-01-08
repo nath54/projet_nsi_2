@@ -8,6 +8,11 @@ table, td, tr{
 
 
 /*
+Page qui est appelée depuis un formulaire pour inscrire un compte
+*/
+
+
+/*
 Ici, on va faire un include sur le fichier `init.php`,
 qui chargera la session ainsi que quelques petites fonctons en php,
 On va aussi inclure le fichier `bdd.php`, 

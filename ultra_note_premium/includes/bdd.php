@@ -139,7 +139,7 @@ function modification_compte($db, $data, $id_compte){
 }
 
 
-//le fonctions suivante recuperent les informations de différents tables (établissement,matièrees,...)
+//les fonctions suivante recuperent les informations de différents tables (établissement,matières,...)
 function get_etablissements($db){
     $requested = "SELECT nom, id FROM etablissements;";
     $reponse = $db->query($requested);

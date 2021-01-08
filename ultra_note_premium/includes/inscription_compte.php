@@ -1,6 +1,13 @@
 <?php
 
 /*
+Le fichier est à inclure dans un form pour la modification/création d'un compte
+*/
+
+
+
+
+/*
 Ici, on va faire un include sur le fichier `init.php`,
 qui chargera la session ainsi que quelques petites fonctons en php,
 On va aussi inclure le fichier `bdd.php`, 
