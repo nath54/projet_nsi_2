@@ -31,6 +31,10 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
+/*
+On teste si le compte qui accede a cette page a bien les permissions pour y acceder,
+cela évite un tres gros trou de sécurité
+*/
 test_compte($bdd, "admin");
 
 $id_groupe = $_POST["id_groupe"];

@@ -253,9 +253,7 @@ function update_edt(){
         divcour.style.width=""+divjour.offsetWidth+"px";
         divcour.style.height=""+t+"px";
         divcour.style.left=""+lefte+"px";
-        //divcour.style.right=""+(divjour.offsetLeft+divjour.offsetWidth)+"px";
         divcour.style.top=""+tope+"px";
-        // divcour.style.bottom=""+(divjour.offsetTop+y+t)+"px";
         //
         i++;
     }

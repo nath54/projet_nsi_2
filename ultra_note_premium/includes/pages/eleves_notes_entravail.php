@@ -33,6 +33,10 @@ else if($laste=="ultra_note_premium"){
 
 test_compte($bdd, "eleve");
 
+/*
+On teste si le compte qui accede a cette page a bien les permissions pour y acceder,
+cela évite un tres gros trou de sécurité
+*/
 $id_eleve = $_SESSION["id"];
 $mats = requete($bdd,"SELECT * FROM matieres");
 $notes = requete($bdd,"SELECT * FROM notes");

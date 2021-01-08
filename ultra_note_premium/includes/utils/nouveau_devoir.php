@@ -1,6 +1,10 @@
 <?php
 
 /*
+Page qui est appelée pour la création d'un devoir
+*/
+
+/*
 Ici, on va faire un include sur le fichier `init.php`,
 qui chargera la session ainsi que quelques petites fonctons en php,
 On va aussi inclure le fichier `bdd.php`, 
@@ -31,6 +35,10 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
+/*
+On teste si le compte qui accede a cette page a bien les permissions pour y acceder,
+cela évite un tres gros trou de sécurité
+*/
 test_compte($bdd, "admin");
 
 aff_array($_POST);

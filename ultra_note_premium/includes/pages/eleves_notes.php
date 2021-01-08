@@ -32,6 +32,10 @@ else if($laste=="ultra_note_premium"){
 }
 
 
+/*
+On teste si le compte qui accede a cette page a bien les permissions pour y acceder,
+cela évite un tres gros trou de sécurité
+*/
 test_compte($bdd, "eleve");
 
 ?> 

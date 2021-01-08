@@ -31,6 +31,8 @@ else if($laste=="ultra_note_premium"){
     $bdd=load_db("includes/");
 }
 
+// on a pas besoin de tester le type du compte qui y accede, car tous les comptes ont acces a la messagerie
+// Qui sera d'ailleurs inspirée de discord
 
 ?>
 <div style="display:center; width:100%; height:100%;">

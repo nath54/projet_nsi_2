@@ -30,6 +30,10 @@ else if($laste=="ultra_note_premium"){
     include_once("includes/bdd.php");
     $bdd=load_db("includes/");
 }
+/*
+On teste si le compte qui accede a cette page a bien les permissions pour y acceder,
+cela évite un tres gros trou de sécurité
+*/
 test_compte($bdd, "admin");
 
 if(isset($_GET["id_account"]) && $_GET["id_account"]!=null){
