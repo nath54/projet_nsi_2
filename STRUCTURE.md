@@ -30,7 +30,7 @@ L'admin a acces a plusieurs pages pour l'instant :
 
 Le prof a acces a plusieurs pages pour l'instant :
  - La page Notes, qui n'est pas faite pour l'instant
- - La page Devoirs, qui permet au prof de pouvoir créer/modifier/supprimer des devoirs pour chacun des ses groupes d'élèves
+ - La page Devoirs, qui permet au prof de pouvoir créer/supprimer des devoirs pour chacun des ses groupes d'élèves (on ne peut pas encore les modifier)
   - La page Emploi du temps qui permet au prof de visualiser son emploi du temps
 
 ### Comptes Eleves

@@ -15,6 +15,8 @@ nous n'avons pas eu le temps de faire :
  - Plus de gestion de l'etablissement par l'administrateur, et un endroit pour afficher les infos de chaque etablissements (et possiblement aussi de rajouter d'autres informations sur l'etablissements, comme les spé qu'il proposent ou bien les différentes classes préparatoires qu'il y a)
  - Les pages d'accueils pour les différents types de comptes
  - Les pages notes pour les profs et les élèves
+ - On ne peut pas modifier un devoir
+ - Un meilleur style visuel
 
 ## Groupe
 
