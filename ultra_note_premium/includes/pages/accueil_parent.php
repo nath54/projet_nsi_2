@@ -5,6 +5,6 @@ include_once("../bdd.php");
 
 $bdd=load_db("../");
 
-test_parents($bdd);
+test_parent($bdd);
 
 ?>
