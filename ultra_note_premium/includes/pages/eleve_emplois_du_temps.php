@@ -73,7 +73,7 @@ include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd = load_db("../");
-$id_prof = $_SESSION["id"];
+$id_eleve = $_SESSION["id"];
 
 
 ?>
@@ -87,9 +87,9 @@ var jours_travail=["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 var cours=[];
 
 <?php
-$requette="SELECT cours.*, matieres.nom AS matnom, groupes.nom AS grpnom, matieres.couleur AS couleur FROM cours INNER JOIN matieres ON id_matiere=matieres.id INNER JOIN groupes ON id_groupe=groupes.id WHERE id_prof=".$id_prof;
+$requette="SELECT cours.*, matieres.nom AS matnom, prof.nom AS profnom, matieres.couleur AS couleur FROM cours INNER JOIN matieres ON id_matiere=matieres.id INNER JOIN comptes AS prof ON id_prof=prof.id INNER JOIN eleves_groupes ON cours.id_groupe=eleves_groupes.id_groupe AND eleves_groupes.id_eleve=".$id_eleve;
 foreach(requete($bdd, $requette) as $i=>$data){
-    echo "cours.push({'id': ".$data["id"].",'id_matiere': ".$data["id_matiere"].",'id_groupe': ".$data["id_groupe"].",'jour': '".$data["jour"]."','heure_debut': ".$data["heure_debut"].",'heure_fin': ".$data["heure_fin"].",'semaine': ".$data["semaine"].", 'salle': '".$data["salle"]."', 'grpnom': '".$data["grpnom"]."', 'matnom': '".$data["matnom"]."', 'couleur': '".$data["couleur"]."'});";
+    echo "cours.push({'id': ".$data["id"].",'id_matiere': ".$data["id_matiere"].",'id_groupe': ".$data["id_groupe"].",'jour': '".$data["jour"]."','heure_debut': ".$data["heure_debut"].",'heure_fin': ".$data["heure_fin"].",'semaine': ".$data["semaine"].", 'salle': '".$data["salle"]."', 'profnom': '".$data["profnom"]."', 'matnom': '".$data["matnom"]."', 'couleur': '".$data["couleur"]."'});";
 }
 ?>
 
@@ -177,17 +177,17 @@ function update_edt(){
         matiere.style.margin="0px";
         var infos=document.createElement("div");
         infos.classList.add("row");
-        var groupe=document.createElement("p");
-        groupe.innerHTML=c["grpnom"];
-        groupe.style.margin="0px";
-        groupe.style.marginLeft="5px";
+        var prof=document.createElement("p");
+        prof.innerHTML=c["profnom"];
+        prof.style.margin="0px";
+        prof.style.marginLeft="5px";
         var salle=document.createElement("p");
         salle.style.margin="0px";
         salle.style.marginLeft="5px";
         salle.innerHTML=c["salle"];
         divcour.appendChild(matiere);
         divcour.appendChild(infos);
-        infos.appendChild(groupe)
+        infos.appendChild(prof)
         infos.appendChild(salle);
         var jj = c["jour"]-1;
         var divjour=document.getElementById(jours_travail[jj])
