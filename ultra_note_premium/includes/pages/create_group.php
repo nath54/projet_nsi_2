@@ -4,7 +4,7 @@ include_once "../init.php";
 include_once "../bdd.php";
 
 $bdd = load_db("../");
-
+//on crée les classes
 ?>
 <form id="fgroup" method="POST", action="includes/pages/create_group2.php">
     <h1>Nouveau Groupe</h1>

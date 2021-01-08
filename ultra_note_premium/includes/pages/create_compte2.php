@@ -8,7 +8,7 @@ include_once "../bdd.php";
 $bdd = load_db("../");
 
 if(isset($_POST["itype"])){
-    //
+    //on prépare le tableau data avant de l'envoyer à la variable de sessesion
     $data = array();
     $data["pseudo"] = $_POST["ipseudo"];
     $data["password_"] = md5($_POST["ipassword"]);
