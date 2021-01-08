@@ -71,6 +71,10 @@ on a 11 heures a afficher => 40 px de hauteur par heure
 </style>
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $pathe=explode(DIRECTORY_SEPARATOR,getcwd());
 $laste=$pathe[count($pathe)-1];
 if($laste=="pages"){

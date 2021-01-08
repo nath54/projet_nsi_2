@@ -2,30 +2,29 @@
 
 -- Ajout de toutes les matières dans la base de données
 
-INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques", "#bd0404"); -- 1
-INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques Expertes", "#ff0000"); -- 2
-INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques Complémentaires", "#ff3636"); -- 3
-INSERT INTO matieres (nom, couleur) VALUES ("NSI", "#0b4685"); -- 4
-INSERT INTO matieres (nom, couleur) VALUES ("Physique-Chimie", "#2fccb2"); -- 5
+INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques", "#a30505 "); -- 1
+INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques Expertes", "#9f1b1b"); -- 2
+INSERT INTO matieres (nom, couleur) VALUES ("Mathématiques Complémentaires", " #b22323"); -- 3
+INSERT INTO matieres (nom, couleur) VALUES ("NSI", "#574f4f"); -- 4
+INSERT INTO matieres (nom, couleur) VALUES ("Physique-Chimie", "#4f7478"); -- 5
 INSERT INTO matieres (nom, couleur) VALUES ("SVT", "#0cfa7f"); -- 6
-INSERT INTO matieres (nom, couleur) VALUES ("Histoire-Géo", "#fabe0c"); -- 7
-INSERT INTO matieres (nom, couleur) VALUES ("Spé Géopo", "#fae034"); -- 8
-INSERT INTO matieres (nom, couleur) VALUES ("SVT", "#0cfa7f"); -- 9
-INSERT INTO matieres (nom, couleur) VALUES ("Francais", "#00b7ff"); -- 10
-INSERT INTO matieres (nom, couleur) VALUES ("Philosophie", "#080bbd"); -- 11
-INSERT INTO matieres (nom, couleur) VALUES ("Anglais", "#5ea7db"); -- 12
-INSERT INTO matieres (nom, couleur) VALUES ("Spé Anglais", "#5e92b8"); -- 13
-INSERT INTO matieres (nom, couleur) VALUES ("Espagnol", "#ffe100"); -- 14
-INSERT INTO matieres (nom, couleur) VALUES ("Allemand", "#821032"); -- 15
-INSERT INTO matieres (nom, couleur) VALUES ("ES-physique", "#609c8f"); -- 16
-INSERT INTO matieres (nom, couleur) VALUES ("ES-SVT", "#609c81"); -- 17
-INSERT INTO matieres (nom, couleur) VALUES ("EPS", "#d6baf5"); -- 18
-INSERT INTO matieres (nom, couleur) VALUES ("Histoire des Arts", "#f2821f"); -- 19
-INSERT INTO matieres (nom, couleur) VALUES ("Musique", "#aff21f"); -- 20
-INSERT INTO matieres (nom, couleur) VALUES ("Grec", "#055eb0"); -- 21
-INSERT INTO matieres (nom, couleur) VALUES ("Latin", "#e0bb96"); -- 22
-INSERT INTO matieres (nom, couleur) VALUES ("Hébreux", "#f4ba7e"); -- 23
-INSERT INTO matieres (nom, couleur) VALUES ("", "#ffffff"); -- 24
+INSERT INTO matieres (nom, couleur) VALUES ("Histoire-Géo", "#806a0d"); -- 7
+INSERT INTO matieres (nom, couleur) VALUES ("Spé Géopo", "#491095"); -- 8
+INSERT INTO matieres (nom, couleur) VALUES ("Francais", "#0a50ab"); -- 9
+INSERT INTO matieres (nom, couleur) VALUES ("Philosophie", "#2167c3"); -- 10
+INSERT INTO matieres (nom, couleur) VALUES ("Anglais", "#0e7894"); -- 11
+INSERT INTO matieres (nom, couleur) VALUES ("Spé Anglais", "#1a7187"); -- 12
+INSERT INTO matieres (nom, couleur) VALUES ("Espagnol", "#a39309"); -- 13
+INSERT INTO matieres (nom, couleur) VALUES ("Allemand", "#a33f09"); -- 14
+INSERT INTO matieres (nom, couleur) VALUES ("ES-physique", "#09a379"); -- 15
+INSERT INTO matieres (nom, couleur) VALUES ("ES-SVT", "#09a348"); -- 16
+INSERT INTO matieres (nom, couleur) VALUES ("EPS", "#840c5e"); -- 17
+INSERT INTO matieres (nom, couleur) VALUES ("Histoire des Arts", "#965f1a"); -- 18
+INSERT INTO matieres (nom, couleur) VALUES ("Musique", "#628f41"); -- 19
+INSERT INTO matieres (nom, couleur) VALUES ("Grec", "#8f7041"); -- 20
+INSERT INTO matieres (nom, couleur) VALUES ("Latin", "#98805d"); -- 21
+INSERT INTO matieres (nom, couleur) VALUES ("Hébreux", "#968771"); -- 22
+INSERT INTO matieres (nom, couleur) VALUES ("", "#ffffff"); -- 23
 
 
 
@@ -85,19 +84,19 @@ INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("MATH grp2", "termin
 INSERT INTO `cours`
 (`id`, `id_matiere`, `id_prof`, `id_groupe`, `jour`, `heure_debut`, `heure_fin`, `semaine`, `salle`)
 VALUES
-(1, 1, 2, 2, 5, 8.15, 10.1, 0, 'test'),
-(2, 11, 2, 2, 1, 16.2, 18.15, 0, 'test'),
-(3, 2, 2, 2, 2, 9.15, 10.1, 0, 'test'),
-(4, 3, 2, 2, 1, 10.2, 11.15, 0, 'test'),
-(5, 4, 2, 2, 3, 11.2, 12.15, 0, 'test'),
-(6, 5, 2, 2, 3, 12.15, 13.1, 0, 'test'),
-(7, 6, 2, 2, 5, 13.15, 14.1, 0, 'test'),
-(8, 5, 2, 2, 5, 12.15, 13.1, 0, 'test'),
-(9, 6, 2, 2, 5, 13.15, 14.1, 0, 'test'),
-(10, 7, 2, 2, 5, 14.15, 15.1, 0, 'test'),
-(11, 8, 2, 2, 5, 15.15, 16.1, 0, 'test'),
-(12, 9, 2, 2, 5, 16.2, 17.15, 0, 'test'),
-(13, 10, 2, 2, 5, 17.2, 18.15, 0, 'test');
+(1, 1, 2, 2, 5, 8.15, 10.1, 0, 'salle'),
+(2, 10, 2, 2, 1, 16.2, 18.15, 0, 'salle'),
+(3, 2, 2, 2, 2, 9.15, 10.1, 0, 'salle'),
+(4, 3, 2, 2, 1, 10.2, 11.15, 0, 'salle'),
+(5, 4, 2, 2, 3, 11.2, 12.15, 0, 'salle'),
+(6, 5, 2, 2, 3, 12.15, 13.1, 0, 'salle'),
+(7, 6, 2, 2, 5, 13.15, 14.1, 0, 'salle'),
+(8, 7, 2, 2, 5, 12.15, 13.1, 0, 'salle'),
+(9, 8, 2, 2, 5, 13.15, 14.1, 0, 'salle'),
+(10, 9, 2, 2, 5, 14.15, 15.1, 0, 'salle'),
+(11, 11, 2, 2, 5, 15.15, 16.1, 0, 'salle'),
+(12, 12, 2, 2, 5, 16.2, 17.15, 0, 'salle'),
+(13, 13, 2, 2, 5, 17.2, 18.15, 0, 'salle');
 
 
 -- emplois du temps :
@@ -114,7 +113,7 @@ INSERT INTO profs_matieres SET id_prof=1, id_matiere=4;
 INSERT INTO profs_groupes SET id_prof=1, id_groupe=2;
 INSERT INTO comptes SET type_='prof', id_etablissement=1, nom='Descartes', prenom='René', pseudo='rene.descartes', password_=MD5('renedescartes'), naissance='1596-03-31'; /*2*/
 INSERT INTO profs_matieres SET id_prof=2, id_matiere=1;
-INSERT INTO profs_matieres SET id_prof=2, id_matiere=11;
+INSERT INTO profs_matieres SET id_prof=2, id_matiere=10;
 INSERT INTO profs_groupes SET id_prof=2, id_groupe=2;
 INSERT INTO profs_groupes SET id_prof=2, id_groupe=3;
 INSERT INTO comptes SET type_='prof', id_etablissement=1, nom='Poincaré', prenom='Henri', pseudo='henri.poincare', password_=MD5('henripoincare'), naissance='1854-04-29'; /*3*/
