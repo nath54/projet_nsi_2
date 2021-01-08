@@ -15,8 +15,8 @@ nous n'avons pas eu le temps de faire la messagerie,
 ## Groupe
 
 Membres du groupe :
- - Nathan
- - Alexis
+ - [Nathan](https://github.com/nath54)
+ - [Alexis](https://github.com/ExTer3012)
 
 ## Instructions
 
