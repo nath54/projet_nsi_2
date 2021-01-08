@@ -4,6 +4,7 @@
     width: 25em;
     background-color: rgb(100,100,100);
     height: 440px;
+    overflow: none;
     width: 180px;
 }
 
@@ -23,10 +24,9 @@ th{
     width: 100%;
     height: 100%;
     border: none;
-    position: sticky;
-    top: -8px;
 }
 .theure{
+    margin: 0;
     position: sticky;
     font-size: 16px;
 }
@@ -56,10 +56,13 @@ on a 11 heures a afficher => 40 px de hauteur par heure
 }
 
 .divcour{
-    border: none;
+    margin: 0;
     text-align: center;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    width: 100%;
+    font-size: 0.9em;
 }
 
 </style>
@@ -78,15 +81,14 @@ $id_prof = $_SESSION["id"];
 window.jour_actu=new Date();
 // on veut récupérer le lundi de la semaine actuelle
 window.jour_actu.setDate(window.jour_actu.getDate() - (window.jour_actu.getDay()-1));
-alert(window.jour_actu.toUTCString());
 
 var jours_travail=["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 var cours=[];
 
 <?php
-$requette="SELECT cours.*, matieres.nom, matieres.couleur FROM cours INNER JOIN matieres ON id_matiere=matieres.id WHERE id_prof=".$id_prof;
+$requette="SELECT cours.*, matieres.nom AS matnom, groupes.nom AS grpnom, matieres.couleur AS couleur FROM cours INNER JOIN matieres ON id_matiere=matieres.id INNER JOIN groupes ON id_groupe=groupes.id WHERE id_prof=".$id_prof;
 foreach(requete($bdd, $requette) as $i=>$data){
-    echo "cours.push({'id': ".$data["id"].",'id_matiere': ".$data["id_matiere"].",'id_groupe': ".$data["id_groupe"].",'jour': '".$data["jour"]."','heure_debut': ".$data["heure_fin"].",'heure_fin': ".$data["heure_debut"].",'semaine': ".$data["semaine"]."});";
+    echo "cours.push({'id': ".$data["id"].",'id_matiere': ".$data["id_matiere"].",'id_groupe': ".$data["id_groupe"].",'jour': '".$data["jour"]."','heure_debut': ".$data["heure_debut"].",'heure_fin': ".$data["heure_fin"].",'semaine': ".$data["semaine"].", 'salle': '".$data["salle"]."', 'grpnom': '".$data["grpnom"]."', 'matnom': '".$data["matnom"]."', 'couleur': '".$data["couleur"]."'});";
 }
 ?>
 
@@ -131,15 +133,22 @@ foreach(requete($bdd, $requette) as $i=>$data){
 
 function sem_avant(){
     window.jour_actu.setDate(window.jour_actu.getDate()-7);
+    update_edt();
 }
 
 function sem_apres(){
     window.jour_actu.setDate(window.jour_actu.getDate()+7);
+    update_edt();
 }
 
 function update_edt(){
     // on recupere le jour du debut
-    var jdb = window.jour_debut;
+    var jdb = window.jour_actu;
+    // on affiche quelle semaine on va traiter
+    var jf = new Date();
+    jf.setDate(jdb.getDate()+7);
+    document.getElementById("j1").innerHTML=""+jdb.getDate()+" "+mois[jdb.getMonth()];
+    document.getElementById("j2").innerHTML=""+jf.getDate()+" "+mois[jf.getMonth()];
     // on nettoie
     for(idj of jours_travail){
         var j=document.getElementById(idj);
@@ -152,31 +161,39 @@ function update_edt(){
     // on parcours les cours du prof, et si ils sont dans la semaine actuelle, on les affiches
     var i=0;
     for(c of cours){
-        // on regarde le jour et on teste s'il est dans la semaine actuelle
-        var cj=new Date(c["jour"]);
-        var dist = cj.getDate()-window.jour_actu.getDate();
-        if(!(dist>=0 && dist<=6)){ continue; }
+        // on regarde si notre semaine est en semaine A ou B
+        // et si il n'est en bonne semaine, bah on skip ce cours
+        if(false){
+            continue;
+        }
         // on crée la div cour
         var divcour=document.createElement("div");
         divcour.setAttribute("id", "d_"+i);
-        divcour.style.background_color = c["couleur"];
+        divcour.style.backgroundColor = c["couleur"];
         divcour.classList.add("divcour");
         var matiere=document.createElement("b");
+        matiere.innerHTML=c["matnom"];
+        matiere.style.margin="0px";
         var groupe=document.createElement("p");
+        groupe.innerHTML=c["grpnom"];
+        groupe.style.margin="0px";
         var salle=document.createElement("p");
+        salle.style.margin="0px";
+        salle.innerHTML=c["salle"];
         divcour.appendChild(matiere);
         divcour.appendChild(groupe);
         divcour.appendChild(salle);
-        document.getElementById(jours_travail[cj.getDay()]).appendChild(divcour);
+        var divjour=document.getElementById(jours_travail[c["jour"]-1]);
+        divjour.appendChild(divcour);
         //
         var divcour=document.getElementById("d_"+i);
         divcour.style.top=0;
         var hd=c["heure_debut"];
         var hdh=parseInt(hd);
-        var hdm=hd-hdh*100;
-        var hf=c["heure_debut"];
+        var hdm=(hd-0.15-hdh)*10.;
+        var hf=c["heure_fin"];
         var hfh=parseInt(hf);
-        var hfm=hf-hfh;
+        var hfm=(hf-0.15-hfh)*10.;
         // l'heure ne peut pas commencer avant 8h et apres 19h
         var y=(hdh-8)*40;
         y+=parseInt(hdm/60*40);
@@ -188,10 +205,17 @@ function update_edt(){
         }
         //
         var t=40*dh;
-        t+=parseInt(m/60*40);
+        t+=parseInt(dm/60*40);
+        //
+        divcour.style.position="absolute";
+        console.log((divjour.offsetTop+y));
+        divcour.style.left=""+divjour.offsetLeft+"px";
+        divcour.style.right=""+(divjour.offsetLeft+divjour.offsetWidth)+"px";
+        divcour.style.top=""+(divjour.offsetTop+y)+"px";
+        divcour.style.bottom=""+(divjour.offsetTop+y+t)+"px";
         //
         i++;
     }
 }
-
+update_edt();
 </script>

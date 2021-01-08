@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `cours` (
     id_matiere INT,
     id_prof INT,
     id_groupe INT,
-    jour DATE,
+    jour INT,
     heure_debut FLOAT,
     heure_fin FLOAT,
     semaine INT,

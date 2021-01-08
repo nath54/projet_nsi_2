@@ -170,8 +170,6 @@ function submite(){
 }
 
 var jours = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
-var mois = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-
 function update_devoirs(){
     var id_groupe=document.getElementById("select_groupe").value;
     var tab=document.getElementById("tableau_devoirs");

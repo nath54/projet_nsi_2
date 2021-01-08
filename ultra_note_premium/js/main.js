@@ -1,3 +1,5 @@
+var mois = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+
 function clear() {
     var d = document.getElementById("div_main");
     // nettoyage
