@@ -1,11 +1,11 @@
 <?php
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-include_once("$root/includes/init.php");
-include_once("$root/includes/bdd.php");
+
+include_once("includes/init.php");
+include_once("includes/bdd.php");
+
+$bdd=load_db("includes/");
 
 $id=$_SESSION["id"];
-
-$bdd = load_db("includes/");
 
 if(isset($_SESSION["id"])){
     $id_account = $_SESSION["id"];

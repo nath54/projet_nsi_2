@@ -1,10 +1,9 @@
 <?php
 
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-include_once("$root/projet_nsi_2/ultra_note_premium/includes/init.php");
-include_once("$root/includes/bdd.php");
+include_once("init.php");
+include_once("bdd.php");
 
-$db = load_db();
+$bdd=load_db();
 
 if(isset($_POST["cpseudo"]) && isset($_POST["cpassword"])){
     $result = connection($_POST["cpseudo"], md5($_POST["cpassword"]), $db);

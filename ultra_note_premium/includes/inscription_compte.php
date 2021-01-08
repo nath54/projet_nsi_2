@@ -1,8 +1,9 @@
 <?php
 
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-include_once("$root/projet_nsi_2/ultra_note_premium/includes/init.php");
-include_once("$root/includes/bdd.php");
+include_once("init.php");
+include_once("bdd.php");
+
+$bdd=load_db();
 
 $mode="defaut";
 if(isset($_GET["mode"])){
@@ -10,10 +11,6 @@ if(isset($_GET["mode"])){
 }
 if(isset($_SESSION["mode_inscription"])){
     $mode=$_SESSION["mode_inscription"];
-}
-
-if(!isset($bdd)){
-    $bdd = load_db("../");
 }
 
 

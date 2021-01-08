@@ -1,8 +1,9 @@
 <?php
 
-include "includes/init.php";
-include "includes/bdd.php";
-$bdd = load_db("includes/");
+include_once("includes/init.php");
+include_once("includes/bdd.php");
+
+$bdd=load_db("includes/");
 
 // GET MATIERES
 $txt="<script>var matieres = [";

@@ -1,10 +1,9 @@
 <?php
 
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-include_once("$root/projet_nsi_2/ultra_note_premium/includes/init.php");
-include_once("$root/includes/bdd.php");
+include_once(".../init.php");
+include_once("../bdd.php");
 
-$bdd = load_db("../");
+$bdd=load_db("../");
 
 if(isset($_GET["id_account"]) && $_GET["id_account"]!=null){
     action($bdd, "DELETE FROM comptes WHERE id=".$_GET["id_account"]);
