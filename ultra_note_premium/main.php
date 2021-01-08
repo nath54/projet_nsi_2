@@ -50,13 +50,13 @@ sessionStorage["actual_page"]="accueil_"+sessionStorage['tp_compte'];
         <?php
         // on load le bon header selon le type de compte
         if($compte["type_"]=="eleve"){
-            include("includes/header_eleve.html");
+            include("includes/header_eleve.php");
         }else if($compte["type_"]=="prof"){
-            include("includes/header_prof.html");
+            include("includes/header_prof.php");
         }else if($compte["type_"]=="admin"){
-            include("includes/header_admin.html");
+            include("includes/header_admin.php");
         }else if($compte["type_"]=="parent"){
-            include("includes/header_parent.html");
+            include("includes/header_parent.php");
         }
         ?>
         <!-- Main -->

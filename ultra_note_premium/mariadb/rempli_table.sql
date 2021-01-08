@@ -82,7 +82,9 @@ INSERT INTO groupes (nom, niveau, id_etablissement) VALUES ("MATH grp2", "termin
 -- emplois du temps :
 
 
-INSERT INTO `cours` (`id`, `id_matiere`, `id_prof`, `id_groupe`, `jour`, `heure_debut`, `heure_fin`, `semaine`, `salle`) VALUES
+INSERT INTO `cours`
+(`id`, `id_matiere`, `id_prof`, `id_groupe`, `jour`, `heure_debut`, `heure_fin`, `semaine`, `salle`)
+VALUES
 (1, 1, 2, 2, 5, 8.15, 10.1, 0, 'test'),
 (2, 11, 2, 2, 1, 16.2, 18.15, 0, 'test'),
 (3, 2, 2, 2, 2, 9.15, 10.1, 0, 'test'),

@@ -3,6 +3,7 @@
     <div class="header_left">
         <a href="#" onclick="change_page('accueil_admin');" class="hel ha">Ultranote</a>
         <a href="includes/disconnect.php" class="hel bt_sortie"></a>
+        <?php include "header_compte.php"; ?>
     </div>
 
     <div id="header_right" class="header_right">
