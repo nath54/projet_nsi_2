@@ -1,5 +1,5 @@
 <?php
-
+// fonction qui créer la page d'accueil des profs
 $pathe=explode(DIRECTORY_SEPARATOR,getcwd());
 $laste=$pathe[count($pathe)-1];
 if($laste=="pages"){
