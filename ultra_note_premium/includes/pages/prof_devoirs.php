@@ -237,10 +237,10 @@ function update_devoirs(){
                 descr.setAttribute("class", "descr")
                 var bt_edit=document.createElement("button");
                 bt_edit.setAttribute("class", "bt_edit");
-                bt_edit.onclick="modif_dev("+dev["id"]+");";
+                bt_edit.setAttribute("onclick", "modif_dev("+dev["id"]+");")
                 var bt_delete=document.createElement("button");
                 bt_delete.setAttribute("class", "bt_delete");
-                bt_delete.onclick="delete_dev("+dev["id"]+");";
+                bt_delete.setAttribute("onclick", "delete_dev("+dev["id"]+");");
                 rowtitre.appendChild(titre);
                 rowtitre.appendChild(descr);
                 rowtitre.appendChild(bt_edit);
@@ -260,8 +260,9 @@ function update_devoirs(){
     }
 }
 
-function delete_devoir(){
-
+function delete_dev(did){
+    document.getElementById("did").value=did;
+    document.getElementById("form_delete").submit();
 }
 
 function modif_dev(){
@@ -353,7 +354,7 @@ foreach(requete($bdd, "SELECT matieres.nom, matieres.id FROM matieres INNER JOIN
         </div>
     </form>
 </div>
-<form style="display:none;" id="form_delete" action="delete_devoir.php" ><input name="id" value="" /></form>
+<form style="display:none;" id="form_delete" action="includes/pages/delete_devoir.php" method="POST" ><input id="did" name="did" value="" /></form>
 <script>
 update_devoirs();
 </script>

@@ -20,9 +20,9 @@ else if($laste=="ultra_note_premium"){
 }
 
 
-test_admin($bdd);
+test_prof($bdd);
 
-$requested="DELETE FROM devoirs WHERE id=".$_POST["id"];
+$requested="DELETE FROM devoirs WHERE id=".$_POST["did"];
 action($bdd, $requested);
 
 echo "<script>window.location.href='../../main.php?page=prof_devoirs'</script>";
