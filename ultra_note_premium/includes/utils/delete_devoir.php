@@ -1,6 +1,19 @@
 <?php
 
 
+/*
+Ici, on va faire un include sur le fichier `init.php`,
+qui chargera la session ainsi que quelques petites fonctons en php,
+On va aussi inclure le fichier `bdd.php`, 
+qui nous permet de récupérer la base de donnée (fonction load_db),
+et qui fourni aussi quelques fonctions utiles pour l'interaction avec la base de donnée,
+les plus utilisées sont `requete()` et `action()`,
+qui servent respectivement à récuperer des tableaux et à faire des modifications à la base de donnée.
+
+J'ai du mettre sous cette forme à cause d'un probleme de chemins pour acceder au fichiers, 
+du a l'arborescence de fichiers du projets, qui commence a etre certe sophistiquée,
+mais aussi surtout bien utile lorsqu'il s'agit de s'organiser
+*/
 $pathe=explode(DIRECTORY_SEPARATOR,getcwd());
 $laste=$pathe[count($pathe)-1];
 if($laste=="pages" || $laste=="utils"){
