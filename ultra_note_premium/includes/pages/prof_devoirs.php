@@ -60,12 +60,11 @@ th{
 }
 thead{
     position: sticky;
-    top: 0; 
+    top: 0;
 }
 tbody{
     overflow-y: auto;
     max-height: 600px;
-    
 }
 
 
@@ -91,6 +90,7 @@ include_once("../init.php");
 include_once("../bdd.php");
 
 $bdd = load_db("../");
+test_prof();
 $id_prof = $_SESSION["id"];
 
 $groupes = requete($bdd, "SELECT groupes.* FROM groupes INNER JOIN profs_groupes ON groupes.id=id_groupe AND id_prof=".$id_prof);
