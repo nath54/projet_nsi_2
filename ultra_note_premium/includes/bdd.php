@@ -183,7 +183,7 @@ $reponse = $db->query('SELECT * FROM '.$requested);
 $tab = $reponse->fetchAll(PDO::FETCH_ASSOC);
 */
 
-function test_admin(){
+function test_admin($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
     if(count($compte)==0){
@@ -196,7 +196,7 @@ function test_admin(){
     }
 }
 
-function test_prof(){
+function test_prof($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
     if(count($compte)==0){
@@ -209,7 +209,7 @@ function test_prof(){
     }
 }
 
-function test_eleve(){
+function test_eleve($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
     if(count($compte)==0){
@@ -222,7 +222,7 @@ function test_eleve(){
     }
 }
 
-function test_parent(){
+function test_parent($bdd){
     $id=$_SESSION["id"];
     $compte=requete($bdd, "SELECT type_ FROM comptes WHERE id=".$id);
     if(count($compte)==0){
