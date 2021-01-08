@@ -4,7 +4,7 @@
 travail partiel sur :
     `index.php`
     `main.php`
-    `style_dark.css`(quelques feuille de style)
+    `style_dark.css`(quelques feuilles de style)
     `prof_notes.php`
     `eleves_notes.php`
 a commenté quelques fonctions
