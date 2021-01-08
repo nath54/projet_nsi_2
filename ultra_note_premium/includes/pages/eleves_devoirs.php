@@ -15,6 +15,8 @@ table{
     margin: 15px;
     margin-right: 30px;
     border-color: rgb(150,150,150);
+    overflow-y: scroll;
+    max-height: 300px;
 }
 
 td, th{
@@ -166,18 +168,20 @@ function update_devoirs(){
 <div onload="update_devoirs();">
 
     <p id="pasdevoirs" style="display:none;">Vous n'avez apparament pas de devoirs</p>
-    <table id="tabledevoirs">
-        <thead>
-            <tr>
-                <th>Jour</th>
-                <th>Matiere</th>
-                <th>Devoir</th>
-            </tr>
-        </thead>
-        <tbody id="tableau_devoirs">
-            
-        </tbody>
-    </table>
+    <div class="column">
+        <table id="tabledevoirs">
+            <thead>
+                <tr>
+                    <th>Jour</th>
+                    <th>Matiere</th>
+                    <th style="width: 100%;">Devoir</th>
+                </tr>
+            </thead>
+            <tbody id="tableau_devoirs">
+                
+            </tbody>
+        </table>
+    </div>
 
 </div>
 <script>

@@ -51,9 +51,9 @@ foreach(requete($bdd, $requested) as $i=>$data){
 </script>
 <div>
 
-<div class="row">
+    <div class="row">
         <h2>Groupe : </h2>
-        <select  class="selecte1" id="select_groupe" onchange="update_devoirs();">
+        <select  class="selecte1" id="select_groupes" onchange="update_notes();">
             <?php
 foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN profs_groupes ON id_groupe=groupes.id AND id_prof=".$id_prof) as $i=>$data){
     echo "<option value='".$data["id_groupe"]."'>".$data["nom"]."</option>";
@@ -70,9 +70,39 @@ foreach(requete($bdd, "SELECT id_groupe, groupes.nom FROM groupes INNER JOIN pro
            </thead>
             
            <tbody id="tableau_note">
-
+                
            </tbody>
         </table>
+        <button class="bt_form" onclick="nouvelle_note();">Nouvelles Notes</button>
     </div>
 
 </div>
+
+<div id="nouvelle_note">
+    <form method="POST" action="includes/utils/nouvelle_note.php">
+        <h1>Nouvelle Note :</h1>
+        <div class="row">
+        <label></label>
+        </div>
+    </form>
+</div>
+
+<script>
+
+function nouvelle_note(){
+
+}
+
+function update_notes(){
+    var idg = document.getElementById("select_groupes");
+    var tab=document.getElementById("tableau_note");
+    // On nettoie
+    for(c of tab.children){
+        tab.removeChild(c);
+    }
+    tab.innerHTML="";
+    tab.children=[];
+    // On les rajoutes
+}
+
+</script>

@@ -23,7 +23,7 @@ test_admin($bdd);
 
 //on crée les classes
 ?>
-<form id="fgroup" method="POST", action="includes/pages/create_group2.php">
+<form id="fgroup" method="POST", action="includes/utils/create_group2.php">
     <h1>Nouveau Groupe</h1>
     <div>
         <label>Nom</label>

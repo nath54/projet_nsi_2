@@ -23,7 +23,7 @@ test_admin($bdd);
 ?>
 
 
-<form id="finscription" method="POST", action="includes/pages/modify_account2.php">
+<form id="finscription" method="POST", action="includes/utils/modify_account2.php">
 <?php
 
 $_SESSION["mode_inscription"]="admin";

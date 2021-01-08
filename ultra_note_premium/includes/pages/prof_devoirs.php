@@ -354,7 +354,7 @@ foreach(requete($bdd, "SELECT matieres.nom, matieres.id FROM matieres INNER JOIN
         </div>
     </form>
 </div>
-<form style="display:none;" id="form_delete" action="includes/pages/delete_devoir.php" method="POST" ><input id="did" name="did" value="" /></form>
+<form style="display:none;" id="form_delete" action="includes/utils/delete_devoir.php" method="POST" ><input id="did" name="did" value="" /></form>
 <script>
 update_devoirs();
 </script>

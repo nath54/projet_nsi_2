@@ -47,7 +47,7 @@ foreach(requete($bdd, "SELECT * FROM eleves_groupes WHERE id_groupe=".$_GET["gid
 ?>
 
 </script>
-<form id="form_group" name="form_group" method="POST" action="includes/pages/modify_group2.php">
+<form id="form_group" name="form_group" method="POST" action="includes/utils/modify_group2.php">
     <input id="action" name="action" value="modif" style="display:none;" />
     <input id="eleves_groups" name="eleves_groups" style="display:none;" value=""/>
     <input id="id_groupe" name="id_groupe" style="display:none;" value=""/>
